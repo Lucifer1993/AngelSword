@@ -1,5 +1,7 @@
 # AngelSword
-AngelSword是由python3编写的简易的cms漏洞检测框架。旨在帮助有安全经验的安全工程师对已知的应用快速发现漏洞。
+### AngelSword是由python3编写的简易的cms漏洞检测框架。旨在帮助有安全经验的安全工程师对已知的应用快速发现漏洞。
+
+
 
 # 使用用法
 ### python3 AngelSword.py -u http://www.example.com 对url执行所有poc检测(暴力)
@@ -11,18 +13,25 @@ AngelSword是由python3编写的简易的cms漏洞检测框架。旨在帮助有
 ### python3 AngelSword.py -v 显示静态统计
 ### python3 AngelSword.py -c poc路径校验
 
+
+
 # 平台
-MAC Linux
+### MAC Linux
+
+
 
 # 需要用的到的模块
-bs4
-json
-urllib
-pexpect
-termcolor
-hashlib
-telnetlib
-pymysql
+### bs4
+### json
+### urllib
+### pexpect
+### termcolor
+### hashlib
+### telnetlib
+### pymysql
+
+
+
 
 # bugs
-hanmengzi1993@gmail.com
+### hanmengzi1993@gmail.com
