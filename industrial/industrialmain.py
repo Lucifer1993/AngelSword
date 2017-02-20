@@ -1,0 +1,17 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+'''
+name: 工业控制漏洞库
+referer: unknow
+author: Lucifer
+description: 包含所有industrial control漏洞类型，封装成一个模块
+'''
+#wireless
+from industrial.wireless_monitor_priv_elevation import wireless_monitor_priv_elevation_BaseVerify
+from industrial.rockontrol_weak import rockontrol_weak_BaseVerify
+from industrial.sgc8000_sg8k_sms_disclosure import sgc8000_sg8k_sms_disclosure_BaseVerify
+from industrial.zte_wireless_getChannelByCountryCode_sqli import zte_wireless_getChannelByCountryCode_sqli_BaseVerify
+from industrial.zte_wireless_weak_pass import zte_wireless_weak_pass_BaseVerify
+from industrial.sgc8000_deldata_config_disclosure import sgc8000_deldata_config_disclosure_BaseVerify
+from industrial.sgc8000_defaultuser_disclosure import sgc8000_defaultuser_disclosure_BaseVerify
+from industrial.dfe_scada_conf_disclosure import dfe_scada_conf_disclosure_BaseVerify
