@@ -359,7 +359,8 @@ Usage: python3 AngelSword.py -u http://www.example.com 对url执行所有poc检�
                 if singlepoc in singlepath:
                     fullpath.remove(singlepath)
         for tmppath in fullpath:
-            cprint("[-]"+tmppath, "red")
+            if ".git" not in tmppath:
+                cprint("[-]"+tmppath, "red")
 
     else:
         AngelSwordMain(sys.argv[1])
