@@ -38,5 +38,9 @@ telnetlib
 pymysql
 
 
+# 说明
+部分代码参考网上公开的脚本
+
 # bugs
 hanmengzi1993@gmail.com
+
