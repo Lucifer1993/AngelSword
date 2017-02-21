@@ -52,7 +52,7 @@ def testpassword(ip,password,contact='billy'):
     sendsnmp(ip,makeset(password,original))
     return (2,'Read&Write')
 
-class qibocms_s_fids_sqli_BaseVerify:
+class snmp_community_check_BaseVerify:
     def __init__(self, ip):
         self.ip = ip
 
@@ -71,5 +71,5 @@ class qibocms_s_fids_sqli_BaseVerify:
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")
-    testVuln = qibocms_s_fids_sqli_BaseVerify(sys.argv[1])
+    testVuln = snmp_community_check_BaseVerify(sys.argv[1])
     testVuln.run()
