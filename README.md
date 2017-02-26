@@ -27,9 +27,10 @@ MAC Linux
 
 
 
-# 需要用的到的模块
+# 需要用到的模块
 bs4
 json
+redis
 urllib
 pexpect
 termcolor
