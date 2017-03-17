@@ -27,7 +27,7 @@ class acsoft_GetXMLList_fileread_BaseVerify:
         vulnurl = self.url + payload
         try:
             req = requests.post(vulnurl, data=post_data, headers=headers, timeout=10, verify=False)
-            if r"<?xml version" in req.text:
+            if req.headers["Content-Type"] == "application/xml":
                 cprint("[+]存在安财软件GetXMLList任意文件读取漏洞...(高危)\tpayload: "+vulnurl+"\tpost: "+json.dumps(post_data), "red")
 
         except:

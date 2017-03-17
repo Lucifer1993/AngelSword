@@ -300,7 +300,7 @@ Usage: python3 AngelSword.py -u http://www.example.com 对url执行所有poc检�
         for selectpath in fullpath:
             if targetfile in selectpath:
                 break
-        ret = os.system("vim "+selectpath)
+        ret = os.system("vim "+selectpath) #有命令注入，不过不考虑过滤的问题了。
         if ret == 0:
             cprint("文件:"+targetfile+"======>编辑成功!", "green")
         else:

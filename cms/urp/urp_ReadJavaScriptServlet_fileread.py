@@ -23,7 +23,7 @@ class urp_ReadJavaScriptServlet_fileread_BaseVerify:
         vulnurl = self.url + payload
         try:
             req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
-            if r"<?xml version" in req.text:
+            if req.headers["Content-Type"] == "application/xml":
                 cprint("[+]存在URP综合教务系统任意文件读取漏洞...(高危)\tpayload: "+vulnurl, "red")
 
         except:

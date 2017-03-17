@@ -25,7 +25,7 @@ class xtcms_download_filedownload_BaseVerify:
             for payload in payloads:
                 vulnurl = self.url + payload
                 req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
-                if r"<?xml version" in req.text:
+                if req.headers["Content-Type"] == "application/xml":
                     cprint("[+]存在SiteFactory CMS 5.5.9任意文件下载漏洞...(高危)\tpayload: "+vulnurl, "red")
 
         except:

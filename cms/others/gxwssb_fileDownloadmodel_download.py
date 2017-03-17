@@ -23,7 +23,7 @@ class gxwssb_fileDownloadmodel_download_BaseVerify:
         vulnurl = self.url + payload
         try:
             req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
-            if r"<?xml version" in req.text:
+            if req.headers["Content-Type"] == "application/xml":
                 cprint("[+]存在天津神州助平台通用型任意下载漏洞...(高危)\tpayload: "+vulnurl, "red")
 
         except:

@@ -23,7 +23,7 @@ class sgc8000_deldata_config_disclosure_BaseVerify:
         vulnurl = self.url + payload
         try:
             req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
-            if r"<?xml version" in req.text and r"databasesetup" in req.text:
+            if req.headers["Content-Type"] == "application/xml" and r"databasesetup" in req.text:
                 cprint("[+]存在sgc8000 监控系统数据连接信息泄露漏洞...(高危)\tpayload: "+vulnurl, "red")
 
         except:

@@ -26,7 +26,7 @@ class haohan_FileDown_filedownload_BaseVerify:
             try:
                 vulnurl = self.url + payload
                 req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
-                if r"<?xml version=" in req.text:
+                if req.headers["Content-Type"] == "application/xml":
                     cprint("[+]存在皓翰数字化校园平台任意文件下载漏洞...(高危)\tpayload: "+vulnurl, "red")
 
             except:

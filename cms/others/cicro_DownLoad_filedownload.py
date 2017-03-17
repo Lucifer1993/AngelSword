@@ -24,7 +24,7 @@ class cicro_DownLoad_filedownload_BaseVerify():
         try:
             req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
 
-            if r"<?xml version" in req.text:
+            if req.headers["Content-Type"] == "application/xml":
                 cprint("[+]存在时光动态网站平台任意文件下载漏洞...(高危)\tpayload: "+vulnurl, "red")
 
         except:

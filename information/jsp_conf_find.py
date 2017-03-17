@@ -20,7 +20,7 @@ class jsp_conf_find_BaseVerify:
         vulnurl = self.url + payload
         try:
             req = requests.get(vulnurl, timeout=10, verify=False)
-            if "<?xml version" in req.text:
+            if req.headers["Content-Type"] == "application/xml":
                 cprint("[+]存在web.xml配置文件...(敏感信息)\tpayload: "+vulnurl, "green")
 
         except:

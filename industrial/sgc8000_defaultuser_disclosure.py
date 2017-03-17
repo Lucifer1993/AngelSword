@@ -23,7 +23,7 @@ class sgc8000_defaultuser_disclosure_BaseVerify:
         vulnurl = self.url + payload
         try:
             req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
-            if r"<?xml version" in req.text and r"superadmin":
+            if req.headers["Content-Type"] == "application/xml" and r"superadmin":
                 cprint("[+]存在sgc8000监控系统超管账号泄露漏洞...(高危)\tpayload: "+vulnurl, "red")
 
         except:

@@ -23,7 +23,7 @@ class fastmeeting_download_filedownload_BaseVerify:
         vulnurl = self.url + payload
         try:
             req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
-            if r"<?xml version" in req.text:
+            if req.headers["Content-Type"] == "application/xml":
                 cprint("[+]存在好视通视频会议系统(fastmeeting)任意文件下载漏洞...(高危)\tpayload: "+vulnurl, "red")
 
         except:
