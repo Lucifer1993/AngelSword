@@ -280,6 +280,7 @@ class pocdb_pocs:
             "shellshock漏洞":shellshock_BaseVerify(url),
             "dorado默认口令漏洞":dorado_default_passwd_BaseVerify(url),
             "ms15_034 http.sys远程代码执行":iis_ms15034_httpsys_rce_BaseVerify(url),
+            "IIS 6.0 webdav远程代码执行漏洞(CVE-2017-7269)":iis_webdav_rce_BaseVerify(url),
             "深澜软件srun3000计费系统任意文件下载漏洞":srun_index_file_filedownload_BaseVerify(url),
             "深澜软件srun3000计费系统rad_online.php命令执行bypass":srun_rad_online_bypass_rce_BaseVerify(url),
             "深澜软件srun3000计费系统rad_online.php参数username命令执行":srun_rad_online_username_rce_BaseVerify(url),

@@ -54,6 +54,7 @@ from system.dorado.dorado_default_passwd import dorado_default_passwd_BaseVerify
 
 #iis vulns
 from system.iis.iis_ms15034_httpsys_rce import iis_ms15034_httpsys_rce_BaseVerify
+from system.iis.iis_webdav_rce import iis_webdav_rce_BaseVerify
 
 #srun vulns
 from system.srun.srun_index_file_filedownload import srun_index_file_filedownload_BaseVerify
