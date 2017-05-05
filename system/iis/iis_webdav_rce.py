@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 '''
 name: IIS 6.0 webdav远程代码执行漏洞(CVE-2017-7269)
-referer: http://www.hack-cn.com/articles/165
+referer: http://www.mottoin.com/99527.html
 author: Lucifer
-description: 在Windows Server 2003的IIS6.0的WebDAV服务的ScStoragePathFromUrl函数存在缓存区溢出漏洞，攻击者通过一个以“If: <http://”开始的较长header头的PROPFIND请求执行任意代码。
+description: CVE-2017-7269是IIS 6.0中存在的一个栈溢出漏洞，在IIS6.0处理PROPFIND指令的时候，由于对url的长度没有进行有效的长度控制和检查，导致执行memcpy对虚拟路径进行构造的时候，引发栈溢出，该漏洞可以导致远程代码执行。
 '''
 import sys
 import warnings
@@ -39,13 +39,15 @@ class iis_webdav_rce_BaseVerify:
             sock.send(pay.encode())
             try :
                 data = sock.recv(80960).decode()
+                print(data)
             except :
                 pass
             sock.close()
             if not -1 == data.find('HHIT CVE-2017-7269 Success'):
                 cprint("[+]存在IIS 6.0 webdav远程代码执行漏洞(CVE-2017-7269)...(高危)\tpayload: "+host+":"+str(port), "red")
 
-        except:
+        except Exception as e:
+            print(e)
             cprint("[-] "+__file__+"====>连接超时", "cyan")
 
 if __name__ == "__main__":
