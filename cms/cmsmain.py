@@ -309,6 +309,7 @@ from cms.phpcms.phpcms_authkey_disclosure import phpcms_authkey_disclosure_BaseV
 from cms.phpcms.phpcms_flash_upload_sqli import phpcms_flash_upload_sqli_BaseVerify
 from cms.phpcms.phpcms_product_code_exec import phpcms_product_code_exec_BaseVerify
 from cms.phpcms.phpcms_v96_sqli import phpcms_v96_sqli_BaseVerify
+from cms.phpcms.phpcms_v961_fileread import phpcms_v961_fileread_BaseVerify
 
 #seacms vulns
 from cms.seacms.seacms_search_code_exec import seacms_search_code_exec_BaseVerify

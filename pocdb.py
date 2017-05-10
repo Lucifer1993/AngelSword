@@ -234,6 +234,7 @@ class pocdb_pocs:
             "phpcms2008 flash_upload.php SQL注入":phpcms_flash_upload_sqli_BaseVerify(url),
             "phpcms2008 product.php 代码执行":phpcms_product_code_exec_BaseVerify(url),
             "phpcms v9.6.0 SQL注入":phpcms_v96_sqli_BaseVerify(url),
+            "phpcms 9.6.1任意文件读取漏洞":phpcms_v961_fileread_BaseVerify(url),
             "seacms search.php 代码执行":seacms_search_code_exec_BaseVerify(url),
             "seacms 6.45 search.php order参数前台代码执行":seacms_order_code_exec_BaseVerify(url),
             "安脉学生管理系统10处SQL注入":anmai_teachingtechnology_sqli_BaseVerify(url),
