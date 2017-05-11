@@ -62,3 +62,6 @@ from system.srun.srun_rad_online_bypass_rce import srun_rad_online_bypass_rce_Ba
 from system.srun.srun_rad_online_username_rce import srun_rad_online_username_rce_BaseVerify
 from system.srun.srun_download_file_filedownload import srun_download_file_filedownload_BaseVerify
 from system.srun.srun_user_info_uid_rce import srun_user_info_uid_rce_BaseVerify 
+
+#intel vulns
+from system.intel.intel_amt_crypt_bypass import intel_amt_crypt_bypass_BaseVerify

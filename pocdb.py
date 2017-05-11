@@ -288,6 +288,7 @@ class pocdb_pocs:
             "深澜软件srun3000计费系统rad_online.php参数username命令执行":srun_rad_online_username_rce_BaseVerify(url),
             "深澜软件srun3000计费系统download.php任意文件下载":srun_download_file_filedownload_BaseVerify(url),
             "深澜软件srun3000计费系统user_info.php命令执行":srun_user_info_uid_rce_BaseVerify(url),
+            "intel AMT web系统绕过登录(CVE-2017-5689)":intel_amt_crypt_bypass_BaseVerify(url),
         }
         self.hardwarepocdict = {
             "Dlink 本地文件包含":router_dlink_webproc_fileread_BaseVerify(url),

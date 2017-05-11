@@ -17,6 +17,8 @@ from multiprocessing import Pool
 from multiprocessing.dummy import Pool as ThreadPool
 warnings.filterwarnings("ignore")
 
+SEARCH_HISTORY = dict()
+
 #版本号
 VERSION = 'v1.2'
 
@@ -165,6 +167,7 @@ if __name__ == '__main__':
     -s              Search poc key words
     -m              Use poc module
     -f              Load urls file
+    -r              With range
     -e              Edit Poc file(if have parameter '-m')
     -v              List scanner verbose
     -c              Checksum and clear
@@ -174,9 +177,10 @@ Usage: python3 AngelSword.py -u http://www.example.com 对url执行所有poc检�
     2.python3 AngelSword.py -s live800  搜索出live800的相关poc
     3.python3 AngelSword.py -m live800_downlog_filedownload -t http://www.example.com 单一目标执行live800 download任意文件下载漏洞检测
     4.python3 AngelSword.py -m live800_downlog_filedownload -f vuln.txt 对vuln.txt中的所有url执行live800 downlog任意文件下载漏洞检测
-    5.python3 AngelSword.py -m live800_downlog_filedownload -e 调用系统中的vim编辑poc文件
-    6.python3 AngelSword.py -v 显示静态统计
-    7.python3 AngelSword.py -c poc路径校验
+    6.python3 AngelSword.py -r 1-5 http://test.com或者 python3 AngelSword.py -r all http://test.com对搜索出来的poc进行指定范围批量测试。 使用前需要利用-s搜索。
+    7.python3 AngelSword.py -m live800_downlog_filedownload -e 调用系统中的vim编辑poc文件
+    8.python3 AngelSword.py -v 显示静态统计
+    9.python3 AngelSword.py -c poc路径校验
         '''%VERSION
     if len(sys.argv) < 2 or sys.argv[1]=="-h":
         cprint(usage, "cyan")
@@ -229,6 +233,13 @@ Usage: python3 AngelSword.py -u http://www.example.com 对url执行所有poc检�
                     linename = line[0].rstrip('"').lstrip('"')
                     linepoc = line[1].replace("_BaseVerify(url),", "")
                     cprint("["+str(count)+"]漏洞名: "+linename+"=======>"+linepoc, "yellow")
+                    SEARCH_HISTORY[str(count)] = linepoc
+        if os.path.exists(".history") is True:
+            os.remove(".history")
+        f = open(".history", "a")
+        for key, value in SEARCH_HISTORY.items():
+            stringLine = key + "|" + value + "\r\n"
+            f.write(stringLine)
     elif sys.argv[1] == "-m" and sys.argv[3] == "-f":
         #合并漏洞字典
         poc_class = pocdb_pocs("")
@@ -284,6 +295,38 @@ Usage: python3 AngelSword.py -u http://www.example.com 对url执行所有poc检�
         cprint(">>加载poc: ["+keyword.__module__+"]", "green")
         cprint(">>正在攻击.."+target, "cyan")
         keyword.run()
+    elif sys.argv[1] == "-r" and sys.argv[3] == "-t":
+        rangedict = dict()
+        with open (".history") as f:
+            for line in f.readlines():
+                line = line.strip()
+                rangedict[line.split("|")[0]] =  line.split("|")[1]
+        if sys.argv[2] == "all":
+            poclist = list()
+            target = sys.argv[4].strip()
+            poc_class = pocdb_pocs(target)
+            alldict = dict()
+            tmpdict = poc_class.informationpocdict.copy()
+            alldict.update(tmpdict)
+            tmpdict = poc_class.cmspocdict.copy()
+            alldict.update(tmpdict)
+            tmpdict = poc_class.systempocdict.copy()
+            alldict.update(tmpdict)
+            tmpdict = poc_class.industrialpocdict.copy()
+            alldict.update(tmpdict)
+            tmpdict = poc_class.hardwarepocdict.copy()
+            alldict.update(tmpdict)
+            for key, value in rangedict.items():
+                poclist.append(value)
+            for pocfuck in poclist:
+                for keyword in alldict.values():
+                    if keyword.__str__().find(pocfuck) is not -1:
+                        break
+                cprint(">>加载poc: ["+keyword.__module__+"]", "green")
+                cprint(">>正在攻击.."+target, "cyan")
+                keyword.run()
+        else:
+            pass
     elif sys.argv[1] == "-m" and sys.argv[3] == "-e":
         targetfile = sys.argv[2].strip()
         targetfile = targetfile.replace("_BaseVerify","")

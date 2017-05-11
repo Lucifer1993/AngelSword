@@ -46,8 +46,7 @@ class iis_webdav_rce_BaseVerify:
             if not -1 == data.find('HHIT CVE-2017-7269 Success'):
                 cprint("[+]存在IIS 6.0 webdav远程代码执行漏洞(CVE-2017-7269)...(高危)\tpayload: "+host+":"+str(port), "red")
 
-        except Exception as e:
-            print(e)
+        except:
             cprint("[-] "+__file__+"====>连接超时", "cyan")
 
 if __name__ == "__main__":
