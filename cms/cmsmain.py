@@ -211,6 +211,7 @@ from cms.jumboecms.jumboecms_slide_id_sqli import jumboecms_slide_id_sqli_BaseVe
 
 #joomla vulns
 from cms.joomla.joomla_com_docman_lfi import joomla_com_docman_lfi_BaseVerify
+from cms.joomla.joomla_index_list_sqli import joomla_index_list_sqli_BaseVerify
 
 #360shop vulns
 from cms.shop360.shop360_do_filedownload import shop360_do_filedownload_BaseVerify

@@ -164,6 +164,7 @@ class pocdb_pocs:
             "GN SQL Injection":gn_consulting_sqli_BaseVerify(url),
             "JumboECMS V1.6.1 注入漏洞":jumboecms_slide_id_sqli_BaseVerify(url),
             "joomla组件com_docman本地文件包含":joomla_com_docman_lfi_BaseVerify(url),
+            "joomla 3.7.0 core SQL注入":joomla_index_list_sqli_BaseVerify(url),
             "北京网达信联电子采购系统多处注入":caitong_multi_sqli_BaseVerify(url),
             "Designed by Alkawebs SQL Injection":alkawebs_viewnews_sqli_BaseVerify(url),
             "一采通电子采购系统多处时间盲注":caitong_multi_sleep_sqli_BaseVerify(url),
