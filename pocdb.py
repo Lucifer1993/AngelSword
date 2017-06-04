@@ -305,4 +305,5 @@ class pocdb_pocs:
             "东芝topaccess打印机未授权漏洞":printer_topaccess_unauth_BaseVerify(url),
             "佳能打印机未授权漏洞":printer_canon_unauth_BaseVerify(url),
             "juniper NetScreen防火墙后门":juniper_netscreen_backdoor_BaseVerify(url),
+            "海康威视web弱口令":camera_hikvision_web_weak_BaseVerify(url),
         }

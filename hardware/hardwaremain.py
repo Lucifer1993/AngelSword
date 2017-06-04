@@ -20,6 +20,7 @@ from hardware.gateway.mpsec_webui_filedownload import mpsec_webui_filedownload_B
 
 #camera vulns
 from hardware.camera.camera_uniview_dvr_rce import camera_uniview_dvr_rce_BaseVerify
+from hardware.camera.camera_hikvision_web_weak import camera_hikvision_web_weak_BaseVerify
 
 #printer vulns
 from hardware.printer.printer_xerox_default_pwd import printer_xerox_default_pwd_BaseVerify
