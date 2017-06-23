@@ -178,6 +178,7 @@ class pocdb_pocs:
             "TRS infogate插件 blind XML实体注入":trs_infogate_xxe_BaseVerify(url),
             "TRS infogate插件 任意注册漏洞":trs_infogate_register_BaseVerify(url),
             "TRS was5配置文件泄露":trs_was5_config_disclosure_BaseVerify(url),
+            "TRS was5 download_templet.jsp任意文件下载":trs_was5_download_templet_BaseVerify(url),
             "TRS wcm系统默认账户漏洞":trs_wcm_default_user_BaseVerify(url),
             "TRS wcm 6.x版本infoview信息泄露":trs_wcm_infoview_disclosure_BaseVerify(url),
             "TRS was40 passwd.htm页面泄露":trs_was40_passwd_disclosure_BaseVerify(url),
