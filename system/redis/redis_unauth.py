@@ -17,11 +17,15 @@ class redis_unauth_BaseVerify:
         self.url = url
 
     def run(self):
-        #提取host
-        host = urlparse(self.url)[1]
-        flag = host.find(":")
-        if flag != -1:
-            host = host[:flag]
+        if r"http" in self.url:
+            #提取host
+            host = urlparse(self.url)[1]
+            flag = host.find(":")
+            if flag != -1:
+                host = host[:flag]
+        else:
+            host = self.url
+
         try:
             port = 6379
             r = redis.Redis(host, port=port, db=0, socket_timeout=6.0)

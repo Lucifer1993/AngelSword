@@ -17,13 +17,17 @@ class printer_hp_jetdirect_unauth_BaseVerify:
         self.url = url
 
     def run(self):
-        #提取host
-        host = urlparse(self.url)[1]
-        flag = host.find(":")
-        if flag != -1:
-            host = host[:flag]
-        port = 23
+        if r"http" in self.url:
+            #提取host
+            host = urlparse(self.url)[1]
+            flag = host.find(":")
+            if flag != -1:
+                host = host[:flag]
+        else:
+            host = self.url
+
         try:
+            port = 23
             #连接Telnet服务器
             tlib = telnetlib.Telnet(host, port, timeout=6)
             #tlib.set_debuglevel(2)

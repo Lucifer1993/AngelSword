@@ -65,3 +65,6 @@ from system.srun.srun_user_info_uid_rce import srun_user_info_uid_rce_BaseVerify
 
 #intel vulns
 from system.intel.intel_amt_crypt_bypass import intel_amt_crypt_bypass_BaseVerify
+
+#smtp vulns
+from system.smtp.smtp_starttls_plaintext_inj import smtp_starttls_plaintext_inj_BaseVerify

@@ -21,9 +21,17 @@ warnings.filterwarnings("ignore")
 SEARCH_HISTORY = dict()
 
 #版本号
-VERSION = 'v1.2'
+VERSION = 'v2.0'
 
-threads_num = 5
+FLAGLET = '''
+   / \   _ __   __ _  ___| / ___|_      _____  _ __ __| |
+  / _ \ | '_ \ / _` |/ _ \ \___ \ \ /\ / / _ \| '__/ _` |
+ / ___ \| | | | (_| |  __/ |___) \ V  V / (_) | | | (_| |
+/_/   \_\_| |_|\__, |\___|_|____/ \_/\_/ \___/|_|  \__,_|
+               |___/
+    '''
+
+threads_num = 10
 #并行任务池
 cmspool = ThreadPool()
 cmspool = ThreadPool(threads_num)
@@ -151,12 +159,7 @@ def AngelSwordMain(checkurl):
         cprint(">>>>>>>>>超时", "cyan")
 
 if __name__ == '__main__':
-    usage='''
-   / \   _ __   __ _  ___| / ___|_      _____  _ __ __| |
-  / _ \ | '_ \ / _` |/ _ \ \___ \ \ /\ / / _ \| '__/ _` |
- / ___ \| | | | (_| |  __/ |___) \ V  V / (_) | | | (_| |
-/_/   \_\_| |_|\__, |\___|_|____/ \_/\_/ \___/|_|  \__,_|
-               |___/
+    usage=FLAGLET+'''
                                                 %s
             天使之剑，指哪打哪!
     opt:
@@ -258,7 +261,7 @@ Usage: python3 AngelSword.py -u http://www.example.com 对url执行所有poc检�
         for keyword in alldict.values():
             if keyword.__str__().find(sys.argv[2]) is not -1:
                 break
-        cprint(">>加载poc: ["+keyword.__module__+"]", "green")
+        cprint("[+] 加载poc: ["+keyword.__module__+"]", "green")
         statistic_count = 0
         filepath = sys.argv[4]
         allcount = len(open(filepath,'rU').readlines())
@@ -266,10 +269,11 @@ Usage: python3 AngelSword.py -u http://www.example.com 对url执行所有poc检�
             for line in f.readlines():
                 statistic_count += 1
                 line = line.strip()
-                cprint(">>正在攻击.."+line, "cyan")
+                cprint("[+] 正在攻击.."+line, "cyan")
+                cprint("[+] 发送payload...")
                 keyword.url = line
                 keyword.run()
-                print(">>攻击进度: [", end="")
+                print("[*] 攻击进度: [", end="")
                 sys.stdout.write(str(statistic_count))
                 cprint("/"+str(allcount)+"]"+"\r")
                 sys.stdout.flush()
@@ -293,8 +297,10 @@ Usage: python3 AngelSword.py -u http://www.example.com 对url执行所有poc检�
         for keyword in alldict.values():
             if keyword.__str__().find(sys.argv[2]) is not -1:
                 break
-        cprint(">>加载poc: ["+keyword.__module__+"]", "green")
-        cprint(">>正在攻击.."+target, "cyan")
+        cprint(FLAGLET, "cyan")
+        cprint("[+] 加载poc: ["+keyword.__module__+"]", "cyan")
+        cprint("[+] 发送payload...", "cyan")
+        cprint("[+] 正在攻击.."+target, "cyan")
         keyword.run()
     elif sys.argv[1] == "-r" and sys.argv[3] == "-t":
         rangedict = dict()
@@ -317,14 +323,16 @@ Usage: python3 AngelSword.py -u http://www.example.com 对url执行所有poc检�
             alldict.update(tmpdict)
             tmpdict = poc_class.hardwarepocdict.copy()
             alldict.update(tmpdict)
+            cprint(FLAGLET, "cyan")
             for key, value in rangedict.items():
                 poclist.append(value)
             for pocfuck in poclist:
                 for keyword in alldict.values():
                     if keyword.__str__().find(pocfuck) is not -1:
                         break
-                cprint(">>加载poc: ["+keyword.__module__+"]", "green")
-                cprint(">>正在攻击.."+target, "cyan")
+                cprint("[+] 加载poc: ["+keyword.__module__+"]", "cyan")
+                cprint("[+] 发送payload...", "cyan")
+                cprint("[+] 正在攻击.."+target, "cyan")
                 keyword.run()
         else:
             pass
@@ -358,12 +366,7 @@ Usage: python3 AngelSword.py -u http://www.example.com 对url执行所有poc检�
         industrialpocs = len(poc_class.industrialpocdict)
         hardwarepocs = len(poc_class.hardwarepocdict)
         total = cmspocs + systempocs + industrialpocs + hardwarepocs + informationpocs
-        flag = '''
-   / \   _ __   __ _  ___| / ___|_      _____  _ __ __| |
-  / _ \ | '_ \ / _` |/ _ \ \___ \ \ /\ / / _ \| '__/ _` |
- / ___ \| | | | (_| |  __/ |___) \ V  V / (_) | | | (_| |
-/_/   \_\_| |_|\__, |\___|_|____/ \_/\_/ \___/|_|  \__,_|
-               |___/
+        flag = FLAGLET+'''
                                                 %s
             漏洞poc统计
         '''%VERSION

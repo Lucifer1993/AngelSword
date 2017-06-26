@@ -17,11 +17,15 @@ class zkeys_database_conf_BaseVerify:
         self.url = url
 
     def run(self):
-        #提取host
-        host = urlparse(self.url)[1]
-        flag = host.find(":")
-        if flag != -1:
-            host = host[:flag]
+        if r"http" in self.url:
+            #提取host
+            host = urlparse(self.url)[1]
+            flag = host.find(":")
+            if flag != -1:
+                host = host[:flag]
+        else:
+            host = self.url
+
         try:
             conn = pymysql.connect(host=host, user="root", passwd="zkeys", port=3306, connect_timeout=6)
             if conn.ping().server_status == 0:

