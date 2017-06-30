@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 import os
 import re
+import io 
 import sys
 import time
 import requests
@@ -17,7 +18,7 @@ from hardware.hardwaremain import *
 from multiprocessing import Pool
 from multiprocessing.dummy import Pool as ThreadPool
 warnings.filterwarnings("ignore")
-
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 SEARCH_HISTORY = dict()
 
 #版本号
@@ -225,10 +226,10 @@ Usage: python3 AngelSword.py -u http://www.example.com 对url执行所有poc检�
             print("|---------------------------------------------------------------------|")
         print("\r")
     elif sys.argv[1] == "-s" and sys.argv[2]:
-        keywords = sys.argv[2]
+        keywords = sys.argv[2].strip()
         count = 0
         cprint("搜索结果: ", "green")
-        with open("pocdb.py") as f:
+        with open("pocdb.py", "r", encoding='utf-8') as f:
             for line in f.readlines():
                 line = line.strip()
                 if line.find(keywords) is not -1:
@@ -259,11 +260,11 @@ Usage: python3 AngelSword.py -u http://www.example.com 对url执行所有poc检�
         tmpdict = poc_class.hardwarepocdict.copy()
         alldict.update(tmpdict)
         for keyword in alldict.values():
-            if keyword.__str__().find(sys.argv[2]) is not -1:
+            if keyword.__str__().find(sys.argv[2].strip()) is not -1:
                 break
         cprint("[+] 加载poc: ["+keyword.__module__+"]", "green")
         statistic_count = 0
-        filepath = sys.argv[4]
+        filepath = sys.argv[4].strip()
         allcount = len(open(filepath,'rU').readlines())
         with open(filepath) as f:
             for line in f.readlines():
@@ -295,7 +296,7 @@ Usage: python3 AngelSword.py -u http://www.example.com 对url执行所有poc检�
         tmpdict = poc_class.hardwarepocdict.copy()
         alldict.update(tmpdict)
         for keyword in alldict.values():
-            if keyword.__str__().find(sys.argv[2]) is not -1:
+            if keyword.__str__().find(sys.argv[2].strip()) is not -1:
                 break
         cprint(FLAGLET, "cyan")
         cprint("[+] 加载poc: ["+keyword.__module__+"]", "cyan")

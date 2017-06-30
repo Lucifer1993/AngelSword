@@ -1,5 +1,1 @@
-1|iis_ms15034_httpsys_rce
-2|iis_webdav_rce
-3|intel_amt_crypt_bypass
-4|smtp_starttls_plaintext_inj
-5|juniper_netscreen_backdoor
+1|yonyou_test_sqli

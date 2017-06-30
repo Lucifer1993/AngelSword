@@ -68,3 +68,6 @@ from system.intel.intel_amt_crypt_bypass import intel_amt_crypt_bypass_BaseVerif
 
 #smtp vulns
 from system.smtp.smtp_starttls_plaintext_inj import smtp_starttls_plaintext_inj_BaseVerify
+
+#resin vulns
+from system.resin.resin_viewfile_fileread import resin_viewfile_fileread_BaseVerify
