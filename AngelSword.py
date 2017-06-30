@@ -262,6 +262,7 @@ Usage: python3 AngelSword.py -u http://www.example.com 对url执行所有poc检�
         for keyword in alldict.values():
             if keyword.__str__().find(sys.argv[2].strip()) is not -1:
                 break
+        cprint(FLAGLET, "cyan")
         cprint("[+] 加载poc: ["+keyword.__module__+"]", "green")
         statistic_count = 0
         filepath = sys.argv[4].strip()
@@ -270,6 +271,7 @@ Usage: python3 AngelSword.py -u http://www.example.com 对url执行所有poc检�
             for line in f.readlines():
                 statistic_count += 1
                 line = line.strip()
+                cprint("[+] 发送payload...")
                 cprint("[+] 正在攻击.."+line, "cyan")
                 cprint("[+] 发送payload...")
                 keyword.url = line
