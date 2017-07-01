@@ -71,3 +71,6 @@ from system.smtp.smtp_starttls_plaintext_inj import smtp_starttls_plaintext_inj_
 
 #resin vulns
 from system.resin.resin_viewfile_fileread import resin_viewfile_fileread_BaseVerify
+
+#mongodb vulns
+from system.mongodb.mongodb_unauth import mongodb_unauth_BaseVerify

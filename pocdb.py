@@ -293,6 +293,7 @@ class pocdb_pocs:
             "intel AMT web系统绕过登录(CVE-2017-5689)":intel_amt_crypt_bypass_BaseVerify(url),
             "smtp starttls明文命令注入(CVE-2011-0411)":smtp_starttls_plaintext_inj_BaseVerify(url),
             "resin viewfile 任意文件读取":resin_viewfile_fileread_BaseVerify(url),
+            "mongodb 未授权漏洞":mongodb_unauth_BaseVerify(url),
         }
         self.hardwarepocdict = {
             "Dlink 本地文件包含":router_dlink_webproc_fileread_BaseVerify(url),

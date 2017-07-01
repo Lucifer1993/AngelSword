@@ -28,13 +28,14 @@ class mongodb_unauth_BaseVerify:
 
         try:
             port = 27017
-            mongo = pymongo.MongoClient(host, port)
-            print(mongo.server_info())
-            if False:
-                cprint("[+]存在mongodb 未授权漏洞...(高危)\tpayload: "+host+":"+port, "red")
+            mongo = pymongo.MongoClient(host, port, serverSelectionTimeoutMS=6000)
+            version = mongo.server_info()['version']
+            ok = mongo.server_info()['ok']
+            if version is not None and ok is not None:
+                cprint("[+]存在mongodb 未授权漏洞...(高危)\tpayload: "+host+":"+str(port), "red")
+            mongo.close()
 
-        except Exception as e:
-            print(e)
+        except:
             cprint("[-] "+__file__+"====>连接超时", "cyan")
 
 if __name__ == "__main__":
