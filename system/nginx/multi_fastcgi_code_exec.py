@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 '''
-name: Nginx Multi-FastCGI Code Execution
+name: nginx Multi-FastCGI Code Execution
 referer: http://drops.wooyun.org/tips/2006
 author: Lucifer,xiaokv
 description: nginx解析漏洞，代码执行

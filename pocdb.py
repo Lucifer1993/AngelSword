@@ -19,6 +19,7 @@ class pocdb_pocs:
             "java配置文件文件发现":jsp_conf_find_BaseVerify(url),
             "robots文件发现":robots_find_BaseVerify(url),
             "svn源码泄露扫描":svn_check_BaseVerify(url),
+            "JetBrains IDE workspace.xml文件泄露":jetbrains_ide_workspace_disclosure_BaseVerify(url),
         }
         self.cmspocdict = {
             "韩国autoset建站程序phpmyadmin任意登录漏洞":autoset_phpmyadmin_unauth_BaseVerify(url),
@@ -267,7 +268,7 @@ class pocdb_pocs:
         self.systempocdict = {
             "redis 未授权漏洞":redis_unauth_BaseVerify(url),
             "KingGate防火墙默认配置不当可被远控":kinggate_zebra_conf_BaseVerify(url),
-            "Nginx Multi-FastCGI Code Execution":multi_fastcgi_code_exec_BaseVerify(url),
+            "nginx Multi-FastCGI Code Execution":multi_fastcgi_code_exec_BaseVerify(url),
             "TurboMail设计缺陷以及默认配置漏洞":turbomail_conf_BaseVerify(url),
             "TurboGate邮件网关XXE漏洞":turbogate_services_xxe_BaseVerify(url),
             "weblogic SSRF漏洞":weblogic_ssrf_BaseVerify(url),

@@ -10,3 +10,4 @@ from information.robots_find import robots_find_BaseVerify
 from information.git_check import git_check_BaseVerify
 from information.jsp_conf_find import jsp_conf_find_BaseVerify
 from information.svn_check import svn_check_BaseVerify
+from information.jetbrains_ide_workspace_disclosure import jetbrains_ide_workspace_disclosure_BaseVerify
