@@ -37,6 +37,7 @@ termcolor
 hashlib
 telnetlib
 pymysql
+pymongo
 
 
 # 说明
