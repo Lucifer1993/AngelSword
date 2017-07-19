@@ -97,6 +97,8 @@ class pocdb_pocs:
             "用友CRM系统任意文件读取":yonyou_getemaildata_fileread_BaseVerify(url),
             "用友EHR 任意文件读取":yonyou_ehr_ELTextFile_BaseVerify(url),
             "用友优普a8 CmxUserSQL时间盲注入":yonyou_a8_CmxUser_sqli_BaseVerify(url),
+            "用友a8 log泄露":yonyou_a8_logs_disclosure_BaseVerify(url),
+            "用友a8监控后台默认密码漏洞":yonyou_status_default_pwd_BaseVerify(url),
             "用友致远A8协同系统 blind XML实体注入":yonyou_a8_personService_xxe_BaseVerify(url),
             "用友GRP-U8 sql注入漏洞":yonyou_cm_info_content_sqli_BaseVerify(url),
             "用友u8 CmxItem.php SQL注入":yonyou_u8_CmxItem_sqli_BaseVerify(url),

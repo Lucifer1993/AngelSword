@@ -109,6 +109,8 @@ from cms.yonyou.yonyou_u8_CmxItem_sqli import yonyou_u8_CmxItem_sqli_BaseVerify
 from cms.yonyou.yonyou_fe_treeXml_sqli import yonyou_fe_treeXml_sqli_BaseVerify
 from cms.yonyou.yonyou_ehr_resetpwd_sqli import yonyou_ehr_resetpwd_sqli_BaseVerify
 from cms.yonyou.yonyou_nc_NCFindWeb_fileread import yonyou_nc_NCFindWeb_fileread_BaseVerify
+from cms.yonyou.yonyou_a8_logs_disclosure import yonyou_a8_logs_disclosure_BaseVerify
+from cms.yonyou.yonyou_status_default_pwd import yonyou_status_default_pwd_BaseVerify
 
 #v2tech vulns
 from cms.v2tech.v2Conference_sqli_xxe import v2Conference_sqli_xxe_BaseVerify
