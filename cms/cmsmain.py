@@ -27,6 +27,8 @@ from cms.ecshop.ecshop_flow_orderid_sqli import ecshop_flow_orderid_sqli_BaseVer
 #discuz! vulns
 from cms.discuz.discuz_forum_message_ssrf import discuz_forum_message_ssrf_BaseVerify
 from cms.discuz.discuz_focus_flashxss import discuz_focus_flashxss_BaseVerify
+from cms.discuz.discuz_x25_path_disclosure import discuz_x25_path_disclosure_BaseVerify
+from cms.discuz.discuz_plugin_ques_sqli import discuz_plugin_ques_sqli_BaseVerify
 
 #亿邮 vulns
 from cms.eyou.eyou_weakpass import eyou_weakpass_BaseVerify

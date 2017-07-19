@@ -25,6 +25,8 @@ class pocdb_pocs:
             "韩国autoset建站程序phpmyadmin任意登录漏洞":autoset_phpmyadmin_unauth_BaseVerify(url),
             "discuz论坛forum.php参数message SSRF漏洞":discuz_forum_message_ssrf_BaseVerify(url),
             "discuz X3 focus.swf flashxss漏洞":discuz_focus_flashxss_BaseVerify(url),
+            "Discuz! X2.5 物理路径泄露漏洞":discuz_x25_path_disclosure_BaseVerify(url),
+            "discuz问卷调查参数orderby注入漏洞":discuz_plugin_ques_sqli_BaseVerify(url),
             "Hishop系统productlist.aspx SQL注入":hishop_productlist_sqli_BaseVerify(url),
             "亿邮邮箱弱口令列表泄露":eyou_weakpass_BaseVerify(url),
             "亿邮Email Defender系统免登陆DBA注入":eyou_admin_id_sqli_BaseVerify(url),
