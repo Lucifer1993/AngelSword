@@ -30,7 +30,7 @@ class qibocms_search_code_exec_BaseVerify:
             }
             req = requests.post(vulnurl, data=post_data, headers=headers, timeout=10, verify=False)
             if r"Configuration File (php.ini) Path" in req.text:
-                cprint("[+]存在qibo分类系统search.php 代码执行漏洞...(高危)\tpayload: "+vulnurl+"\tpost: "+json.dumps(post_data), "red")
+                cprint("[+]存在qibo分类系统search.php 代码执行漏洞...(高危)\tpayload: "+vulnurl+"\npost: "+json.dumps(post_data, indent=4), "red")
 
         except:
             cprint("[-] "+__file__+"====>连接超时", "cyan")

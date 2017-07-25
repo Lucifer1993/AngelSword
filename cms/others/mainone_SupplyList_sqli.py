@@ -28,7 +28,7 @@ class mainone_SupplyList_sqli_BaseVerify:
         try:
             req = requests.post(vulnurl, data=post_data, headers=headers, timeout=10, verify=False)
             if r"JIMicrosoft" in req.text:
-                cprint("[+]存在铭万B2B SupplyList SQL注入漏洞...(高危)\tpayload: "+vulnurl+"\tpost: "+json.dumps(post_data), "red")
+                cprint("[+]存在铭万B2B SupplyList SQL注入漏洞...(高危)\tpayload: "+vulnurl+"\npost: "+json.dumps(post_data, indent=4), "red")
 
         except:
             cprint("[-] "+__file__+"====>连接超时", "cyan")

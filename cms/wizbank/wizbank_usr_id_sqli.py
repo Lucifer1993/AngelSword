@@ -35,7 +35,7 @@ class wizbank_usr_id_sqli_BaseVerify:
 
         if r"true" in reqlst[0] and r"false" in reqlst[1]:
             if len(req.text) < 50:
-                cprint("[+]存在wizBank学习系统SQL注入漏洞...(高危)\tpayload: "+vulnurl+"\tpost: "+json.dumps(payload), "red")
+                cprint("[+]存在wizBank学习系统SQL注入漏洞...(高危)\tpayload: "+vulnurl+"\npost: "+json.dumps(payload, indent=4), "red")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

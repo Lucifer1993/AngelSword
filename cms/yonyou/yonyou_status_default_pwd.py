@@ -28,7 +28,7 @@ class yonyou_status_default_pwd_BaseVerify:
                 vulnurl = self.url + payload
                 req = requests.post(vulnurl, data=post_data, headers=headers, timeout=10, verify=False)
                 if r"A8 Management Monitor" in req.text and r"Connections Stack Trace" in req.text:
-                    cprint("[+]存在用友a8监控后台默认密码漏洞...(高危)\tpayload: "+vulnurl+"\tpost: "+json.dumps(post_data), "red")
+                    cprint("[+]存在用友a8监控后台默认密码漏洞...(高危)\tpayload: "+vulnurl+"\npost: "+json.dumps(post_data, indent=4), "red")
 
         except:
             cprint("[-] "+__file__+"====>连接超时", "cyan")

@@ -20,6 +20,7 @@ class pocdb_pocs:
             "robots文件发现":robots_find_BaseVerify(url),
             "svn源码泄露扫描":svn_check_BaseVerify(url),
             "JetBrains IDE workspace.xml文件泄露":jetbrains_ide_workspace_disclosure_BaseVerify(url),
+            "apache server-status信息泄露":apache_server_status_disclosure_BaseVerify(url),
         }
         self.cmspocdict = {
             "韩国autoset建站程序phpmyadmin任意登录漏洞":autoset_phpmyadmin_unauth_BaseVerify(url),
@@ -299,6 +300,7 @@ class pocdb_pocs:
             "smtp starttls明文命令注入(CVE-2011-0411)":smtp_starttls_plaintext_inj_BaseVerify(url),
             "resin viewfile 任意文件读取":resin_viewfile_fileread_BaseVerify(url),
             "mongodb 未授权漏洞":mongodb_unauth_BaseVerify(url),
+            "深信服 AD4.5版本下命令执行漏洞":sangfor_ad_script_command_exec_BaseVerify(url),
         }
         self.hardwarepocdict = {
             "Dlink 本地文件包含":router_dlink_webproc_fileread_BaseVerify(url),

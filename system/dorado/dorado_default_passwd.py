@@ -34,10 +34,10 @@ class dorado_default_passwd_BaseVerify:
         try:
             req = requests.post(vulnurl, data=post_data, headers=headers, timeout=10, verify=False)
             if r"console.showSystemInfo.d" in req.text:
-                cprint("[+]存在dorado默认口令漏洞...(高危)\tpayload: "+vulnurl+"\tpost: "+json.dumps(post_data), "red")
+                cprint("[+]存在dorado默认口令漏洞...(高危)\tpayload: "+vulnurl+"\npost: "+json.dumps(post_data, indent=4), "red")
             req2 = requests.post(vulnurl, data=post_data2, headers=headers, timeout=10, verify=False)
             if r"console.showSystemInfo.d" in req.text:
-                cprint("[+]存在dorado默认口令漏洞...(高危)\tpayload: "+vulnurl+"\tpost: "+json.dumps(post_data2), "red")
+                cprint("[+]存在dorado默认口令漏洞...(高危)\tpayload: "+vulnurl+"\npost: "+json.dumps(post_data2, indent=4), "red")
 
         except:
             cprint("[-] "+__file__+"====>连接超时", "cyan")

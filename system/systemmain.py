@@ -74,3 +74,6 @@ from system.resin.resin_viewfile_fileread import resin_viewfile_fileread_BaseVer
 
 #mongodb vulns
 from system.mongodb.mongodb_unauth import mongodb_unauth_BaseVerify
+
+#sangfor vulns
+from system.sangfor.sangfor_ad_script_command_exec import sangfor_ad_script_command_exec_BaseVerify

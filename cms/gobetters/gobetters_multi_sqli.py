@@ -55,7 +55,7 @@ class gobetters_multi_sqli_BaseVerify:
             }
             req = requests.post(vulnurl, data=post_data, headers=headers, timeout=10, verify=False)
             if r"81dc9bdb52d04dc20036dbd8313ed055" in req.text:
-                    cprint("[+]存在Gobetters视频会议系统SQL注入漏洞...(高危)\tpayload: "+vulnurl+"\tpost: "+json.dumps(post_data), "red")
+                    cprint("[+]存在Gobetters视频会议系统SQL注入漏洞...(高危)\tpayload: "+vulnurl+"\npost: "+json.dumps(post_data, indent=4), "red")
             
             vulnurl = self.url + "/web/department/departmentsave.php"
             post_data = {
@@ -66,7 +66,7 @@ class gobetters_multi_sqli_BaseVerify:
             }
             req = requests.post(vulnurl, data=post_data, headers=headers, timeout=10, verify=False)
             if r"81dc9bdb52d04dc20036dbd8313ed055" in req.text:
-                    cprint("[+]存在Gobetters视频会议系统SQL注入漏洞...(高危)\tpayload: "+vulnurl+"\tpost: "+json.dumps(post_data), "red")
+                    cprint("[+]存在Gobetters视频会议系统SQL注入漏洞...(高危)\tpayload: "+vulnurl+"\npost: "+json.dumps(post_data, indent=4), "red")
 
             vulnurl = self.url + "/web/monitor/monitormentsave.php"
             post_data = {
@@ -77,7 +77,7 @@ class gobetters_multi_sqli_BaseVerify:
             }
             req = requests.post(vulnurl, data=post_data, headers=headers, timeout=10, verify=False)
             if r"81dc9bdb52d04dc20036dbd8313ed055" in req.text:
-                    cprint("[+]存在Gobetters视频会议系统SQL注入漏洞...(高危)\tpayload: "+vulnurl+"\tpost: "+json.dumps(post_data), "red")
+                    cprint("[+]存在Gobetters视频会议系统SQL注入漏洞...(高危)\tpayload: "+vulnurl+"\npost: "+json.dumps(post_data, indent=4), "red")
 
             vulnurl = self.url + "/web/users/result.php"
             post_data = {
@@ -85,7 +85,7 @@ class gobetters_multi_sqli_BaseVerify:
             }
             req = requests.post(vulnurl, data=post_data, headers=headers, timeout=10, verify=False)
             if r"81dc9bdb52d04dc20036dbd8313ed055" in req.text:
-                    cprint("[+]存在Gobetters视频会议系统SQL注入漏洞...(高危)\tpayload: "+vulnurl+"\tpost: "+json.dumps(post_data), "red")
+                    cprint("[+]存在Gobetters视频会议系统SQL注入漏洞...(高危)\tpayload: "+vulnurl+"\npost: "+json.dumps(post_data, indent=4), "red")
 
         except:
             cprint("[-] "+__file__+"====>连接超时", "cyan")

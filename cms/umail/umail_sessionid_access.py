@@ -29,7 +29,7 @@ class umail_sessionid_access_BaseVerify:
         try:
             req = requests.post(vulnurl, headers=headers, data=post_data, timeout=10, verify=False)
             if r'<meta http-equiv="refresh" content="0; URL=index.php">' in req.text:
-                cprint("[+]存在umail sessionid登录漏洞...(中危)\tpayload: "+vulnurl+"\tpost: "+json.dumps(post_data), "yellow") 
+                cprint("[+]存在umail sessionid登录漏洞...(中危)\tpayload: "+vulnurl+"\npost: "+json.dumps(post_data, indent=4), "yellow") 
         except:
             cprint("[-] "+__file__+"====>连接超时", "cyan")
 

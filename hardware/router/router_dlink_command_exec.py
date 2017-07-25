@@ -34,7 +34,7 @@ class router_dlink_command_exec_BaseVerify():
         try:
             req = requests.post(vulnurl, data=post_data, headers=headers, timeout=10, verify=False)
             if r"<report>OK" in req.text:
-                cprint("[+]存在Dlink DIAGNOSTIC.PHP命令执行漏洞...(高危)\tpayload: "+vulnurl+"\tpost: "+json.dumps(post_data), "red")
+                cprint("[+]存在Dlink DIAGNOSTIC.PHP命令执行漏洞...(高危)\tpayload: "+vulnurl+"\npost: "+json.dumps(post_data, indent=4), "red")
 
         except:
             cprint("[-] "+__file__+"====>连接超时", "cyan")

@@ -29,7 +29,7 @@ class srun_index_file_filedownload_BaseVerify:
         try:
             req = requests.post(vulnurl, data=post_data, headers=headers, timeout=10, verify=False)
             if r"hostname" in req.text and r"clientver" in req.text:
-                cprint("[+]存在深澜软件srun3000计费系统任意文件下载漏洞...(高危)\tpayload: "+vulnurl+"\tpost: "+json.dumps(post_data), "red")
+                cprint("[+]存在深澜软件srun3000计费系统任意文件下载漏洞...(高危)\tpayload: "+vulnurl+"\npost: "+json.dumps(post_data, indent=4), "red")
 
         except:
             cprint("[-] "+__file__+"====>连接超时", "cyan")

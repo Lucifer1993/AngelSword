@@ -30,7 +30,7 @@ class eyou_admin_id_sqli_BaseVerify:
         try:
             req = requests.post(vulnurl, headers=headers, data=payload, timeout=10, verify=False)
             if time.time() - start_time >= 6:
-                cprint("[+]存在亿邮Defender系统SQL注入漏洞...(高危)\tpayload: "+vulnurl+"\tpost: "+json.dumps(payload), "red")
+                cprint("[+]存在亿邮Defender系统SQL注入漏洞...(高危)\tpayload: "+vulnurl+"\npost: "+json.dumps(payload, indent=4), "red")
 
         except:
             cprint("[-] "+__file__+"====>连接超时", "cyan")

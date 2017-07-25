@@ -31,7 +31,7 @@ class yonyou_a8_CmxUser_sqli_BaseVerify:
         try:
             req = requests.post(vulnurl, data=post_data, headers=headers, timeout=10, verify=False)
             if time.time() - start_time >= 6:
-                cprint("[+]存在用友优普a8 CmxUserSQL时间盲注入漏洞...(高危)\tpayload: "+vulnurl+"\tpost: "+json.dumps(post_data), "red")
+                cprint("[+]存在用友优普a8 CmxUserSQL时间盲注入漏洞...(高危)\tpayload: "+vulnurl+"\npost: "+json.dumps(post_data, indent=4), "red")
 
         except:
             cprint("[-] "+__file__+"====>连接超时", "cyan")

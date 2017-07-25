@@ -22,7 +22,7 @@ class robots_find_BaseVerify:
             req = requests.get(vulnurl, timeout=10, verify=False)
 
             if "Disallow" in req.text:
-                cprint("[+]存在robots.txt爬虫文件...(敏感信息)", "green")
+                cprint("[+]存在robots.txt爬虫文件...(敏感信息)"+"\tpayload: "+vulnurl, "green")
         except:
             cprint("[-] "+__file__+"====>连接超时", "cyan")
 

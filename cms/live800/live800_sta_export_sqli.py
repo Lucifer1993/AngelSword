@@ -42,7 +42,7 @@ class live800_sta_export_sqli_BaseVerify:
             req = requests.post(vulnurl, headers=headers, data=payload, timeout=10, verify=False)
 
             if r"81dc9bdb52d04dc20036dbd8313ed055" in req.text:
-                cprint("[+]存在live800在线客服系统SQL注入漏洞...(高危)\tpayload: "+vulnurl+"\tpost: "+json.dumps(payload), "red")
+                cprint("[+]存在live800在线客服系统SQL注入漏洞...(高危)\tpayload: "+vulnurl+"\npost: "+json.dumps(payload, indent=4), "red")
 
         except:
             cprint("[-] "+__file__+"====>连接超时", "cyan")
@@ -69,7 +69,7 @@ class live800_sta_export_sqli_BaseVerify:
             req = requests.post(vulnurl, headers=headers, data=payload, timeout=10, verify=False)
 
             if r"81dc9bdb52d04dc20036dbd8313ed055" in req.text:
-                cprint("[+]存在live800在线客服系统SQL注入漏洞...(高危)\tpayload: "+vulnurl+"\tpost: "+json.dumps(payload), "red")
+                cprint("[+]存在live800在线客服系统SQL注入漏洞...(高危)\tpayload: "+vulnurl+"\npost: "+json.dumps(payload, indent=4), "red")
 
         except:
             cprint("[-] "+__file__+"====>连接超时", "cyan")
@@ -89,7 +89,7 @@ class live800_sta_export_sqli_BaseVerify:
             req = requests.post(vulnurl, headers=headers, data=payload, timeout=10, verify=False)
 
             if r"81dc9bdb52d04dc20036dbd8313ed055" in req.text:
-                cprint("[+]存在live800在线客服系统SQL注入漏洞...(高危)\tpayload: "+vulnurl+"\tpost: "+json.dumps(payload), "red")
+                cprint("[+]存在live800在线客服系统SQL注入漏洞...(高危)\tpayload: "+vulnurl+"\npost: "+json.dumps(payload, indent=4), "red")
 
         except:
             cprint("[-] "+__file__+"====>连接超时", "cyan")
@@ -109,7 +109,7 @@ class live800_sta_export_sqli_BaseVerify:
             req = requests.post(vulnurl, headers=headers, data=payload, timeout=10, verify=False)
 
             if r"81dc9bdb52d04dc20036dbd8313ed055" in req.text:
-                cprint("[+]存在live800在线客服系统SQL注入漏洞...(高危)\tpayload: "+vulnurl+"\tpost: "+json.dumps(payload), "red")
+                cprint("[+]存在live800在线客服系统SQL注入漏洞...(高危)\tpayload: "+vulnurl+"\npost: "+json.dumps(payload, indent=4), "red")
 
         except:
             cprint("[-] "+__file__+"====>连接超时", "cyan")
