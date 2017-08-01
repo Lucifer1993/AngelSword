@@ -21,6 +21,7 @@ from system.turbomail.turbogate_services_xxe import turbogate_services_xxe_BaseV
 
 #weblogic vulns
 from system.weblogic.weblogic_ssrf import weblogic_ssrf_BaseVerify
+from system.weblogic.weblogic_interface_disclosure import weblogic_interface_disclosure_BaseVerify
 
 #hudson vulns
 from system.hudson.hudson_ws_disclosure import hudson_ws_disclosure_BaseVerify
