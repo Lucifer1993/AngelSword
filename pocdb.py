@@ -259,6 +259,7 @@ class pocdb_pocs:
             "正方教务系统default3.aspx爆破页面":zfsoft_default3_bruteforce_BaseVerify(url),
             "V2视频会议系统某处SQL注射、XXE漏洞(可getshell)":v2Conference_sqli_xxe_BaseVerify(url),
             "1039驾校通未授权访问漏洞":jxt1039_unauth_BaseVerify(url),
+            "thinksns category模块代码执行":thinksns_category_code_exec_BaseVerify(url),
         }
         self.industrialpocdict = {
             "新力热电无线抄表监控系统绕过后台登录":wireless_monitor_priv_elevation_BaseVerify(url),

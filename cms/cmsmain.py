@@ -331,6 +331,9 @@ from cms.phpmyadmin.phpmyadmin_setup_lfi import phpmyadmin_setup_lfi_BaseVerify
 from cms.opensns.opensns_index_arearank import opensns_index_arearank_BaseVerify
 from cms.opensns.opensns_index_getshell import opensns_index_getshell_BaseVerify
 
+#thinksns vulns
+from cms.thinksns.thinksns_category_code_exec import thinksns_category_code_exec_BaseVerify
+
 #others vulns
 from cms.others.domino_unauth import domino_unauth_BaseVerify
 from cms.others.hjsoft_sqli import hjsoft_sqli_BaseVerify

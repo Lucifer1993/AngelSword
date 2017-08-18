@@ -263,7 +263,7 @@ Usage: python3 AngelSword.py -u http://www.example.com 对url执行所有poc检�
             if keyword.__str__().find(sys.argv[2].strip()) is not -1:
                 break
         cprint(FLAGLET, "cyan")
-        cprint("[+] 加载poc: ["+keyword.__module__+"]", "green")
+        sys.stdout.write("\033[1;35m[+] 加载poc: ["+keyword.__module__+"]\033[0m\n")
         statistic_count = 0
         filepath = sys.argv[4].strip()
         allcount = len(open(filepath,'rU').readlines())
@@ -271,9 +271,8 @@ Usage: python3 AngelSword.py -u http://www.example.com 对url执行所有poc检�
             for line in f.readlines():
                 statistic_count += 1
                 line = line.strip()
-                cprint("[+] 发送payload...")
-                cprint("[+] 正在攻击.."+line, "cyan")
-                cprint("[+] 发送payload...")
+                sys.stdout.write("\033[1;35m[+] 发送payload..\033[0m\n")
+                sys.stdout.write("\033[1;35m[+] 正在攻击.."+line+"\033[0m\n")
                 keyword.url = line
                 keyword.run()
                 print("[*] 攻击进度: [", end="")
@@ -333,9 +332,10 @@ Usage: python3 AngelSword.py -u http://www.example.com 对url执行所有poc检�
                 for keyword in alldict.values():
                     if keyword.__str__().find(pocfuck) is not -1:
                         break
-                cprint("[+] 加载poc: ["+keyword.__module__+"]", "cyan")
-                cprint("[+] 发送payload...", "cyan")
-                cprint("[+] 正在攻击.."+target, "cyan")
+                sys.stdout.write("\033[1;35m[+] 加载poc: ["+keyword.__module__+"]\033[0m\n")
+                sys.stdout.write("\033[1;35m[+] 发送payload..\033[0m\n")
+                sys.stdout.write("\033[1;35m[+] 正在攻击..\033[0m\n")
+                sys.stdout.flush()
                 keyword.run()
         else:
             pass
