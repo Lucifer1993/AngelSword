@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+#Author: Lucifer
+#Prog: Main
+#date: changeby 2017-8-21 
 import os
 import re
 import io 
@@ -182,7 +185,7 @@ Usage: python3 AngelSword.py -u http://www.example.com 对url执行所有poc检�
     2.python3 AngelSword.py -s live800  搜索出live800的相关poc
     3.python3 AngelSword.py -m live800_downlog_filedownload -t http://www.example.com 单一目标执行live800 download任意文件下载漏洞检测
     4.python3 AngelSword.py -m live800_downlog_filedownload -f vuln.txt 对vuln.txt中的所有url执行live800 downlog任意文件下载漏洞检测
-    6.python3 AngelSword.py -r 1-5 http://test.com或者 python3 AngelSword.py -r all http://test.com对搜索出来的poc进行指定范围批量测试。 使用前需要利用-s搜索。
+    6.python3 AngelSword.py -r all -t http://www.example.com 对搜索出来的poc进行指定范围批量测试。 使用前需要利用-s搜索。
     7.python3 AngelSword.py -m live800_downlog_filedownload -e 调用系统中的vim编辑poc文件
     8.python3 AngelSword.py -v 显示静态统计
     9.python3 AngelSword.py -c poc路径校验

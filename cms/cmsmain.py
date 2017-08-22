@@ -9,6 +9,10 @@ description: 包含所有cms漏洞类型，封装成一个模块
 #autoset vuls
 from cms.autoset.autoset_phpmyadmin_unauth import autoset_phpmyadmin_unauth_BaseVerify
 
+#phpstudy vuls
+from cms.phpstudy.phpstudy_probe import phpstudy_probe_BaseVerify
+from cms.phpstudy.phpstudy_phpmyadmin_defaultpwd import phpstudy_phpmyadmin_defaultpwd_BaseVerify
+
 #Hishop vulns
 from cms.Hishop.hishop_productlist_sqli import hishop_productlist_sqli_BaseVerify
 

@@ -24,6 +24,8 @@ class pocdb_pocs:
         }
         self.cmspocdict = {
             "韩国autoset建站程序phpmyadmin任意登录漏洞":autoset_phpmyadmin_unauth_BaseVerify(url),
+            "phpstudy探针":phpstudy_probe_BaseVerify(url),
+            "phpstudy phpmyadmin默认密码漏洞":phpstudy_phpmyadmin_defaultpwd_BaseVerify(url),
             "discuz论坛forum.php参数message SSRF漏洞":discuz_forum_message_ssrf_BaseVerify(url),
             "discuz X3 focus.swf flashxss漏洞":discuz_focus_flashxss_BaseVerify(url),
             "Discuz! X2.5 物理路径泄露漏洞":discuz_x25_path_disclosure_BaseVerify(url),
