@@ -10,6 +10,8 @@ python3 AngelSword.py -l 列出所有poc
 
 python3 AngelSword.py -s live800  搜索出live800的相关poc
 
+python3 AngelSword.py -r all -t http://www.example.com 利用-s搜索到的所有poc进行检测
+
 python3 AngelSword.py -m live800_downlog_filedownload -t http://www.example.com 单一目标执行live800 download任意文件下载漏洞检测
 
 python3 AngelSword.py -m live800_downlog_filedownload -f vuln.txt 对vuln.txt中的所有url执行live800 downlog任意文件下载漏洞检测

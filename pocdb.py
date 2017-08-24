@@ -21,6 +21,7 @@ class pocdb_pocs:
             "svn源码泄露扫描":svn_check_BaseVerify(url),
             "JetBrains IDE workspace.xml文件泄露":jetbrains_ide_workspace_disclosure_BaseVerify(url),
             "apache server-status信息泄露":apache_server_status_disclosure_BaseVerify(url),
+            "crossdomain.xml文件发现":crossdomain_find_BaseVerify(url),
         }
         self.cmspocdict = {
             "韩国autoset建站程序phpmyadmin任意登录漏洞":autoset_phpmyadmin_unauth_BaseVerify(url),
