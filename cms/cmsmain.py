@@ -6,6 +6,9 @@ referer: unknow
 author: Lucifer
 description: 包含所有cms漏洞类型，封装成一个模块
 '''
+#foosun vuls
+from cms.foosun.foosun_City_ajax_sqli import foosun_City_ajax_sqli_BaseVerify
+
 #autoset vuls
 from cms.autoset.autoset_phpmyadmin_unauth import autoset_phpmyadmin_unauth_BaseVerify
 
