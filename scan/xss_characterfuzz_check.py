@@ -57,7 +57,7 @@ class xss_characterfuzz_check_BaseVerify:
                 char = char.strip()
                 rawurl = self.url.replace("FUZZING", start_md5 + char + end_md5) 
                 res = requests.get(rawurl, headers=headers, timeout=6, verify=False)
-                if start_md5+char+end_md5 in res.text:
+                if start_md5+char+end_md5 in str(res.text):
                     characterlist.append(char+' ')
                 else:
                     characterlist2.append(char+' ')
@@ -88,7 +88,7 @@ class xss_characterfuzz_check_BaseVerify:
                 label = label.strip()
                 rawurl = self.url.replace("FUZZING", start_md5 + label + end_md5)
                 res = requests.get(rawurl, headers=headers, timeout=6, verify=False)
-                if start_md5+label+end_md5 in res.text:
+                if start_md5+label+end_md5 in str(res.text):
                     labellist.append(label+' ')
                 else:
                     labellist2.append(label+' ')
@@ -104,7 +104,7 @@ class xss_characterfuzz_check_BaseVerify:
                 window = window.strip()
                 rawurl = self.url.replace("FUZZING", start_md5 + window + end_md5)
                 res = requests.get(rawurl, headers=headers, timeout=6, verify=False)
-                if start_md5+window+end_md5 in res.text:
+                if start_md5+window+end_md5 in str(res.text):
                     windowlist.append(window+' ')
                 else:
                     windowlist2.append(window+' ')
