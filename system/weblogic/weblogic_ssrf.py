@@ -24,7 +24,7 @@ class weblogic_ssrf_BaseVerify:
         try:
             req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
 
-            if r"weblogic.uddi.client.structures.exception.XML_SoapException" in req.text:
+            if r"weblogic.uddi.client.structures.exception.XML_SoapException" in req.text and r"IO Exception on sendMessage" not in req.text:
                 cprint("[+]存在weblogic SSRF漏洞...(中危)\tpayload: "+vulnurl, "yellow")
 
         except:
