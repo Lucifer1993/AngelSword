@@ -42,7 +42,7 @@ class xss_characterfuzz_check_BaseVerify:
             'stYle ', 'scRipT ', 'eMbed ', 'oBject ', 'ifRame ', 'frAme ', 'fraMeset ', 'ilayEr ', 'lAyer ', 
             'bgsOund ', 'tiTle ', 'bAse ', 'iMg ', 'viDeo '
         ]
-        window_func = ['alert ', 'cOnfirm ', 'prompt']
+        window_func = ['alert ', 'confirm ', 'prompt']
         rawurl = self.url.replace("FUZZING", start_md5)
         cprint(">>执行xss测试..", "cyan")
         req = requests.get(rawurl, headers=headers, timeout=6, verify=False)
