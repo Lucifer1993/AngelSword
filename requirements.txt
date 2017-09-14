@@ -1,0 +1,10 @@
+requests
+bs4
+redis
+urllib
+pexpect
+termcolor
+hashlib
+telnetlib
+pymysql
+pymongo

@@ -1,10 +1,10 @@
-#!/usr/bin/env python
+#!/usr/bin/env pythOn
 # -*- coding: utf-8 -*-
 '''
 name: xss特殊字符/函数/标签 FUZZ检测
 referer: unknown
 author: Lucifer
-description: FUZZ反射型跨站所需要的负载有无过滤情况。
+descriptiOn: FUZZ反射型跨站所需要的负载有无过滤情况。
 '''
 import re
 import sys
@@ -25,24 +25,24 @@ class xss_characterfuzz_check_BaseVerify:
         end_md5 = "15b86f2d013b2618"
         character = [",", ".", "?", "<", ">", "/", ";", ":", "'", '"', "|", "\\", "[", "]", "{", "}", "=", "!", "@", "$", "%", "(", ")"
         ]
-        drive_func = ['onabort ', 'onactivate ', 'onafterprint ', 'onafterupdate ', 'onbeforeactivate ', 
-            'onbeforecopy ', 'onbeforecut ', 'onbeforedeactivate ', 'onbeforeeditfocus ', 'onbeforepaste ', 
-            'onbeforeprint ', 'onbeforeunload ', 'onbeforeupdate ', 'onblur ', 'onbounce ', 'oncellchange ', 
-            'onchange ', 'onclick ', 'oncontextmenu ', 'oncontrolselect ', 'oncopy ', 'oncut ', 'ondataavailable ', 
-            'ondatasetchanged ', 'ondatasetcomplete ', 'ondblclick ', 'ondeactivate ', 'ondrag ', 'ondragend ', 
-            'ondragenter ', 'ondragleave ', 'ondragover ', 'ondragstart ', 'ondrop ', 'onerror ', 'onerrorupdate ', 
-            'onfilterchange ', 'onfinish ', 'onfocus ', 'onfocusin ', 'onfocusout ', 'onhelp ', 'onkeydown ', 'onkeypress ', 
-            'onkeyup ', 'onlayoutcomplete ', 'onload ', 'onlosecapture ', 'onmousedown ', 'onmouseenter ', 'onmouseleave ', 
-            'onmousemove ', 'onmouseout ', 'onmouseover ', 'onmouseup ', 'onmousewheel ', 'onmove ', 'onmoveend ', 
-            'onmovestart ', 'onpaste ', 'onpropertychange ', 'onreadystatechange ', 'onreset ', 'onresize ', 
-            'onresizeend ', 'onresizestart ', 'onrowenter ', 'onrowexit ', 'onrowsdelete ', 'onrowsinserted ', 'onscroll ', 
-            'onselect ', 'onselectionchange ', 'onselectstart ', 'onstart ', 'onstop ', 'onsubmit ', 'onunload '            
+        drive_func = ['OnaBort ', 'OnacTivate ', 'OnafTerprint ', 'OnafTerupdate ', 'OnbeForeactivate ', 
+            'OnbeForecopy ', 'OnbeForecut ', 'OnbeForedeactivate ', 'OnbeForeeditfocus ', 'OnbeForepaste ', 
+            'OnbeForeprint ', 'OnbeForeunload ', 'OnbeForeupdate ', 'OnblUr ', 'OnboUnce ', 'OncEllchange ', 
+            'OncHange ', 'OncLick ', 'OncOnTextmenu ', 'OncOnTrolselEct ', 'OnCopy ', 'OncUt ', 'OndaTaavailable ', 
+            'OndatAsetchanged ', 'OndAtasetcomplete ', 'OndBlclick ', 'OndeacTivate ', 'OndrAg ', 'OndrAgend ', 
+            'OndrAgenter ', 'OndrAgleave ', 'OndrAgover ', 'OndrAgstart ', 'OndRop ', 'OneRror ', 'OnerRorupdate ', 
+            'OnfilTerchange ', 'OnfiNish ', 'OnfOcus ', 'OnfOcusin ', 'OnfOcusout ', 'OnhElp ', 'OnkeyDown ', 'OnkeyPress ', 
+            'OnkeyUp ', 'OnlayoutcOmplete ', 'OnloAd ', 'OnlosecApture ', 'OnmoUsedown ', 'OnmoUseenter ', 'OnmoUseleave ', 
+            'OnmoUsemove ', 'OnmoUseout ', 'OnmoUseover ', 'OnmoUseup ', 'OnmoUsewheel ', 'OnmOve ', 'OnmOveend ', 
+            'OnmOvestart ', 'OnpAste ', 'OnpropertyChange ', 'OnreadyStatechange ', 'OnrEset ', 'OnrEsize ', 
+            'OnrEsizeend ', 'OnreSizestart ', 'OnrOwenter ', 'OnrOwexit ', 'OnrowsDelete ', 'OnrowsiNserted ', 'OnScroll ', 
+            'OnsElect ', 'OnsElectiOnchange ', 'OnsElectstart ', 'OnstArt ', 'OnsTop ', 'OnsuBmit ', 'OnuNload '            
         ]
-        label_func = ['javascript ', 'vbscript ', 'expression ', 'applet ', 'meta ', 'xml ', 'blink ', 'link ', 
-            'style ', 'script ', 'embed ', 'object ', 'iframe ', 'frame ', 'frameset ', 'ilayer ', 'layer ', 
-            'bgsound ', 'title ', 'base ', 'img ', 'video '
+        label_func = ['javAscRipt ', 'vbscRipt ', 'exprEssiOn ', 'appLet ', 'meTa ', 'xMl ', 'Blink ', 'lInk ', 
+            'stYle ', 'scRipT ', 'eMbed ', 'oBject ', 'ifRame ', 'frAme ', 'fraMeset ', 'ilayEr ', 'lAyer ', 
+            'bgsOund ', 'tiTle ', 'bAse ', 'iMg ', 'viDeo '
         ]
-        window_func = ['alert ', 'confirm ', 'prompt']
+        window_func = ['alert ', 'cOnfirm ', 'prompt']
         rawurl = self.url.replace("FUZZING", start_md5)
         cprint(">>执行xss测试..", "cyan")
         req = requests.get(rawurl, headers=headers, timeout=6, verify=False)
