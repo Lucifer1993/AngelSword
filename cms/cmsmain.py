@@ -184,6 +184,7 @@ from cms.wordpress.wordpress_woocommerce_code_exec import wordpress_woocommerce_
 from cms.wordpress.wordpress_plugin_mailpress_rce import wordpress_plugin_mailpress_rce_BaseVerify
 from cms.wordpress.wordpress_admin_ajax_filedownload import wordpress_admin_ajax_filedownload_BaseVerify
 from cms.wordpress.wordpress_restapi_sqli import wordpress_restapi_sqli_BaseVerify
+from cms.wordpress.wordpress_display_widgets_backdoor import wordpress_display_widgets_backdoor_BaseVerify
 
 #票友 vulns
 from cms.piaoyou.piaoyou_multi_sqli import piaoyou_multi_sqli_BaseVerify
