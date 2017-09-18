@@ -135,6 +135,7 @@ class pocdb_pocs:
             "wordpress 插件mailpress远程代码执行":wordpress_plugin_mailpress_rce_BaseVerify(url),
             "wordpress admin-ajax.php任意文件下载":wordpress_admin_ajax_filedownload_BaseVerify(url),
             "wordpress rest api权限失效导致内容注入":wordpress_restapi_sqli_BaseVerify(url),
+            "wordpress display-widgets插件后门漏洞":wordpress_display_widgets_backdoor_BaseVerify(url),
             "Mallbuilder商城系统SQL注入":mallbuilder_change_status_sqli_BaseVerify(url),
             "efuture商业链系统任意文件下载":efuture_downloadAct_filedownload_BaseVerify(url),
             "kj65n煤矿远程监控系统SQL注入":kj65n_monitor_sqli_BaseVerify(url),
