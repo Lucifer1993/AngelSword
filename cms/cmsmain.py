@@ -246,6 +246,7 @@ from cms.trs.trs_was40_passwd_disclosure import trs_was40_passwd_disclosure_Base
 from cms.trs.trs_was40_tree_disclosure import trs_was40_tree_disclosure_BaseVerify
 from cms.trs.trs_ids_auth_disclosure import trs_ids_auth_disclosure_BaseVerify
 from cms.trs.trs_was5_download_templet import trs_was5_download_templet_BaseVerify
+from cms.trs.trs_wcm_service_writefile import trs_wcm_service_writefile_BaseVerify
 
 #易创思 vulns
 from cms.ecscms.ecscms_MoreIndex_sqli import ecscms_MoreIndex_sqli_BaseVerify
