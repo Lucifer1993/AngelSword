@@ -252,6 +252,7 @@ class pocdb_pocs:
             "phpcms v9 flash xss漏洞":phpcms_v9_flash_xss_BaseVerify(url),
             "seacms search.php 代码执行":seacms_search_code_exec_BaseVerify(url),
             "seacms 6.45 search.php order参数前台代码执行":seacms_order_code_exec_BaseVerify(url),
+            "seacms search.php 参数jq代码执行":seacms_search_jq_code_exec_BaseVerify(url),
             "安脉学生管理系统10处SQL注入":anmai_teachingtechnology_sqli_BaseVerify(url),
             "cmseasy header.php 报错注入":cmseasy_header_detail_sqli_BaseVerify(url),
             "PhpMyAdmin2.8.0.3无需登录任意文件包含导致代码执行":phpmyadmin_setup_lfi_BaseVerify(url),

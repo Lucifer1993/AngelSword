@@ -330,6 +330,7 @@ from cms.phpcms.phpcms_v9_flash_xss import phpcms_v9_flash_xss_BaseVerify
 #seacms vulns
 from cms.seacms.seacms_search_code_exec import seacms_search_code_exec_BaseVerify
 from cms.seacms.seacms_order_code_exec import seacms_order_code_exec_BaseVerify
+from cms.seacms.seacms_search_jq_code_exec import seacms_search_jq_code_exec_BaseVerify
 
 #cmseasy vulns
 from cms.cmseasy.cmseasy_header_detail_sqli import cmseasy_header_detail_sqli_BaseVerify
