@@ -184,6 +184,7 @@ from cms.wordpress.wordpress_woocommerce_code_exec import wordpress_woocommerce_
 from cms.wordpress.wordpress_plugin_mailpress_rce import wordpress_plugin_mailpress_rce_BaseVerify
 from cms.wordpress.wordpress_admin_ajax_filedownload import wordpress_admin_ajax_filedownload_BaseVerify
 from cms.wordpress.wordpress_restapi_sqli import wordpress_restapi_sqli_BaseVerify
+from cms.wordpress.wordpress_display_widgets_backdoor import wordpress_display_widgets_backdoor_BaseVerify
 
 #票友 vulns
 from cms.piaoyou.piaoyou_multi_sqli import piaoyou_multi_sqli_BaseVerify
@@ -245,6 +246,7 @@ from cms.trs.trs_was40_passwd_disclosure import trs_was40_passwd_disclosure_Base
 from cms.trs.trs_was40_tree_disclosure import trs_was40_tree_disclosure_BaseVerify
 from cms.trs.trs_ids_auth_disclosure import trs_ids_auth_disclosure_BaseVerify
 from cms.trs.trs_was5_download_templet import trs_was5_download_templet_BaseVerify
+from cms.trs.trs_wcm_service_writefile import trs_wcm_service_writefile_BaseVerify
 
 #易创思 vulns
 from cms.ecscms.ecscms_MoreIndex_sqli import ecscms_MoreIndex_sqli_BaseVerify
@@ -328,6 +330,7 @@ from cms.phpcms.phpcms_v9_flash_xss import phpcms_v9_flash_xss_BaseVerify
 #seacms vulns
 from cms.seacms.seacms_search_code_exec import seacms_search_code_exec_BaseVerify
 from cms.seacms.seacms_order_code_exec import seacms_order_code_exec_BaseVerify
+from cms.seacms.seacms_search_jq_code_exec import seacms_search_jq_code_exec_BaseVerify
 
 #cmseasy vulns
 from cms.cmseasy.cmseasy_header_detail_sqli import cmseasy_header_detail_sqli_BaseVerify
