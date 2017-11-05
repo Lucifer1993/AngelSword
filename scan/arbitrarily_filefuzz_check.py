@@ -188,5 +188,9 @@ class arbitrarily_filefuzz_check_BaseVerify:
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")
-    testVuln = arbitrarily_filefuzz_check_BaseVerify(sys.argv[1])
-    testVuln.run()
+    if len(sys.argv) < 2:
+        cprint("usage: python3 arbitrarily_filefuzz_check.py http://test.com/download.php?file=FUZZING", "cyan")
+        cprint("[*]将需要测试文件操作参数替换为FUZZING即可", "cyan")
+    else:
+        testVuln = arbitrarily_filefuzz_check_BaseVerify(sys.argv[1])
+        testVuln.run()

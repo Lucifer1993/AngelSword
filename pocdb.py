@@ -24,6 +24,7 @@ class pocdb_pocs:
             "crossdomain.xml文件发现":crossdomain_find_BaseVerify(url),
         }
         self.cmspocdict = {
+            "typecho install.php反序列化命令执行":typecho_install_code_exec_BaseVerify(url),
             "Dotnetcms(风讯cms)SQL注入漏洞":foosun_City_ajax_sqli_BaseVerify(url),
             "韩国autoset建站程序phpmyadmin任意登录漏洞":autoset_phpmyadmin_unauth_BaseVerify(url),
             "phpstudy探针":phpstudy_probe_BaseVerify(url),

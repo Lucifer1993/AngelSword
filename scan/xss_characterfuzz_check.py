@@ -116,5 +116,9 @@ class xss_characterfuzz_check_BaseVerify:
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")
-    testVuln = xss_characterfuzz_check_BaseVerify(sys.argv[1])
-    testVuln.run()
+    if len(sys.argv) < 2:
+        cprint("usage: python3 xss_characterfuzz_check.py http://test.com/test.php?id=FUZZING", "cyan")
+        cprint("[*]将需要测试XSS的参数替换为FUZZING即可", "cyan")
+    else:
+        testVuln = xss_characterfuzz_check_BaseVerify(sys.argv[1])
+        testVuln.run()
