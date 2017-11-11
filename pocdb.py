@@ -90,6 +90,8 @@ class pocdb_pocs:
             "大汉VerfiyCodeServlet越权漏洞":hanweb_VerifyCodeServlet_install_BaseVerify(url),
             "PHP168 login.php GETSHELL漏洞":php168_login_getshell_BaseVerify(url),
             "dedecms版本探测":dedecms_version_BaseVerify(url),
+            "dedecms search.php SQL注入漏洞":dedecms_search_typeArr_sqli_BaseVerify(url),
+            "dedecms trace爆路径漏洞":dedecms_error_trace_disclosure_BaseVerify(url),
             "dedecms download.php重定向漏洞":dedecms_download_redirect_BaseVerify(url),
             "dedecms recommend.php SQL注入":dedecms_recommend_sqli_BaseVerify(url),
             "umail物理路径泄露":umail_physical_path_BaseVerify(url),

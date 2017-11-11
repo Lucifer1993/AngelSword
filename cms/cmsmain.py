@@ -150,6 +150,8 @@ from cms.php168.php168_login_getshell import php168_login_getshell_BaseVerify
 from cms.dedecms.dedecms_version import dedecms_version_BaseVerify
 from cms.dedecms.dedecms_recommend_sqli import dedecms_recommend_sqli_BaseVerify
 from cms.dedecms.dedecms_download_redirect import dedecms_download_redirect_BaseVerify
+from cms.dedecms.dedecms_error_trace_disclosure import dedecms_error_trace_disclosure_BaseVerify
+from cms.dedecms.dedecms_search_typeArr_sqli import dedecms_search_typeArr_sqli_BaseVerify
 
 #umail vulns
 from cms.umail.umail_physical_path import umail_physical_path_BaseVerify
