@@ -6,6 +6,9 @@ referer: unknow
 author: Lucifer
 description: 包含所有system漏洞类型，封装成一个模块
 '''
+#tomcat vulns
+from system.tomcat.tomcat_put_exec import tomcat_put_exec_BaseVerify
+
 #redis vulns
 from system.redis.redis_unauth import redis_unauth_BaseVerify
 
