@@ -29,10 +29,10 @@ class pocdb_pocs:
             "韩国autoset建站程序phpmyadmin任意登录漏洞":autoset_phpmyadmin_unauth_BaseVerify(url),
             "phpstudy探针":phpstudy_probe_BaseVerify(url),
             "phpstudy phpmyadmin默认密码漏洞":phpstudy_phpmyadmin_defaultpwd_BaseVerify(url),
-            "discuz论坛forum.php参数message SSRF漏洞":discuz_forum_message_ssrf_BaseVerify(url),
-            "discuz X3 focus.swf flashxss漏洞":discuz_focus_flashxss_BaseVerify(url),
+            "Discuz论坛forum.php参数message SSRF漏洞":discuz_forum_message_ssrf_BaseVerify(url),
+            "Discuz X3 focus.swf flashxss漏洞":discuz_focus_flashxss_BaseVerify(url),
             "Discuz! X2.5 物理路径泄露漏洞":discuz_x25_path_disclosure_BaseVerify(url),
-            "discuz问卷调查参数orderby注入漏洞":discuz_plugin_ques_sqli_BaseVerify(url),
+            "Discuz问卷调查参数orderby注入漏洞":discuz_plugin_ques_sqli_BaseVerify(url),
             "Hishop系统productlist.aspx SQL注入":hishop_productlist_sqli_BaseVerify(url),
             "亿邮邮箱弱口令列表泄露":eyou_weakpass_BaseVerify(url),
             "亿邮Email Defender系统免登陆DBA注入":eyou_admin_id_sqli_BaseVerify(url),
@@ -271,6 +271,7 @@ class pocdb_pocs:
             "V2视频会议系统某处SQL注射、XXE漏洞(可getshell)":v2Conference_sqli_xxe_BaseVerify(url),
             "1039驾校通未授权访问漏洞":jxt1039_unauth_BaseVerify(url),
             "thinksns category模块代码执行":thinksns_category_code_exec_BaseVerify(url),
+            "TPshop eval-stdin.php 代码执行漏洞":tpshop_eval_stdin_code_exec_BaseVerify(url),
         }
         self.industrialpocdict = {
             "新力热电无线抄表监控系统绕过后台登录":wireless_monitor_priv_elevation_BaseVerify(url),

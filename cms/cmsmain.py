@@ -409,3 +409,4 @@ from cms.others.xuezi_ceping_unauth import xuezi_ceping_unauth_BaseVerify
 from cms.others.haohan_FileDown_filedownload import haohan_FileDown_filedownload_BaseVerify
 from cms.others.mingteng_cookie_deception import mingteng_cookie_deception_BaseVerify
 from cms.others.jxt1039_unauth import jxt1039_unauth_BaseVerify
+from cms.others.tpshop_eval_stdin_code_exec import tpshop_eval_stdin_code_exec_BaseVerify
