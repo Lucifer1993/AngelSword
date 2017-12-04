@@ -132,6 +132,9 @@ from cms.digital_campus.digital_campus_systemcodelist_sqli import digital_campus
 #jeecms vulns
 from cms.jeecms.jeecms_fpath_filedownload import jeecms_fpath_filedownload_BaseVerify
 
+#jeecg vulns
+from cms.jeecg.jeecg_pwd_reset import jeecg_pwd_reset_BaseVerify
+
 #shopex vulns
 from cms.shopex.shopex_phpinfo_disclosure import shopex_phpinfo_disclosure_BaseVerify
 
