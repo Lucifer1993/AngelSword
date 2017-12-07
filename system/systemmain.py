@@ -6,6 +6,9 @@ referer: unknow
 author: Lucifer
 description: 包含所有system漏洞类型，封装成一个模块
 '''
+#topsec vulns
+from system.topsec.topsec_change_lan_filedownload import topsec_change_lan_filedownload_BaseVerify
+
 #tomcat vulns
 from system.tomcat.tomcat_put_exec import tomcat_put_exec_BaseVerify
 

@@ -37,15 +37,15 @@ FLAGLET = '''
 
 threads_num = 10
 #并行任务池
-cmspool = ThreadPool()
+#cmspool = ThreadPool()
 cmspool = ThreadPool(threads_num)
-industrialpool = ThreadPool()
+#industrialpool = ThreadPool()
 industrialpool = ThreadPool(threads_num)
-systempool = ThreadPool()
+#systempool = ThreadPool()
 systempool = ThreadPool(threads_num)
-hardwarepool = ThreadPool()
+#hardwarepool = ThreadPool()
 hardwarepool = ThreadPool(threads_num)
-informationpool = ThreadPool()
+#informationpool = ThreadPool()
 informationpool = ThreadPool(threads_num)
 
 def informationprint(informationname):
@@ -303,9 +303,10 @@ Usage: python3 AngelSword.py -u http://www.example.com 对url执行所有poc检�
             if keyword.__str__().find(sys.argv[2].strip()) is not -1:
                 break
         cprint(FLAGLET, "cyan")
-        cprint("[+] 加载poc: ["+keyword.__module__+"]", "cyan")
-        cprint("[+] 发送payload...", "cyan")
-        cprint("[+] 正在攻击.."+target, "cyan")
+        sys.stdout.write("\033[1;35m[+] 加载poc: ["+keyword.__module__+"]\033[0m\n")
+        sys.stdout.write("\033[1;35m[+] 发送payload..\033[0m\n")
+        sys.stdout.write("\033[1;35m[+] 正在攻击.."+target+"\033[0m\n")
+        sys.stdout.flush()
         keyword.run()
     elif sys.argv[1] == "-r" and sys.argv[3] == "-t":
         rangedict = dict()

@@ -285,6 +285,7 @@ class pocdb_pocs:
             "东方电子SCADA通用系统信息泄露":dfe_scada_conf_disclosure_BaseVerify(url),
         }
         self.systempocdict = {
+            "天融信Topsec change_lan.php本地文件包含":topsec_change_lan_filedownload_BaseVerify(url),
             "Tomcat代码执行漏洞(CVE-2017-12616)":tomcat_put_exec_BaseVerify(url),
             "redis 未授权漏洞":redis_unauth_BaseVerify(url),
             "KingGate防火墙默认配置不当可被远控":kinggate_zebra_conf_BaseVerify(url),
