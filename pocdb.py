@@ -24,6 +24,7 @@ class pocdb_pocs:
             "crossdomain.xml文件发现":crossdomain_find_BaseVerify(url),
         }
         self.cmspocdict = {
+            "phpok res_action_control.php 任意文件下载(需要cookies文件)":phpok_res_action_control_filedownload_BaseVerify(url),
             "jeecg 重置admin密码":jeecg_pwd_reset_BaseVerify(url),
             "typecho install.php反序列化命令执行":typecho_install_code_exec_BaseVerify(url),
             "Dotnetcms(风讯cms)SQL注入漏洞":foosun_City_ajax_sqli_BaseVerify(url),

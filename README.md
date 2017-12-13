@@ -33,6 +33,9 @@ pymongo
 
 3.所有POC均为开源，以后也一直如此，供大家参考和学习。如果有提供POC的朋友可以私发👇👇邮箱。
 
+# 增加功能
+[+] 增加针对登录后的poc检测，在AngelSword目录下新建cookies.txt文件，将Cookie的值粘贴进去。维持cookie的poc带有标识"需要cookies文件"。
+
 # bugs
 hanmengzi1993@gmail.com
 

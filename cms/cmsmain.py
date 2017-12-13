@@ -6,6 +6,10 @@ referer: unknow
 author: Lucifer
 description: 包含所有cms漏洞类型，封装成一个模块
 '''
+
+#phpok vulns
+from cms.phpok.phpok_res_action_control_filedownload import phpok_res_action_control_filedownload_BaseVerify
+
 #typecho vuls
 from cms.typecho.typecho_install_code_exec import typecho_install_code_exec_BaseVerify
 

