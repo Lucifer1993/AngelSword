@@ -294,6 +294,7 @@ class pocdb_pocs:
             "TurboMail设计缺陷以及默认配置漏洞":turbomail_conf_BaseVerify(url),
             "TurboGate邮件网关XXE漏洞":turbogate_services_xxe_BaseVerify(url),
             "weblogic SSRF漏洞":weblogic_ssrf_BaseVerify(url),
+            "weblogic XMLdecoder反序列化漏洞":weblogic_xmldecoder_exec_BaseVerify(url),
             "weblogic 接口泄露":weblogic_interface_disclosure_BaseVerify(url),
             "实易DNS管理系统文件包含至远程代码执行":forease_fileinclude_code_exec_BaseVerify(url),
             "hudson源代码泄露漏洞":hudson_ws_disclosure_BaseVerify(url),
