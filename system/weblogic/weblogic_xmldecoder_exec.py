@@ -49,7 +49,7 @@ class weblogic_xmldecoder_exec_BaseVerify:
         vulnurl = self.url + payload
         try:
             req = requests.post(vulnurl, data=post_data, headers=headers, timeout=10, verify=False)
-            if req.status_code == 500 and r"<faultcode>S:Server</faultcode><faultstring>0</faultstring>" in req.text:
+            if req.status_code == 500 and r"java.lang.ProcessBuilder" in req.text:
                 cprint("[+]存在weblogic XMLdecoder反序列化漏洞...(高危)\tpayload: "+vulnurl, "red")
 
         except:
