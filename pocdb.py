@@ -25,6 +25,8 @@ class pocdb_pocs:
         }
         self.cmspocdict = {
             "phpok res_action_control.php 任意文件下载(需要cookies文件)":phpok_res_action_control_filedownload_BaseVerify(url),
+            "phpok api.php SQL注入漏洞":phpok_api_param_sqli_BaseVerify(url),
+            "phpok remote_image getshell漏洞":phpok_remote_image_getshell_BaseVerify(url),
             "jeecg 重置admin密码":jeecg_pwd_reset_BaseVerify(url),
             "typecho install.php反序列化命令执行":typecho_install_code_exec_BaseVerify(url),
             "Dotnetcms(风讯cms)SQL注入漏洞":foosun_City_ajax_sqli_BaseVerify(url),

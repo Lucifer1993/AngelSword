@@ -9,6 +9,8 @@ description: 包含所有cms漏洞类型，封装成一个模块
 
 #phpok vulns
 from cms.phpok.phpok_res_action_control_filedownload import phpok_res_action_control_filedownload_BaseVerify
+from cms.phpok.phpok_api_param_sqli import phpok_api_param_sqli_BaseVerify
+from cms.phpok.phpok_remote_image_getshell import phpok_remote_image_getshell_BaseVerify
 
 #typecho vuls
 from cms.typecho.typecho_install_code_exec import typecho_install_code_exec_BaseVerify
