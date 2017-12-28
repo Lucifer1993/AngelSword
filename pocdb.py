@@ -24,6 +24,8 @@ class pocdb_pocs:
             "crossdomain.xml文件发现":crossdomain_find_BaseVerify(url),
         }
         self.cmspocdict = {
+            "泛微OA filedownaction SQL注入":weaver_oa_download_sqli_BaseVerify(url),
+            "泛微OA 数据库配置泄露":weaver_oa_db_disclosure_BaseVerify(url),
             "phpok res_action_control.php 任意文件下载(需要cookies文件)":phpok_res_action_control_filedownload_BaseVerify(url),
             "phpok api.php SQL注入漏洞":phpok_api_param_sqli_BaseVerify(url),
             "phpok remote_image getshell漏洞":phpok_remote_image_getshell_BaseVerify(url),
