@@ -19,10 +19,14 @@ class iis_ms15034_httpsys_rce_BaseVerify:
 
     def run(self):
         #提取host
-        host = urlparse(self.url)[1]
-        flag = host.find(":")
-        if flag != -1:
-            host = host[:flag]
+        if r"http" in self.url:
+            #提取host
+            host = urlparse(self.url)[1]
+            flag = host.find(":")
+            if flag != -1:
+                host = host[:flag]
+        else:
+            host = self.url
 
         try:
             port = 80
