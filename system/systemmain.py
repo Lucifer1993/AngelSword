@@ -6,6 +6,9 @@ referer: unknow
 author: Lucifer
 description: 包含所有system漏洞类型，封装成一个模块
 '''
+#GoAhead vulns
+from system.goahead.goahead_LD_PRELOAD_rce import goahead_LD_PRELOAD_rce_BaseVerify
+
 #topsec vulns
 from system.topsec.topsec_change_lan_filedownload import topsec_change_lan_filedownload_BaseVerify
 

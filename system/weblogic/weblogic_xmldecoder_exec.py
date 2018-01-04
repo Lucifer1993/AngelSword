@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 '''
-name: weblogic XMLdecoder反序列化漏洞
+name: weblogic XMLdecoder反序列化漏洞(CVE-2017-10271)
 referer: https://www.anquanke.com/post/id/92003
 author: Lucifer
 description: weblogic /wls-wsat/CoordinatorPortType接口存在命令执行。

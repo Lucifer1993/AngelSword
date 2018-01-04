@@ -290,6 +290,7 @@ class pocdb_pocs:
             "东方电子SCADA通用系统信息泄露":dfe_scada_conf_disclosure_BaseVerify(url),
         }
         self.systempocdict = {
+            "GoAhead LD_PRELOAD远程代码执行(CVE-2017-17562)":goahead_LD_PRELOAD_rce_BaseVerify(url),
             "天融信Topsec change_lan.php本地文件包含":topsec_change_lan_filedownload_BaseVerify(url),
             "Tomcat代码执行漏洞(CVE-2017-12616)":tomcat_put_exec_BaseVerify(url),
             "redis 未授权漏洞":redis_unauth_BaseVerify(url),
@@ -297,8 +298,8 @@ class pocdb_pocs:
             "nginx Multi-FastCGI Code Execution":multi_fastcgi_code_exec_BaseVerify(url),
             "TurboMail设计缺陷以及默认配置漏洞":turbomail_conf_BaseVerify(url),
             "TurboGate邮件网关XXE漏洞":turbogate_services_xxe_BaseVerify(url),
-            "weblogic SSRF漏洞":weblogic_ssrf_BaseVerify(url),
-            "weblogic XMLdecoder反序列化漏洞":weblogic_xmldecoder_exec_BaseVerify(url),
+            "weblogic SSRF漏洞(CVE-2014-4210)":weblogic_ssrf_BaseVerify(url),
+            "weblogic XMLdecoder反序列化漏洞(CVE-2017-10271)":weblogic_xmldecoder_exec_BaseVerify(url),
             "weblogic 接口泄露":weblogic_interface_disclosure_BaseVerify(url),
             "实易DNS管理系统文件包含至远程代码执行":forease_fileinclude_code_exec_BaseVerify(url),
             "hudson源代码泄露漏洞":hudson_ws_disclosure_BaseVerify(url),
