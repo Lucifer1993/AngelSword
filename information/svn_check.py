@@ -6,6 +6,7 @@ referer: unknown
 author: Lucifer
 description: 忘记了删除.svn目录而导致的漏洞。
 '''
+import re
 import sys
 import requests
 import warnings
@@ -24,7 +25,10 @@ class svn_check_BaseVerify:
         try:
             req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
             if r"dir" in req.text or r"file" in req.text and req.status_code==200:
-                cprint("[+]存在svn源码泄露漏洞...(高危)\tpayload: "+vulnurl, "red")
+                pattern = re.search(r'\d{4}-\d{1,2}-\d{1,2}T\d{2}:\d{2}:\d{2}', req.text)
+                result = len(pattern.group(0))
+                if result != -1:
+                    cprint("[+]存在svn源码泄露漏洞...(高危)\tpayload: "+vulnurl, "red")
 
         except:
             cprint("[-] "+__file__+"====>连接超时", "cyan")

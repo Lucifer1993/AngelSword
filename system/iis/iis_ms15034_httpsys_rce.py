@@ -38,7 +38,7 @@ class iis_ms15034_httpsys_rce_BaseVerify:
             sock.connect((host, port))
             sock.send(request.encode())
             response = sock.recv(1024).decode()
-            if "Requested Range Not Satisfiable" in response:
+            if "Requested Range Not Satisfiable" in response and "Server: nginx" not in response:
                 cprint("[+]存在MS15_034 http.sys远程代码执行漏洞...(高危)\tpayload: "+host+":"+str(port), "red")
 
         except:
