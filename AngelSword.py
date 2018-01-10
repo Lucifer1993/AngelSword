@@ -389,6 +389,8 @@ Usage: python3 AngelSword.py -u http://www.example.com 对url执行所有poc检�
         cprint("|-------------------------------------|","green")
 
     elif sys.argv[1] == "-c":
+        os.system('find ../AngelSword -type d -name "*pycache*" | xargs rm -rvf > /dev/null')
+        os.system('find ../AngelSword -type f -name "*pyc*" | xargs rm -rvf > /dev/null')
         fullpoc = list()
         tmppath = list()
         fullpath = list()
@@ -418,3 +420,4 @@ Usage: python3 AngelSword.py -u http://www.example.com 对url执行所有poc检�
 
     else:
         AngelSwordMain(sys.argv[1])
+

@@ -290,6 +290,7 @@ class pocdb_pocs:
             "东方电子SCADA通用系统信息泄露":dfe_scada_conf_disclosure_BaseVerify(url),
         }
         self.systempocdict = {
+            "zookeeper 未授权漏洞":zookeeper_unauth_BaseVerify(url),
             "GoAhead LD_PRELOAD远程代码执行(CVE-2017-17562)":goahead_LD_PRELOAD_rce_BaseVerify(url),
             "天融信Topsec change_lan.php本地文件包含":topsec_change_lan_filedownload_BaseVerify(url),
             "Tomcat代码执行漏洞(CVE-2017-12616)":tomcat_put_exec_BaseVerify(url),
