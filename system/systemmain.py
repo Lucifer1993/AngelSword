@@ -55,6 +55,7 @@ from system.glassfish.glassfish_fileread import glassfish_fileread_BaseVerify
 from system.zabbix.zabbix_jsrpc_profileIdx2_sqli import zabbix_jsrpc_profileIdx2_sqli_BaseVerify
 
 #php vulns
+from system.php.php_expose_disclosure import php_expose_disclosure_BaseVerify
 from system.php.php_fastcgi_read import php_fastcgi_read_BaseVerify
 
 #hfs vulns

@@ -24,6 +24,7 @@ class pocdb_pocs:
             "crossdomain.xml文件发现":crossdomain_find_BaseVerify(url),
         }
         self.cmspocdict = {
+            "泛微OA downfile.php 任意文件下载漏洞":weaver_oa_filedownload_BaseVerify(url),
             "泛微OA filedownaction SQL注入":weaver_oa_download_sqli_BaseVerify(url),
             "泛微OA 数据库配置泄露":weaver_oa_db_disclosure_BaseVerify(url),
             "phpok res_action_control.php 任意文件下载(需要cookies文件)":phpok_res_action_control_filedownload_BaseVerify(url),
@@ -311,6 +312,7 @@ class pocdb_pocs:
             "glassfish 任意文件读取":glassfish_fileread_BaseVerify(url),
             "zabbix jsrpc.php SQL注入":zabbix_jsrpc_profileIdx2_sqli_BaseVerify(url),
             "php fastcgi任意文件读取漏洞":php_fastcgi_read_BaseVerify(url),
+            "php expose_php模块开启":php_expose_disclosure_BaseVerify(url),
             "hfs rejetto 远程代码执行":hfs_rejetto_search_rce_BaseVerify(url),
             "shellshock漏洞":shellshock_BaseVerify(url),
             "dorado默认口令漏洞":dorado_default_passwd_BaseVerify(url),
