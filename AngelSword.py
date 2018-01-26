@@ -240,7 +240,8 @@ Usage: python3 AngelSword.py -u http://www.example.com 对url执行所有poc检�
                     line = line.split(":")
                     linename = line[0].rstrip('"').lstrip('"')
                     linepoc = line[1].replace("_BaseVerify(url),", "")
-                    cprint("["+str(count)+"]漏洞名: "+linename+"=======>"+linepoc, "yellow")
+                    searchstr = "["+str(count)+"]漏洞名: "+linename+"=======>"+linepoc
+                    cprint(searchstr, "yellow")
                     SEARCH_HISTORY[str(count)] = linepoc
         if os.path.exists(".history") is True:
             os.remove(".history")

@@ -6,6 +6,7 @@ referer: unknow
 author: Lucifer
 description: 包含所有information漏洞类型，封装成一个模块
 '''
+from information.options_method import options_method_BaseVerify
 from information.robots_find import robots_find_BaseVerify
 from information.git_check import git_check_BaseVerify
 from information.jsp_conf_find import jsp_conf_find_BaseVerify

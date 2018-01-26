@@ -17,9 +17,14 @@ class mongodb_unauth_BaseVerify:
         self.url = url
 
     def run(self):
+        port = 27017
         if r"http" in self.url:
             #提取host
             host = urlparse(self.url)[1]
+            try:
+                port = int(host.split(':')[1])
+            except:
+                pass
             flag = host.find(":")
             if flag != -1:
                 host = host[:flag]
@@ -27,7 +32,6 @@ class mongodb_unauth_BaseVerify:
             host = self.url
 
         try:
-            port = 27017
             mongo = pymongo.MongoClient(host, port, serverSelectionTimeoutMS=6000)
             version = mongo.server_info()['version']
             ok = mongo.server_info()['ok']

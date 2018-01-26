@@ -23,7 +23,7 @@ class svn_check_BaseVerify:
         payload = "/.svn/entries"
         vulnurl = self.url + payload
         try:
-            req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
+            req = requests.get(vulnurl, headers=headers, timeout=10, verify=False, allow_redirects=False)
             try:
                 contents = str(req.text).split('\x0c')
                 pattern = re.compile(r'has-props|file|dir')

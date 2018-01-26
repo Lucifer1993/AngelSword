@@ -17,9 +17,14 @@ class smtp_starttls_plaintext_inj_BaseVerify:
         self.url = url
 
     def run(self):
+        port = 25
         if r"http" in self.url:
             #提取host
             host = urlparse(self.url)[1]
+            try:
+                port = int(host.split(':')[1])
+            except:
+                pass
             flag = host.find(":")
             if flag != -1:
                 host = host[:flag]
@@ -27,7 +32,6 @@ class smtp_starttls_plaintext_inj_BaseVerify:
             host = self.url
 
         try:
-            port = 25
             s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
             s.settimeout(6)
             s.connect((host, port))

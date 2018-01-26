@@ -17,9 +17,14 @@ class zkeys_database_conf_BaseVerify:
         self.url = url
 
     def run(self):
+        port = 3306
         if r"http" in self.url:
             #提取host
             host = urlparse(self.url)[1]
+            try:
+                port = int(host.split(':')[1])
+            except:
+                pass
             flag = host.find(":")
             if flag != -1:
                 host = host[:flag]
@@ -27,9 +32,9 @@ class zkeys_database_conf_BaseVerify:
             host = self.url
 
         try:
-            conn = pymysql.connect(host=host, user="root", passwd="zkeys", port=3306, connect_timeout=6)
+            conn = pymysql.connect(host=host, user="root", passwd="zkeys", port=port, connect_timeout=6)
             if conn.ping().server_status == 0:
-                cprint("[+]存在宏杰Zkeys虚拟主机默认数据库漏洞...(高危)\tpayload: "+host+":3306"+" root:zkeys", "red")
+                cprint("[+]存在宏杰Zkeys虚拟主机默认数据库漏洞...(高危)\tpayload: "+host+":"+str(port)+" root:zkeys", "red")
 
         except:
             cprint("[-] "+__file__+"====>连接超时", "cyan")

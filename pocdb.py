@@ -15,6 +15,7 @@ class pocdb_pocs:
     def __init__(self, url):
         self.url = url
         self.informationpocdict = {
+            "options方法开启":options_method_BaseVerify(url),
             "git源码泄露扫描":git_check_BaseVerify(url),
             "java配置文件文件发现":jsp_conf_find_BaseVerify(url),
             "robots文件发现":robots_find_BaseVerify(url),
@@ -291,6 +292,7 @@ class pocdb_pocs:
             "东方电子SCADA通用系统信息泄露":dfe_scada_conf_disclosure_BaseVerify(url),
         }
         self.systempocdict = {
+            "CouchDB 未授权漏洞":couchdb_unauth_BaseVerify(url),
             "zookeeper 未授权漏洞":zookeeper_unauth_BaseVerify(url),
             "GoAhead LD_PRELOAD远程代码执行(CVE-2017-17562)":goahead_LD_PRELOAD_rce_BaseVerify(url),
             "天融信Topsec change_lan.php本地文件包含":topsec_change_lan_filedownload_BaseVerify(url),

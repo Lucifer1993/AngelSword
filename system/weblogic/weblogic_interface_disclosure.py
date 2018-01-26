@@ -22,7 +22,7 @@ class weblogic_interface_disclosure_BaseVerify:
         payload = "/bea_wls_deployment_internal/DeploymentService"
         vulnurl = self.url + payload
         try:
-            req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
+            req = requests.get(vulnurl, headers=headers, timeout=10, verify=False, allow_redirects=False)
 
             if req.status_code == 200:
                 cprint("[+]存在weblogic 接口泄露漏洞...(信息)\tpayload: "+vulnurl, "green")

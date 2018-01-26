@@ -22,7 +22,7 @@ class wordpress_display_widgets_backdoor_BaseVerify:
         payload = "/wp-content/plugins/display-widgets/geolocation.php"
         vulnurl = self.url + payload
         try:
-            req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
+            req = requests.get(vulnurl, headers=headers, timeout=10, verify=False, allow_redirects=False)
             if req.status_code == 200:
                 cprint("[+]存在wordpress display-widgets插件后门漏洞...(高危)\tpayload: "+vulnurl, "red")
 

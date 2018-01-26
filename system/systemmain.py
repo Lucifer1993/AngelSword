@@ -6,6 +6,9 @@ referer: unknow
 author: Lucifer
 description: 包含所有system漏洞类型，封装成一个模块
 '''
+#couchdb vulns
+from system.couchdb.couchdb_unauth import couchdb_unauth_BaseVerify
+
 #zookeeper vulns
 from system.zookeeper.zookeeper_unauth import zookeeper_unauth_BaseVerify
 

@@ -19,7 +19,7 @@ class eyou_weakpass_BaseVerify:
         payload = "/weakpass.list"
         vulnurl = self.url + payload
         try:
-            req = requests.get(vulnurl, timeout=10, verify=False)
+            req = requests.get(vulnurl, timeout=10, verify=False, allow_redirects=False)
             if req.status_code == 200 and r"@" in req.text:
                 cprint("[+]存在eyou邮件系统信息泄露...(敏感信息)\tpayload: "+vulnurl, "green")
 
@@ -29,7 +29,7 @@ class eyou_weakpass_BaseVerify:
         payload = "/sysinfo.html"
         vulnurl = self.url + payload
         try:
-            req = requests.get(vulnurl, timeout=10, verify=False)
+            req = requests.get(vulnurl, timeout=10, verify=False, allow_redirects=False)
             if req.status_code == 200 and r"系统基本信息检查" in req.text:
                 cprint("[+]存在eyou邮件系统信息泄露...(敏感信息)\tpayload: "+vulnurl, "green")
 
