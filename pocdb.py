@@ -15,6 +15,7 @@ class pocdb_pocs:
     def __init__(self, url):
         self.url = url
         self.informationpocdict = {
+            "spring boot 路径泄露":springboot_api_BaseVerify(url),
             "options方法开启":options_method_BaseVerify(url),
             "git源码泄露扫描":git_check_BaseVerify(url),
             "java配置文件文件发现":jsp_conf_find_BaseVerify(url),
