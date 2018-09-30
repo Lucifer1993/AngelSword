@@ -4,7 +4,7 @@
 name: spring boot 路径泄露
 referer: http://blog.csdn.net/u011687186/article/details/73457498
 author: Lucifer
-description: robots.txt是爬虫标准文件，可从文件里找到屏蔽了哪些爬虫搜索的目录
+description: SpringBoot默认API会暴露出敏感接口
 '''
 import sys
 import requests
