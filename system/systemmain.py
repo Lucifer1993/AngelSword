@@ -6,6 +6,9 @@ referer: unknow
 author: Lucifer
 description: 包含所有system漏洞类型，封装成一个模块
 '''
+#elasticsearch vulns
+from system.elasticsearch.elasticsearch_unauth import elasticsearch_unauth_BaseVerify
+
 #couchdb vulns
 from system.couchdb.couchdb_unauth import couchdb_unauth_BaseVerify
 

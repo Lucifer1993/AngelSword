@@ -5,3 +5,4 @@ pexpect
 termcolor
 pymysql
 pymongo
+elasticsearch

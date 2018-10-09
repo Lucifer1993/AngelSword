@@ -293,6 +293,7 @@ class pocdb_pocs:
             "东方电子SCADA通用系统信息泄露":dfe_scada_conf_disclosure_BaseVerify(url),
         }
         self.systempocdict = {
+            "ElasticSearch未授权漏洞":elasticsearch_unauth_BaseVerify(url),
             "CouchDB 未授权漏洞":couchdb_unauth_BaseVerify(url),
             "zookeeper 未授权漏洞":zookeeper_unauth_BaseVerify(url),
             "GoAhead LD_PRELOAD远程代码执行(CVE-2017-17562)":goahead_LD_PRELOAD_rce_BaseVerify(url),
