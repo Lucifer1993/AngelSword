@@ -293,6 +293,7 @@ class pocdb_pocs:
             "东方电子SCADA通用系统信息泄露":dfe_scada_conf_disclosure_BaseVerify(url),
         }
         self.systempocdict = {
+            "libssh身份绕过漏洞(CVE-2018-10933)":libssh_bypass_auth_BaseVerify(url),
             "ElasticSearch未授权漏洞":elasticsearch_unauth_BaseVerify(url),
             "CouchDB 未授权漏洞":couchdb_unauth_BaseVerify(url),
             "zookeeper 未授权漏洞":zookeeper_unauth_BaseVerify(url),

@@ -6,6 +6,9 @@ referer: unknow
 author: Lucifer
 description: 包含所有system漏洞类型，封装成一个模块
 '''
+#ssh漏洞
+from system.ssh.libssh_bypass_auth import libssh_bypass_auth_BaseVerify
+
 #elasticsearch vulns
 from system.elasticsearch.elasticsearch_unauth import elasticsearch_unauth_BaseVerify
 
