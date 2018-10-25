@@ -24,6 +24,8 @@ hashlib
 telnetlib
 pymysql
 pymongo
+elasticsearch
+paramiko
 
 
 # 说明

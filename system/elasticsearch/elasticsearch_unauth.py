@@ -33,7 +33,11 @@ class elasticsearch_unauth_BaseVerify:
             if flag != -1:
                 host = host[:flag]
         else:
-            host = self.url
+            if self.url.find(":") >= 0:
+                host = self.url.split(":")[0]
+                port = int(self.url.split(":")[1])
+            else:
+                host = self.url
 
         try:
             es = Elasticsearch([host], port=port, timeout=6)

@@ -29,7 +29,11 @@ class zkeys_database_conf_BaseVerify:
             if flag != -1:
                 host = host[:flag]
         else:
-            host = self.url
+            if self.url.find(":") >= 0:
+                host = self.url.split(":")[0]
+                port = int(self.url.split(":")[1])
+            else:
+                host = self.url
 
         try:
             conn = pymysql.connect(host=host, user="root", passwd="zkeys", port=port, connect_timeout=6)
