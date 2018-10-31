@@ -3,6 +3,7 @@
 #Author: Lucifer
 #Prog: Main
 #date: changeby 2017-8-21 
+
 import os
 import re
 import io 
@@ -14,12 +15,16 @@ from termcolor import cprint
 from urllib.parse import urlparse
 from information.informationmain import *
 from cms.cmsmain import *
-from pocdb import pocdb_pocs
+try:
+    from pocdb import pocdb_pocs
+except Exception as e:
+    print(e)
 from industrial.industrialmain import *
 from system.systemmain import *
 from hardware.hardwaremain import *
 from multiprocessing import Pool
 from multiprocessing.dummy import Pool as ThreadPool
+
 warnings.filterwarnings("ignore")
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 SEARCH_HISTORY = dict()
