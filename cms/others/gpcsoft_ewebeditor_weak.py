@@ -29,6 +29,7 @@ class gpcsoft_ewebeditor_weak_BaseVerify:
         try:
             sess = requests.Session()
             req1 = sess.post(vulnurl, headers=headers, data=post_data, timeout=10, verify=False)
+            noexist = True
             for payload in ["admin", "123456", "password", "abc123", "1qaz2wsx", "123123", "12345", "aaaaaa", "12345678", "000000"]:
                 post_data2 = {
                     "usr":"admin",
@@ -39,12 +40,16 @@ class gpcsoft_ewebeditor_weak_BaseVerify:
                     if len(req1.text) != len(req2.text):
                         if req2.status_code == 200 and r"ewebeditor" in req2.text.lower():
                             cprint("[+]存在政采eweb编辑器弱口令漏洞...(高危)\tpayload: "+vulnurl+"\tpost: "+json.dumps(post_data2), "red")
+                            noexist = False
                             break
 
                 except:
                     pass
+            if noexist:
+                cprint("[-]不存在gpcsoft_ewebeditor_weak漏洞", "white", "on_grey")
+
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 
 if __name__ == "__main__":

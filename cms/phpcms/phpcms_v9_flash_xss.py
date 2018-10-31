@@ -30,9 +30,11 @@ class phpcms_v9_flash_xss_BaseVerify:
             md5_value = hashlib.md5(data).hexdigest()
             if md5_value in flash_md5:
                 cprint("[+]存在phpcms v9 flash xss漏洞...(高危)\tpayload: "+vulnurl, "red")
+            else:
+                cprint("[-]不存在phpcms_v9_flash_xss漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

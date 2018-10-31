@@ -40,8 +40,11 @@ class wordpress_restapi_sqli_BaseVerify:
             if status != 401 and status != 400:
                 cprint("[+]存在wordpress rest api权限失效导致内容注入漏洞...(高危)\tpayload: "+vulnurl, "red")
 
+            else:
+                cprint("[-]不存在wordpress_restapi_sqli漏洞", "white", "on_grey")
+
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

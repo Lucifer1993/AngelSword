@@ -23,9 +23,11 @@ class dyp2p_url_fileread_BaseVerify:
 
             if r"common.inc.php" in req.text:
                 cprint("[+]存在帝友P2P借贷系统任意文件读取漏洞...(高危)\tpayload: "+vulnurl, "red")
+            else:
+                cprint("[-]不存在dyp2p_url_fileread漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

@@ -32,9 +32,11 @@ class metinfo_getpassword_sqli_BaseVerify:
                 req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
                 if time.time() - start_time >= 6:
                     cprint("[+]存在metinfo SQL盲注漏洞...(高危)\tpayload: "+vulnurl, "red")
+                else:
+                    cprint("[-]不存在metinfo_getpassword_sqli漏洞", "white", "on_grey")
 
             except:
-                cprint("[-] "+__file__+"====>连接超时", "cyan")
+                cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

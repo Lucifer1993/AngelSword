@@ -39,16 +39,20 @@ class xuezi_ceping_unauth_BaseVerify:
             '发件地址',
             '邮件内容'
         ]
-        for i in range(len(vulnurls)):
-            vulnurl = vulnurls[i]
-            verify = verifys[i]
-            try:
+        try:
+            noexist = True
+            for i in range(len(vulnurls)):
+                vulnurl = vulnurls[i]
+                verify = verifys[i]
                 req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
                 if verify in req.text:
                     cprint("[+]存在学子科技诊断测评系统未授权访问漏洞...(高危)\tpayload: "+vulnurl, "red")
+                    noexist = False
+            if noexist:
+                cprint("[-]不存在xuezi_ceping_unauth漏洞", "white", "on_grey")
 
-            except:
-                cprint("[-] "+__file__+"====>连接超时", "cyan")
+        except:
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

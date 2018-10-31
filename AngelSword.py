@@ -48,6 +48,10 @@ hardwarepool = ThreadPool(threads_num)
 #informationpool = ThreadPool()
 informationpool = ThreadPool(threads_num)
 
+def split_string(strLine):
+    pattern = r"[a-z_]+BaseVerify"
+    return str(re.findall(pattern, strLine)).replace("_BaseVerify", "").replace("['","").replace("']","")
+
 def informationprint(informationname):
     msg = ">>>Scanning information vulns.."
     sys.stdout.write(msg+informationname+" "*(len(msg)+10)+"\r")
@@ -198,8 +202,8 @@ Usage: python3 AngelSword.py -u http://www.example.com 对url执行所有poc检�
         cmsclass = pocclass.cmspocdict
         print("\t\t\tCMS POC")
         for cms in cmsclass:
-            print("|"+cms+"")
-            print("|---------------------------------------------------------------------|")
+            print("|"+cms+"\t|\t"+split_string(str(cmsclass.get(cms).__str__)))
+            print("|-------------------------------------------------------------------------------------------------------------|")
         print("\r")
 
         #列出industrial POC名称
@@ -207,8 +211,8 @@ Usage: python3 AngelSword.py -u http://www.example.com 对url执行所有poc检�
         industrialclass = pocclass.industrialpocdict
         print("\t\t\tIndustrial POC")
         for industrial in industrialclass:
-            print("|"+industrial+"")
-            print("|---------------------------------------------------------------------|")
+            print("|"+industrial+"\t|\t"+split_string(str(industrialclass.get(industrial).__str__)))
+            print("|-------------------------------------------------------------------------------------------------------------|")
         print("\r")
 
         #列出SYSTEM POC名称
@@ -216,8 +220,8 @@ Usage: python3 AngelSword.py -u http://www.example.com 对url执行所有poc检�
         systemclass = pocclass.systempocdict
         print("\t\t\tSYSTEM POC")
         for system in systemclass:
-            print("|"+system+"")
-            print("|---------------------------------------------------------------------|")
+            print("|"+system+"\t|\t"+split_string(str(systemclass.get(system).__str__)))
+            print("|-------------------------------------------------------------------------------------------------------------|")
         print("\r")
 
         #列出HARDWARE POC名称
@@ -225,9 +229,10 @@ Usage: python3 AngelSword.py -u http://www.example.com 对url执行所有poc检�
         hardwareclass = pocclass.hardwarepocdict
         print("\t\t\tHARDWARE POC")
         for hardware in hardwareclass:
-            print("|"+hardware+"")
-            print("|---------------------------------------------------------------------|")
+            print("|"+hardware+"\t|\t"+split_string(str(hardwareclass.get(hardware).__str__)))
+            print("|-------------------------------------------------------------------------------------------------------------|")
         print("\r")
+
     elif sys.argv[1] == "-s" and sys.argv[2]:
         keywords = sys.argv[2].strip()
         count = 0

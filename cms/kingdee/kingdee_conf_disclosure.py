@@ -25,14 +25,18 @@ class kingdee_conf_disclosure_BaseVerify:
             req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
             if req.headers["Content-Type"] == "application/xml":
                 cprint("[+]存在金蝶AES系统Java web配置文件泄露漏洞...(高危)\tpayload: "+vulnurl, "green")
+            else:
+                cprint("[-]不存在kingdee_conf_disclosure漏洞", "white", "on_grey")
 
             vulnurl = self.url + "/eassso/WEB-INF/web.xml"
             req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
             if req.headers["Content-Type"] == "application/xml":
                 cprint("[+]存在金蝶AES系统Java web配置文件泄露漏洞...(高危)\tpayload: "+vulnurl, "green")
+            else:
+                cprint("[-]不存在kingdee_conf_disclosure漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

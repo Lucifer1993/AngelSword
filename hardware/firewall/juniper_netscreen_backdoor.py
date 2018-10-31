@@ -46,9 +46,8 @@ class juniper_netscreen_backdoor_BaseVerify:
                 cprint("[+]存在juniper NetScreen防火墙后门(CVE-2015-7755)漏洞...(高危)\tpayload: "+host+":"+str(port)+" "+user+":"+password, "red")
     
             s.logout()
-
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

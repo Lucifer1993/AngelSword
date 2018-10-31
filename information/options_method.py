@@ -25,8 +25,12 @@ class options_method_BaseVerify:
 
             if r"OPTIONS" in req.headers['Allow']:
                 cprint("[+]存在options方法开启...(敏感信息)"+"\tpayload: "+vulnurl+"\tAllow:"+req.headers['Allow'], "green")
+            else:
+                cprint("[-]不存在options_method漏洞", "white", "on_grey")
+
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
+
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

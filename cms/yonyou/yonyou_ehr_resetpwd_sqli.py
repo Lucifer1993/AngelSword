@@ -35,8 +35,11 @@ class yonyou_ehr_resetpwd_sqli_BaseVerify:
             if time.time() - start_time >= 6:
                 cprint("[+]存在用友EHR系统 ResetPwd.jsp SQL注入漏洞...(高危)\tpayload: "+vulnurl+"\npost: "+json.dumps(post_data, indent=4), "red")
 
+            else:
+                cprint("[-]不存在yonyou_ehr_resetpwd_sqli漏洞", "white", "on_grey")
+
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

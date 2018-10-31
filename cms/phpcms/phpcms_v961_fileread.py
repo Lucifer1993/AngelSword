@@ -42,9 +42,11 @@ class phpcms_v961_fileread_BaseVerify:
             req4 = requests.get(self.url+"/index.php"+link, headers=headers, verify=False)
             if r"<?php" in req4.text and r"phpsso" in req4.text:
                 cprint("[+]存在phpcms 9.6.1任意文件读取漏洞...(高危)\tpayload: "+vulnurl, "red")
+            else:
+                cprint("[-]不存在phpcms_v961_fileread漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

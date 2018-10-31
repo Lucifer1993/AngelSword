@@ -25,9 +25,12 @@ class sgc8000_sg8k_sms_disclosure_BaseVerify:
             req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
             if r"SG8000" in req.text and r"getMachineList" in req.text and r"cancelSendMessage" in req.text:
                 cprint("[+]存在sgc8000 大型旋转机监控系统报警短信模块泄露漏洞...(中危)\tpayload: "+vulnurl, "yellow")
+            else:
+                cprint("[-]不存在sgc8000_sg8k_sms_disclosure漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
+
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

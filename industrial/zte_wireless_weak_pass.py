@@ -34,9 +34,12 @@ class zte_wireless_weak_pass_BaseVerify:
             req2 = sess.get(vulnurl2, headers=headers, timeout=10, verify=False)
             if r"Welcome.php" in req2.text and r"Selector.php" in req2.text:
                 cprint("[+]存在中兴无线控制器弱口令漏洞...(高危)\tpayload: "+vulnurl+"\t弱口令: admin:Admin2010", "red")
+            else:
+                cprint("[-]不存在zte_wireless_weak_pass漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
+
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

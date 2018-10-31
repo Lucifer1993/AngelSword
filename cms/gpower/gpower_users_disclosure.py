@@ -23,9 +23,11 @@ class gpower_users_disclosure_BaseVerify:
 
             if r"totalProperty" in req.text:
                 cprint("[+]存在通元内容管理系统用户名泄露...(敏感信息)\tpayload: "+vulnurl, "green")
+            else:
+                cprint("[-]不存在gpower_users_disclosure漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

@@ -25,9 +25,11 @@ class dedecms_search_typeArr_sqli_BaseVerify:
             req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
             if r"Error infos" in req.text and r"Error sql" in req.text:
                 cprint("[+]存在dedecms search.php SQL注入漏洞...(高危)\tpayload: "+vulnurl, "red")
+            else:
+                cprint("[-]不存在dedecms_search_typeArr_sqli漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

@@ -23,9 +23,11 @@ class eyou_resetpw_BaseVerify:
 
             if req.status_code == 200 and r"pw_intensity" in req.text:
                 cprint("[+]存在eyou邮件系统重置密码问题页面...(敏感信息)\tpayload: "+vulnurl, "green")
+            else:
+                cprint("[-]不存在eyou_resetpw漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

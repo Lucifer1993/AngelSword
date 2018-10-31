@@ -46,6 +46,7 @@ from system.weblogic.weblogic_weak_pass import weblogic_weak_pass_BaseVerify
 from system.weblogic.weblogic_ssrf import weblogic_ssrf_BaseVerify
 from system.weblogic.weblogic_xmldecoder_exec import weblogic_xmldecoder_exec_BaseVerify
 from system.weblogic.weblogic_interface_disclosure import weblogic_interface_disclosure_BaseVerify
+from system.weblogic.weblogic_ws_utc_xxe import weblogic_ws_utc_xxe_BaseVerify 
 
 #hudson vulns
 from system.hudson.hudson_ws_disclosure import hudson_ws_disclosure_BaseVerify

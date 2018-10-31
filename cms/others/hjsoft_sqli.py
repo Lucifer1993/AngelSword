@@ -44,16 +44,18 @@ class hjsoft_sqli_BaseVerify:
                     cprint("[+]存在宏景EHR系统 SQL注入漏洞...(高危)\t\tpayload: "+vulnurl, "red")
 
             except:
-                cprint("[-] "+__file__+"====>连接超时", "cyan")
+                cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
         start_time = time.time()
         try:
             req2 = requests.post(post_url, headers=headers, data=post_data, timeout=10, verify=False)
             if time.time() - start_time >= 6:
                 cprint("[+]存在宏景EHR系统 SQL注入漏洞...(高危)\t\tpayload: "+post_url+"\npost: "+json.dumps(post_data, indent=4), "red")
+            else:
+                cprint("[-]不存在hjsoft_sqli漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

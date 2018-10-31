@@ -24,10 +24,8 @@ class onethink_category_sqli_BaseVerify:
             try:
                 req = requests.get(vulnurl, timeout=10, verify=False)
                 reqlst.append(str(req.text))
-
             except:
-                cprint("[-] "+__file__+"====>连接超时", "cyan")
-
+                cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
         if len(reqlst[0]) != len(reqlst[1]) and r"分类不存在或被禁用" in reqlst[1]: 
             cprint("[+]存在onethink3.2.0 SQL注入漏洞...(高危)\tpayload: "+vulnurl, "red")
 
@@ -40,10 +38,13 @@ class onethink_category_sqli_BaseVerify:
                 reqlst.append(str(req.text))
 
             except:
-                cprint("[-] "+__file__+"====>连接超时", "cyan")
-
+                cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
         if len(reqlst[0]) != len(reqlst[1]) and r"分类不存在或被禁用" in reqlst[1]: 
             cprint("[+]存在onethink3.2.3 SQL注入漏洞...(高危)\tpayload: "+vulnurl, "red")
+        else:
+            cprint("[-]不存在onethink_category_sqli漏洞", "white", "on_grey")
+
+
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

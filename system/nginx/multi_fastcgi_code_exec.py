@@ -64,10 +64,11 @@ class multi_fastcgi_code_exec_BaseVerify:
                 poc = requests.get(vulnurl + payload, timeout=10, verify=False)
                 if html.headers["Content-Type"] != poc.headers["Content-Type"]:
                     cprint("[+]存在Nginx Multi-FastCGI Code Execution漏洞...(高危)\tpayload: "+vulnurl+"\t老大去找上传点吧~", "red")
-
+                else:
+                    cprint("[-]不存在multi_fastcgi_code_exec漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

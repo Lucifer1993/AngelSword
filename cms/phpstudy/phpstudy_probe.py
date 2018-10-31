@@ -25,9 +25,11 @@ class phpstudy_probe_BaseVerify:
             req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
             if r"phpStudy" in req.text and r"php_version" in req.text:
                 cprint("[+]存在phpstudy探针...(信息)\tpayload: "+vulnurl, "green")
+            else:
+                cprint("[-]不存在phpstudy_probe漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

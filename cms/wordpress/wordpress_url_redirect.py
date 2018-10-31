@@ -25,9 +25,11 @@ class wordpress_url_redirect_BaseVerify:
             req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
             if r"www.baidu.com" in req.text:
                 cprint("[+]存在wordpress插件跳转漏洞...(低危)\tpayload: "+vulnurl, "blue")
+            else:
+                cprint("[-]不存在wordpress_url_redirect漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

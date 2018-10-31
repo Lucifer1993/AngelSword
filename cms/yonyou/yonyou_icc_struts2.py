@@ -30,9 +30,11 @@ class yonyou_icc_struts2_BaseVerify:
 
                 if r"LISTEN" in req.text:
                     cprint("[+]可能存在用友struts 命令执行漏洞...(高危)\tpayload: "+vulnurl, "red")
+                else:
+                    cprint("[-]不存在yonyou_icc_struts2漏洞", "white", "on_grey")
 
             except:
-                cprint("[-] "+__file__+"====>连接超时", "cyan")
+                cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

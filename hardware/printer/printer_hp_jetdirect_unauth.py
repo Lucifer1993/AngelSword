@@ -46,8 +46,12 @@ class printer_hp_jetdirect_unauth_BaseVerify:
             tlib.close()
             if result.find(b"Printer Telnet Configuration") is not -1 and result.find(b"IP Config Method") is not -1:
                 cprint("[+]存在惠普打印机telnet未授权访问漏洞...(高危)\tpayload: "+host+":"+str(port), "red")
+            else:
+                cprint("[-]不存在printer_hp_jetdirect_unauth漏洞", "white", "on_grey")
+
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
+
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

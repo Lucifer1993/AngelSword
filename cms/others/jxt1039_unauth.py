@@ -25,9 +25,11 @@ class jxt1039_unauth_BaseVerify:
             req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
             if r"ShengQingPS.aspx" in req.text and r"LiuShuiZhang.aspx" in req.text:
                 cprint("[+]存在1039驾校通未授权访问漏洞...(中危)\tpayload: "+vulnurl, "yellow")
+            else:
+                cprint("[-]不存在jxt1039_unauth漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

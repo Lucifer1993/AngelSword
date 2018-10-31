@@ -24,14 +24,18 @@ class hac_gateway_info_disclosure_BaseVerify:
                     "/excel/server_export.php"]
 
         try:
+            noexist = True
             for payload in payloads:
                 vulnurl = self.url + payload
                 req = requests.head(vulnurl, headers=headers, timeout=10, verify=False)
                 if r"application/vnd.ms-excel" in req.headers["Content-Type"]:
                     cprint("[+]存在江南科友堡垒机信息泄露漏洞...(中危)\tpayload: "+vulnurl, "yellow")
+                    noexist = False
+            if noexist:
+                cprint("[-]不存在hac_gateway_info_disclosure漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

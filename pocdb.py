@@ -306,6 +306,7 @@ class pocdb_pocs:
             "nginx Multi-FastCGI Code Execution":multi_fastcgi_code_exec_BaseVerify(url),
             "TurboMail设计缺陷以及默认配置漏洞":turbomail_conf_BaseVerify(url),
             "TurboGate邮件网关XXE漏洞":turbogate_services_xxe_BaseVerify(url),
+            "weblogic blind XXE漏洞(CVE-2018-3246)":weblogic_ws_utc_xxe_BaseVerify(url),
             "weblogic 弱口令漏洞":weblogic_weak_pass_BaseVerify(url),
             "weblogic SSRF漏洞(CVE-2014-4210)":weblogic_ssrf_BaseVerify(url),
             "weblogic XMLdecoder反序列化漏洞(CVE-2017-10271)":weblogic_xmldecoder_exec_BaseVerify(url),

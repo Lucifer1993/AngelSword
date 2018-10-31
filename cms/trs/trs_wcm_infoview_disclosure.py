@@ -25,9 +25,11 @@ class trs_wcm_infoview_disclosure_BaseVerify:
             req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
             if r"<USERNAME>" in req.text and r"<Users>" in req.text:
                 cprint("[+]存在TRS wcm 6.x版本infoview信息泄露漏洞...(中危)\tpayload: "+vulnurl, "yellow")
+            else:
+                cprint("[-]不存在trs_wcm_infoview_disclosure漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

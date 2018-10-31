@@ -42,7 +42,7 @@ class zfsoft_database_control_BaseVerify:
             cprint("[+]存在正方教务系统数据库任意操纵漏洞...(高危)\tpayload: "+host+":"+str(port), "red")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

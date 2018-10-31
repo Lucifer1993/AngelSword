@@ -25,9 +25,11 @@ class pageadmin_forge_viewstate_BaseVerify:
             req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
             if req.status_code == 200 and r"WebForm_DoPostBackWithOptions" in req.text and r"Tb_sql" in req.text:
                 cprint("[+]存在PageAdmin可“伪造”VIEWSTATE执行任意SQL查询&重置管理员密码漏洞...(高危)\tpayload: "+vulnurl, "red")
+            else:
+                cprint("[-]不存在pageadmin_forge_viewstate漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

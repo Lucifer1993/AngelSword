@@ -47,9 +47,11 @@ class iis_ms15034_httpsys_rce_BaseVerify:
             response = sock.recv(1024).decode()
             if "Requested Range Not Satisfiable" in response and "Server: nginx" not in response:
                 cprint("[+]存在MS15_034 http.sys远程代码执行漏洞...(高危)\tpayload: "+host+":"+str(port), "red")
+            else:
+                cprint("[-]不存在iis_ms15034_httpsys_rce漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

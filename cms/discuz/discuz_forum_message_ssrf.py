@@ -34,9 +34,11 @@ class discuz_forum_message_ssrf_BaseVerify:
             reqr = requests.get(eye_url, timeout=10, verify=False)
             if md5_str in reqr.text:
                 cprint("[+]存在discuz论坛forum.php参数message SSRF漏洞...(中危)\tpayload: "+vulnurl, "yellow")
+            else:
+                cprint("[-]不存在discuz_forum_message_ssrf漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

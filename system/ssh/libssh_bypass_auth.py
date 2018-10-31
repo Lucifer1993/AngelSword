@@ -54,8 +54,11 @@ class libssh_bypass_auth_BaseVerify:
             spawncmd.exec_command("whoami")
             if spawncmd.recv_exit_status() == 0:
                 cprint("[+]存在libssh身份绕过漏洞...(高危)\tpayload: "+host+":"+str(port), "red")
+            else:
+                cprint("[-]不存在libssh_bypass_auth漏洞", "white", "on_grey")
+
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

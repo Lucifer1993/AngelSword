@@ -25,9 +25,11 @@ class adtsec_Overall_app_js_bypass_BaseVerify:
             req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
             if r"include/highCharts/js/highcharts.js" in req.text and r"ExportAppPDFServlet" in req.text:
                 cprint("[+]存在SJW74系列安全网关 和 PN-2G安全网关信息泄露漏洞...(低危)\tpayload: "+vulnurl, "green")
+            else:
+                cprint("[-]不存在adtsec_Overall_app_js_bypass漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

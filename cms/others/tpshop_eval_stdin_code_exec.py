@@ -27,9 +27,11 @@ class tpshop_eval_stdin_code_exec_BaseVerify:
             req = requests.post(vulnurl, data=post_data, headers=headers, timeout=10, verify=False)
             if r"Configuration File (php.ini) Path" in req.text:
                 cprint("[+]存在TPshop eval-stdin.php 代码执行漏洞...(高危)\tpayload: "+vulnurl+"\tpost: "+json.dumps(post_data, indent=4), "red")
+            else:
+                cprint("[-]不存在tpshop_eval_stdin_code_exec漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

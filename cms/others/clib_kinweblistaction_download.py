@@ -26,9 +26,11 @@ class clib_kinweblistaction_download_BaseVerify():
 
             if r"support" in req.text and r"MPEGVideo" in req.text:
                 cprint("[+]存在五车图书管系统任意下载漏洞...(高危)\tpayload: "+vulnurl, "red")
+            else:
+                cprint("[-]不存在clib_kinweblistaction_download漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

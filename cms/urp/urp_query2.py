@@ -23,10 +23,11 @@ class urp_query2_BaseVerify:
 
             if r"jmglAction.do" in req.text:
                 cprint("[+]存在URP越权查看任意学生课表、成绩(需登录)漏洞...(中危)\tpayload: "+vulnurl, "yellow")
-                cprint("[+]存在URP越权查看任意学生课表、成绩(需登录)漏洞...(中危)\tpayload: "+self.url+"/jmglAction.do?oper=xsmdcx", "yellow")
+            else:
+                cprint("[-]不存在urp_query2漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

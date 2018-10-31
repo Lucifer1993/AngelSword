@@ -30,9 +30,11 @@ class discuz_focus_flashxss_BaseVerify:
             md5_value = hashlib.md5(data).hexdigest()
             if md5_value in flash_md5:
                 cprint("[+]存在discuz X3 focus.swf flashxss漏洞...(高危)\tpayload: "+vulnurl, "red")
+            else:
+                cprint("[-]不存在discuz_focus_flashxss漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

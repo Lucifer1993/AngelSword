@@ -31,9 +31,11 @@ class yonyou_u8_CmxItem_sqli_BaseVerify:
             req = requests.post(vulnurl, data=post_data, headers=headers, timeout=10, verify=False)
             if time.time() - start_time >= 6:
                 cprint("[+]存在用友u8 CmxItem.php SQL注入漏洞...(高危)\tpayload: "+vulnurl+"\npost: "+json.dumps(post_data, indent=4), "red")
+            else:
+                cprint("[-]不存在yonyou_u8_CmxItem_sqli漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

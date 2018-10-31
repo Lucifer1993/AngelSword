@@ -30,9 +30,11 @@ class discuz_x25_path_disclosure_BaseVerify:
                 pattern = re.search('Fatal error.* in <b>([^<]+)</b> on line <b>(\d+)</b>', req.text)
                 if pattern:
                     cprint("[+]存在Discuz! X2.5 物理路径泄露漏洞...(低危)\tpayload: "+vulnurl+"\tGet物理路径: "+pattern.group(1), "green")
+                else:
+                    cprint("[-]不存在discuz_x25_path_disclosure漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

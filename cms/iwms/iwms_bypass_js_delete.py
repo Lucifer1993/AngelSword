@@ -25,9 +25,11 @@ class iwms_bypass_js_delete_BaseVerify:
             req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
             if req.status_code == 200 and r"btnCreateFolder" in req.text:
                 cprint("[+]存在IWMS系统后台绕过&整站删除漏洞...(高危)\tpayload: "+vulnurl, "red")
+            else:
+                cprint("[-]不存在iwms_bypass_js_delete漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

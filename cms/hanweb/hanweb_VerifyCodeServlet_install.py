@@ -34,8 +34,11 @@ class hanweb_VerifyCodeServlet_install_BaseVerify:
                         if req2.status_code == 200 and ('Licence' in req2.text or 'admin' in req2.text):
                             cprint("[+]存在大汉VerfiyCodeServlet越权漏洞...(高危)\tpayload: "+"1.先访问"+vulnurl+"\t2.再访问"+adminurl, "red")
 
+                        else:
+                            cprint("[-]不存在hanweb_VerifyCodeServlet_install漏洞", "white", "on_grey")
+
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

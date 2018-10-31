@@ -36,9 +36,11 @@ class trs_infogate_xxe_BaseVerify:
             reqr = requests.get(eye_url, headers=headers, timeout=10, verify=False)
             if md5_str in reqr.text:
                 cprint("[+]存在trs infogate插件 XML实体注入漏洞...(高危)\tpayload: "+vulnurl+"\npost: "+json.dumps(post_data, indent=4), "red")
+            else:
+                cprint("[-]不存在trs_infogate_xxe漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

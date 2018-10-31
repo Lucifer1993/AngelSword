@@ -25,9 +25,11 @@ class weway_PictureView1_filedownload_BaseVerify:
             req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
             if req.headers["Content-Type"] == "application/xml":
                 cprint("[+]存在任我行crm任意文件下载漏洞...(高危)\tpayload: "+vulnurl, "red")
+            else:
+                cprint("[-]不存在weway_PictureView1_filedownload漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

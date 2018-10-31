@@ -29,9 +29,11 @@ class yonyou_a8_logs_disclosure_BaseVerify:
                 pattern = re.search("[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}", req.text)
                 if pattern:
                     cprint("[+]存在用友a8 log泄露漏洞...(低危)\tpayload: "+vulnurl, "green")
+                else:
+                    cprint("[-]不存在yonyou_a8_logs_disclosure漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

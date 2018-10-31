@@ -23,8 +23,12 @@ class springboot_api_BaseVerify:
 
             if "resourceHandlerMapping" in req.text and r"springframework.boot.actuate" in req.text:
                 cprint("[+]存在spring boot api路径泄露...(敏感信息)"+"\tpayload: "+vulnurl, "green")
+            else:
+                cprint("[-]不存在springboot_api漏洞", "white", "on_grey")
+
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
+
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

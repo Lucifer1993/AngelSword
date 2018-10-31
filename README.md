@@ -14,19 +14,7 @@ MAC Linux
 
 
 # 需要用到的模块
-bs4
-json
-redis
-urllib
-pexpect
-termcolor
-hashlib
-telnetlib
-pymysql
-pymongo
-elasticsearch
-paramiko
-
+requirements.txt
 
 # 说明
 1.部分代码参考网上公开的脚本。

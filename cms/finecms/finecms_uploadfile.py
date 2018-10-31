@@ -31,9 +31,11 @@ class finecms_uploadfile_BaseVerify:
             req2 = requests.get(shellpath, headers=headers, timeout=10, verify=False)
             if r"81dc9bdb52d04dc20036dbd8313ed055" in req2.text:
                 cprint("[+]存在FineCMS任意文件上传漏洞...(高危)\t\tpayload: "+shellpath, "red")
+            else:
+                cprint("[-]不存在finecms_uploadfile漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

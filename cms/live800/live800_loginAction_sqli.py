@@ -28,9 +28,11 @@ class live800_loginAction_sqli_BaseVerify:
 
             if time.time() - start_time >= 6:
                 cprint("[+]存在live800在线客服系统SQL注入漏洞...(高危)\tpayload: "+vulnurl, "red")
+            else:
+                cprint("[-]不存在live800_loginAction_sqli漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

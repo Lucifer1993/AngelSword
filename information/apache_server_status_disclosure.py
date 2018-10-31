@@ -24,10 +24,13 @@ class apache_server_status_disclosure_BaseVerify:
         try:
             req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
             if r"Server uptime" in req.text and r"Server Status" in req.text and req.status_code==200:
-                cprint("[+]存在git源码泄露漏洞...(低危)\tpayload: "+vulnurl, "green")
+                cprint("[+]存在apache server-status信息泄露...(低危)\tpayload: "+vulnurl, "green")
+            else:
+                cprint("[-]不存在apache_server_status_disclosure漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
+
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

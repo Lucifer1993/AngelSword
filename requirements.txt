@@ -1,9 +1,7 @@
-requests
-bs4
-redis
-pexpect
-termcolor
-pymysql
-pymongo
-paramiko
-elasticsearch
+pexpect==4.2.1
+requests==2.19.1
+pymongo==3.7.1
+paramiko==2.1.1
+beautifulsoup4==4.6.3
+pymysql==0.9.2
+termcolor==1.1.0

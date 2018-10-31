@@ -35,7 +35,7 @@ class tomcat_weak_pass_BaseVerify:
                         cprint("[+]存在Tomcat 弱口令漏洞...(高危)\tpayload: "+vulnurl+"\npost: "+json.dumps({username:password}, indent=4), "red")
 
                 except:
-                    cprint("[-] "+__file__+"====>连接超时", "cyan")
+                    cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

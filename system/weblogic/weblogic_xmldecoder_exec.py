@@ -51,9 +51,11 @@ class weblogic_xmldecoder_exec_BaseVerify:
             req = requests.post(vulnurl, data=post_data, headers=headers, timeout=10, verify=False)
             if req.status_code == 500 and r"java.lang.ProcessBuilder" in req.text:
                 cprint("[+]存在weblogic XMLdecoder反序列化漏洞...(高危)\tpayload: "+vulnurl, "red")
+            else:
+                cprint("[-]不存在weblogic_xmldecoder_exec漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

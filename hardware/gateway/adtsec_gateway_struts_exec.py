@@ -38,9 +38,11 @@ class adtsec_gateway_struts_exec_BaseVerify:
             req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
             if r"beginrecord" in req.text and r"asave" in req.text:
                 cprint("[+]存在上海安达通某网关产品&某VPN产品struts信息泄露漏洞...(低危)\tpayload: "+vulnurl, "green")
+            else:
+                cprint("[-]不存在adtsec_gateway_struts_exec漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

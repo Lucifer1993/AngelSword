@@ -44,9 +44,11 @@ class moxa_oncell_telnet_BaseVerify:
             tlib.close()
             if result.find(b"Console terminal type") is not -1:
                 cprint("[+]存在Moxa OnCell 未授权访问漏洞...(高危)\tpayload: "+host+":"+str(port), "red")
+            else:
+                cprint("[-]不存在moxa_oncell_telnet漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

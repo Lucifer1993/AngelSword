@@ -23,9 +23,11 @@ class libsys_ajax_asyn_link_old_fileread_BaseVerify:
 
             if r"<?php" in req.text:
                 cprint("[+]存在汇文图书管理系统文件读取漏洞...(高危)\tpayload: "+vulnurl, "red")
+            else:
+                cprint("[-]不存在libsys_ajax_asyn_link_old_fileread漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

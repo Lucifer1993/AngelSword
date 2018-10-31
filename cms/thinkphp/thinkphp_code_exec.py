@@ -23,9 +23,11 @@ class thinkphp_code_exec_BaseVerify:
 
             if r"Configuration File (php.ini) Path" in req.text:
                 cprint("[+]存在ThinkPHP 代码执行漏洞...(高危)\tpayload: "+vulnurl, "red")
+            else:
+                cprint("[-]不存在thinkphp_code_exec漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

@@ -26,8 +26,11 @@ class dedecms_download_redirect_BaseVerify:
             if r"www.baidu.com" in req.text:
                 cprint("[+]存在dedecms download.php重定向漏洞...(低危)\tpayload: "+vulnurl, "blue")
 
+            else:
+                cprint("[-]不存在dedecms_download_redirect漏洞", "white", "on_grey")
+
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

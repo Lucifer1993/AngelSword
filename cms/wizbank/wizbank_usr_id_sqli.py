@@ -31,12 +31,13 @@ class wizbank_usr_id_sqli_BaseVerify:
                 reqlst.append(str(req.text))
 
             except:
-                cprint("[-] "+__file__+"====>连接超时", "cyan")
+                cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
         if r"true" in reqlst[0] and r"false" in reqlst[1]:
             if len(req.text) < 50:
                 cprint("[+]存在wizBank学习系统SQL注入漏洞...(高危)\tpayload: "+vulnurl+"\npost: "+json.dumps(payload, indent=4), "red")
-
+            else:
+                cprint("[-]不存在wizbank_usr_id_sqli漏洞", "white", "on_grey")
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")
     testVuln = wizbank_usr_id_sqli_BaseVerify(sys.argv[1])

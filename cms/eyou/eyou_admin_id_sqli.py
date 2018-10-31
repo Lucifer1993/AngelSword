@@ -31,9 +31,11 @@ class eyou_admin_id_sqli_BaseVerify:
             req = requests.post(vulnurl, headers=headers, data=payload, timeout=10, verify=False)
             if time.time() - start_time >= 6:
                 cprint("[+]存在亿邮Defender系统SQL注入漏洞...(高危)\tpayload: "+vulnurl+"\npost: "+json.dumps(payload, indent=4), "red")
+            else:
+                cprint("[-]不存在eyou_admin_id_sqli漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

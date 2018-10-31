@@ -32,9 +32,12 @@ class rockontrol_weak_BaseVerify:
             req = sess.post(vulnurl, data=post_data, headers=headers, timeout=10, verify=False)
             if r"resource.action" in req.text and r"authority.action" in req.text:
                 cprint("[+]存在火力发电能耗监测弱口令漏洞...(高危)\tpayload: "+vulnurl+"\tpost: "+json.dumps(post_data), "red")
+            else:
+                cprint("[-]不存在rockontrol_weak漏洞", "white", "on_grey")
 
         except:
-            cprint("[-] "+__file__+"====>连接超时", "cyan")
+            cprint("[-] "+__file__+"====>可能不存在漏洞", "cyan")
+
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")
