@@ -71,6 +71,7 @@ class pocdb_pocs:
             "live800 fileDownloadServer文件读取漏洞":live800_fileDownloadServer_fileread_BaseVerify(url),
             "Onethink 参数category SQL注入":onethink_category_sqli_BaseVerify(url),
             "ThinkPHP 代码执行漏洞":thinkphp_code_exec_BaseVerify(url),
+            "ThinkPHP V5代码执行漏洞":thinkphp_v5_exec_BaseVerify(url),
             "汇思学习管理系统任意文件下载":wizbank_download_filedownload_BaseVerify(url),
             "Cyberwisdom wizBank学习管理平台SQL注入漏洞":wizbank_usr_id_sqli_BaseVerify(url),
             "domino_unauth未授权漏洞":domino_unauth_BaseVerify(url),
