@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 =======
 # AngelSword
 AngelSword是由python3编写的简易的cms漏洞检测框架。旨在帮助有安全经验的安全工程师对已知的应用快速发现漏洞。
@@ -20,6 +19,3 @@ requirements.txt
 
 # 说明
 停止维护
-
-
->>>>>>> 3a6a3e8576f8e9fd7acaad745f0e61b0cb7627b7
