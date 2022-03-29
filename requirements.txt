@@ -1,4 +1,4 @@
-paramiko==2.4.2
+paramiko==2.10.1
 pymongo==3.7.2
 PyMySQL==0.9.2
 pexpect==4.6.0
